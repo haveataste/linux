@@ -1,0 +1,1 @@
+Ubuntu桌面背景图片路径:/usr/share/backgrounds
