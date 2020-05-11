@@ -7,5 +7,4 @@
 4.将U盘插入待安装的电脑，选择U盘方式启动，进入安装界面。  
   
   
-#### Ubuntu桌面背景图片路径
-/usr/share/backgrounds
+Ubuntu桌面背景图片路径:/usr/share/backgrounds
