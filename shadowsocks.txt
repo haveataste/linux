@@ -1,0 +1,32 @@
+在Ubuntu 20.04中使用ss:
+# 安装pip3
+    sudo apt install python3-pip
+# 安装sslocal
+    pip3 install shadowsocks
+# sslocal命令执行时报错，是由于openssl版本更新，里面的函数却没有跟上版本而造成的。
+# 修改openssl.py文件/usr/local/lib/python2.7/dist-packages/shadowsocks/crypto/openssl.py
+    # 修改地方1， 52行
+    libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,) 
+    libcrypto.EVP_CIPHER_CTX_reset.argtypes = (c_void_p,)
+    # 修改地方2， 112
+    libcrypto.EVP_CIPHER_CTX_cleanup(self._ctx) 
+    libcrypto.EVP_CIPHER_CTX_reset(self._ctx)
+# 创建配置文件ss.json
+    {
+        "server":"c20s5.jamjams.net",
+        "server_port":56159,
+        "local_address":"127.0.0.1",
+        "local_port":1080,
+        "password":"mbFDZqpCH6",
+        "timeout":300,
+        "method":"aes-256-cfb"
+    }
+# 运行ss进程
+    sslocal -c ss.json
+# 在Firefox浏览器使用foxyproxy插件，配置SOCKS5代理并启用。
+    $ sslocal -c ss.json 
+    INFO: loading config from ss.json
+    2020-05-12 18:16:24 INFO     loading libcrypto from libcrypto.so.1.1
+    2020-05-12 18:16:24 INFO     starting local at 127.0.0.1:1080
+    2020-05-12 18:16:30 INFO     connecting github.com:443 from 127.0.0.1:58908
+    ……
