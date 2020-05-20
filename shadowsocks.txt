@@ -32,9 +32,9 @@
 
 # 20200520
 # 建议使用Chrome浏览器和SwitchyOmega插件
-# https://github.com/FelisCatus/SwitchyOmega/releases -> SwitchyOmega_Chromium.crx -> 修改扩展名为.zip后解压 -> 在Chrome扩展中心加载已解压的程序
+# https://github.com/FelisCatus/SwitchyOmega/releases -> SwitchyOmega_Chromium.crx -> 修改扩展名为.zip后解压 -> 在Chrome扩展中心加载已解压的扩展程序
 
 # method aes-256-gcm not supported
 # 无法使用aes-255-gcm加/解密方式，是因为通过apt直接下载的ss客户端不是3.0版本的，只有3.0及以上才有该加密方式。
-# pip3 install https://github.com/shadowsocks/shadowsocks/archive/master.zip -U
-# sslocal -c ss.json start
+    # pip3 install https://github.com/shadowsocks/shadowsocks/archive/master.zip -U
+    # sslocal -c ss.json start
