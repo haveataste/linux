@@ -1,0 +1,9 @@
+# 安装mono
+# Sponsored by Microsoft, Mono is an open source implementation of Microsoft's .NET Framework based on the ECMA standards for C# and the Common Language Runtime for development of cross platform applications.
+sudo apt-get install  mono-complete
+
+# 下载MonoFiddler,并解压
+http://fiddler.wikidot.com/mono
+
+# 在Fiddler.exe目录下执行命令：
+mono Fiddler.exe
