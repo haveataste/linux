@@ -23,3 +23,4 @@ kill -9 $(ps -ef | grep user)
 
 curl命令
 curl -u "username":"password" -T upload-file webDAV_URL
+curl –socks5 127.0.0.1:1080 cip.cc
