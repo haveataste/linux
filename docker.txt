@@ -36,6 +36,8 @@ sudo docker run --name mynginx -p 8080:80 -d myarpanet/nginx:200514
 sudo docker logs ee4cd9
 sudo docker ps
 sudo docker ps -a
+sudo docker exec -it mynginx /bin/bash
+sudo docker cp somefile.html mynginx:/usr/share/nginx/html/
 sudo docker stop/start/restart mynginx
 sudo docker rm mynginx
 
