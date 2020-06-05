@@ -1,5 +1,7 @@
 # 安装docker
 sudo apt-get install docker.io
+# 让root外用户能直接使用docker命令
+sudo usermod -aG docker myarpanet
 # 配置国内镜像源
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
