@@ -1,5 +1,5 @@
 docker pull v2ray/official
-docker run -d --name v2ray -v ~/v2ray:/etc/v2ray -p 8888:8888 --restart=always v2ray/official
+docker run -d --name v2ray -v ~/v2ray:/etc/v2ray -p 8888:1080 --restart=always v2ray/official
 
 ~/v2ray/config.json
     {
