@@ -45,3 +45,8 @@ bonnie -u root
 
 df -h
 lsblk命令 用于列出所有可用块设备的信息，而且还能显示他们之间的依赖关系，但是它不会列出RAM盘的信息。块设备有硬盘，闪存盘，cd-ROM等等。lsblk命令包含在util-linux-ng包中，现在该包改名为util-linux。这个包带了几个其它工具，如dmesg。
+
+# getconf LONG_BIT
+64
+# cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
+      4  Intel(R) Core(TM) i5-4210M CPU @ 2.60GHz
