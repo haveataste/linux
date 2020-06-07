@@ -29,3 +29,15 @@ netstat命令
 netstat -tupln  #TCP UDP Programs listening numeric
 lsof命令
 lsof -i #internet
+
+硬盘性能检测
+dd if=/dev/zero of=tf bs=1M count=512 conv=fdatasync
+echo 3 > /proc/sys/vm/drop_caches
+
+hdparm -t /dev/sda
+hdparm -T /dev/sda
+
+dmesg | grep SATA
+
+yum install -y bonnie++
+bonnie -u root
