@@ -2,4 +2,10 @@ Ubuntu桌面背景图片路径:/usr/share/backgrounds
 
 Ubuntu下解压.rar文件，提示Parsing filters is unsupported错误解决方案
 原因是Linux版本默认不支持rar商业/非自由格式，我们只需要安装unrar即可
-安装命令：sudo apt-get install unrar
+sudo apt-get install unrar
+
+安装FileZilla
+sudo apt-get install filezilla
+
+安装flashplayer
+sudo apt-get install flashplugin-installer
