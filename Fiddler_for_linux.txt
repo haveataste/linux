@@ -9,3 +9,11 @@ mono Fiddler.exe
 # 手机抓包配置，要求要求手机和电脑处于同一网络环境下
 # 在Fiddler中，点击Tools——>Fiddler Options——>Connections——>勾选Allow remote computers to connect——>保存，重启Fiddler即可。
 # 进入手机WIFI设置——>高级设置——>打开手动HTTP代理——>代理服务器主机名为电脑IP地址——>代理服务器端口为8888——>保存退出。
+
+
+
+# Need Fiddler for Mac or Linux?
+# Try the new Fiddler Everywhere Beta. Built from scratch to run on all major platforms.
+https://downloads.getfiddler.com/linux/fiddler-everywhere-0.10.2.AppImage
+
+# https://appimage.org/
