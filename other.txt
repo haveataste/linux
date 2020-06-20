@@ -9,3 +9,11 @@ sudo apt-get install filezilla
 
 安装flashplayer
 sudo apt-get install flashplugin-installer
+
+Notepadqq安装命令：
+sudo add-apt-repository ppa:notepadqq-team/notepadqq
+sudo apt-get update
+sudo apt-get install notepadqq
+卸载命令如下：
+sudo apt-get remove notepadqq
+sudo add-apt-repository --remove ppa:notepadqq-team/notepadqq
