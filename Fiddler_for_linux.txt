@@ -11,15 +11,12 @@ mono Fiddler.exe
 # 进入手机WIFI设置——>高级设置——>打开手动HTTP代理——>代理服务器主机名为电脑IP地址——>代理服务器端口为8888——>保存退出。
 
 
-
+# https://appimage.org/
 # Need Fiddler for Mac or Linux?
 # Try the new Fiddler Everywhere Beta. Built from scratch to run on all major platforms.
 https://downloads.getfiddler.com/linux/fiddler-everywhere-0.10.2.AppImage
 
-# https://appimage.org/
-
-
-# Ubuntu下添加系统根证书, 只要将证书(扩展名为crt)复制到 /usr/local/share/ca-certificates/ 文件夹然后运行即可
+# Ubuntu下添加系统根证书, 只要将证书(扩展名为crt)复制到 /usr/local/share/ca-certificates/ 文件夹然后运行即可。
 添加证书：sudo update-ca-certificates
 删除证书：sudo rm -f /usr/local/share/ca-certificates/*.crt
-        sudo update-ca-certificates  
+        sudo update-ca-certificates
