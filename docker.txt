@@ -11,24 +11,25 @@ sudo tee /etc/docker/daemon.json <<-'EOF'
 EOF
 sudo systemctl daemon-reload
 sudo systemctl restart docker
-
 # 显示Docker系统信息，包括镜像和容器数
 docker info
 # 显示Docker版本信息
 docker version
 # 标记本地镜像，将其归入某一仓库
 docker tag
-
-[REGISTRYHOST/][USERNAME/]IMAGENAME[:TAG]
 # docker仓库操作
 docker login
 dokcer logout
 docker push myarpanet/nginx:v1
 
+[REGISTRYHOST/][USERNAME/]IMAGENAME[:TAG]
 docker run -it IMAGENAME:TAG /bin/bash
+
 docker run -d ubuntu:15.10 /bin/sh -c "while true; do echo hello world; sleep 1; done"
 运行 exit 命令或者使用 CTRL+D 来退出容器
 docker logs 2b1b7a428627
+
+sudo docker exec -it mynode /bin/bash
 
 sudo docker pull nginx:latest
 sudo docker tag nginx myarpanet/nginx:200514
@@ -43,4 +44,4 @@ sudo docker cp somefile.html mynginx:/usr/share/nginx/html/
 sudo docker stop/start/restart mynginx
 sudo docker rm mynginx
 
-sudo docker exec -it mynode /bin/bash
+sudo docker run -d --name v2ray -v ~/v2ray:/etc/v2ray -p 1081:1081 --restart=always v2ray/official
