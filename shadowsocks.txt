@@ -38,3 +38,7 @@
 # 无法使用aes-255-gcm加/解密方式，是因为通过apt直接下载的ss客户端不是3.0版本的，只有3.0及以上才有该加密方式。
     pip3 install https://github.com/shadowsocks/shadowsocks/archive/master.zip -U
     sslocal -c ss.json start
+
+# 20200725
+    pip3 install genpac
+    genpac --proxy="SOCKS5 127.0.0.1:1080" --gfwlist-proxy="SOCKS5 127.0.0.1:1080" -o autoproxy.pac --gfwlist-url="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt"
