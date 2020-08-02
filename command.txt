@@ -27,7 +27,7 @@ curl –socks5 127.0.0.1:1080 cip.cc
 curl -L -o /tmp/go.sh https://install.direct/go.sh
 curl -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"\
     -X POST\
-    -d "flag=woplus&userMobile=15527415901"\
+    -d "flag=woplus&userMobile=1*********1"\
     -e "http://club.10155.com/h5/wojia/"\
     -H "Accept: application/json, text/plain, */*"\
     -H "Origin: http://club.10155.com"\
