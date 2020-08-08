@@ -52,6 +52,13 @@ bonnie -u root
 
 df -h
 lsblk命令 用于列出所有可用块设备的信息，而且还能显示他们之间的依赖关系，但是它不会列出RAM盘的信息。块设备有硬盘，闪存盘，cd-ROM等等。lsblk命令包含在util-linux-ng包中，现在该包改名为util-linux。这个包带了几个其它工具，如dmesg。
+$ lsblk -a           #查看所有块设备
+$ lsblk -b /dev/sda  #查看指定设备的信息
+NAME   MAJ:MIN RM         SIZE RO TYPE MOUNTPOINT
+sda      8:0    0 240057409536  0 disk 
+├─sda1   8:1    0    536870912  0 part /boot/efi
+├─sda2   8:2    0         1024  0 part 
+└─sda5   8:5    0 239517827072  0 part /
 
 # getconf LONG_BIT
 64
