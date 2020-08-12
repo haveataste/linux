@@ -64,3 +64,6 @@ sda      8:0    0 240057409536  0 disk
 64
 # cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
       4  Intel(R) Core(TM) i5-4210M CPU @ 2.60GHz
+
+# Debian Packager
+dpkg -i visual_studio.deb
