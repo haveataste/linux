@@ -38,6 +38,13 @@ Terminal=false
 Type=Application
 Categories=Development
 
+安装OBS(Open Broadcaster Software)
+sudo apt install ffmpeg
+ffmpeg -h
+sudo add-apt-repository ppa:obsproject/obs-studio
+sudo apt update
+sudo apt install obs-studio
+
 安装Visual Studio Code
 下载地址：https://code.visualstudio.com/docs/?dv=linux64_deb
 双击安装或使用dpkg命令安装
