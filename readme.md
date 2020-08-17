@@ -4,3 +4,5 @@
 2.下载安装[rufus](https://github.com/pbatard/rufus/releases/download/v3.10/rufus-3.10.exe)  
 3.[Create bootable USB drives the easy way](http://rufus.ie/pics/rufus_en.png)  
 4.将U盘插入待安装的电脑，选择U盘方式启动，进入安装界面。
+
+![Lenna](http://www.lenna.org/full/l_hires.jpg)
