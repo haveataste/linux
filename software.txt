@@ -1,5 +1,13 @@
 Ubuntu桌面背景图片路径:/usr/share/backgrounds
 
+在～/.bashrc文件中增加：
+if [[ $- == *i* ]]
+then
+    bind '"\e[A": history-search-backward'
+    bind '"\e[B": history-search-forward'
+fi
+可以在命令行中根据输入字符快速的翻找命令
+
 Ubuntu下解压.rar文件，提示Parsing filters is unsupported错误解决方案
 原因是Linux版本默认不支持rar商业/非自由格式，我们只需要安装unrar即可
 sudo apt-get install unrar
