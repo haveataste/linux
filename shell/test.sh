@@ -1,11 +1,12 @@
 #!/bin/bash
-a=10
+
 #no blank space
+a=10
 b=17
-s="Hello,my friend"
 echo $a
 echo $b
 echo $(($a+$b)) $(($b/$a))
+s="Hello,my friend"
 echo $s
 #string long
 echo ${#s}
@@ -13,7 +14,7 @@ echo ${#s}
 echo ${s#Hel*,}
 
 echo '--------------------'
-filename=$HOME/a.sh
+filename=$HOME/linux/shell/test.sh
 echo $filename
 test -f $filename && echo "yes" || echo 'no'
 test -d $filename && echo "yes" || echo 'no'
@@ -21,11 +22,16 @@ test -r $filename && echo "yes" || echo 'no'
 test -w $filename && echo "yes" || echo 'no'
 test -x $filename && echo "yes" || echo 'no'
 
-echo '--------------------'
 if [ $a = $b ];then
 echo 'equal'
 else
 echo 'unequal'
+fi
+
+if [ 3 -gt 2 ];then
+echo 'a'
+else
+echo 'b'
 fi
 
 echo 'please input a number:'
@@ -61,19 +67,6 @@ echo 'D'
 df -h;;
 esac
 
-if [ 3 -gt 2 ];then
-echo 'a'
-else
-echo 'b'
-fi
-
-a=5
-while [ $a -gt 0 ]
-do
-echo $a
-a=$(($a-1))
-done
-
 case $1 in
 1)
 echo a;;
@@ -82,6 +75,14 @@ echo b;;
 3)
 echo c;;
 esac
+
+echo '--------------------'
+a=5
+while [ $a -gt 0 ]
+do
+echo $a
+a=$(($a-1))
+done
 
 for i in 1 2 3 4 5
 do
