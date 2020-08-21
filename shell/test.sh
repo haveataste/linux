@@ -88,5 +88,10 @@ for i in 1 2 3 4 5
 do
 echo $i
 done
+
+for((i=1;i<6;i++))
+do
+echo $i
+done
  
 echo $# $0 $1 $2 $$
