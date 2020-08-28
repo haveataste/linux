@@ -6,4 +6,5 @@ sudo pppd call myvpn  updetach
 
 ip addr show
 ifconfig
+route add -net 0.0.0.0 dev ppp0
 route -n
