@@ -1,0 +1,9 @@
+sudo apt-get install pptp-linux
+sudo pptpsetup --create myvpn --server 'dip.hicast.work' --username vpntest --password vpntest --encrypt --start
+poff myvpn
+pon myvpn
+sudo pppd call myvpn  updetach
+
+ip addr show
+ifconfig
+route -n
