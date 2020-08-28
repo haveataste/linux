@@ -33,6 +33,7 @@ curl -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) 
     -H "Origin: http://club.10155.com"\
     http://club.10155.com/credit-mall/sms/getsmscode?flag=woplus
 
+apt-get install net-tools
 netstat命令
 netstat -tupln  #TCP UDP Programs listening numeric
 lsof命令
