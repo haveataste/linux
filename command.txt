@@ -24,7 +24,7 @@ kill -9 $(ps -ef | grep user)
 curl命令
 curl -u "username":"password" -T upload-file webDAV_URL
 curl –socks5 127.0.0.1:1080 cip.cc
-curl -x 127.0.0.1:1081 -i http://icanhazip.com/
+curl -x socks5://127.0.0.1:1081 -i http://icanhazip.com/
 curl -L -o /tmp/go.sh https://install.direct/go.sh
 curl -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"\
     -X POST\
