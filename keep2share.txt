@@ -1,0 +1,19 @@
+curl -X POST \
+-H "Content-type: application/json" \
+-d '{"access_token":"6aa8accbd1bab5d24016681577fd4c190afb97e9"}' \
+https://keep2share.cc/api/v2/accountInfo
+
+
+curl -X POST \
+-H "Content-type: application/json" \
+-d '{"username":"fcthmb24196@chacuo.net","password":"happykeep2SHARE"}' \
+https://keep2share.cc/api/v2/login
+
+{"status":"success","code":200,"auth_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjM4NzE0MTQ0LCJhdWQiOiJ1c2VyIiwidHlwZSI6ImFjY2Vzc1Rva2VuIiwiaXNzIjoiazJzIiwiY0lkIjoiNWRmYzVhODk1OGFlY2QyZTM0ODVlZDBhIiwianRpIjoiYTJiM2U2YjYwMGMwNyIsInNnbiI6IjBkMTZmNGMwNjYiLCJpYXQiOjE2MDAzNTEwMTYsImV4cCI6MTYwMDk1NTgxNn0.tZ88Zk-NfWkGIOK57fCuJ4QSfq6rFi35745Lri3zaHA"}
+
+
+
+curl -X POST \
+-H "Content-type: application/json" \
+-d '{"access_token":"6aa8accbd1bab5d24016681577fd4c190afb97e9"}' \
+https://keep2share.cc/api/v2/getDomainsList
