@@ -1,17 +1,17 @@
-显示行号
+# 显示行号
 :set number
 :set nu!
 
-排序
+# 排序
 :[range]sor[t][!] [b][f][i][n][o][r][u][x] [/{pattern}/]
 :help sort
 :sort
 :sort!      逆序
 :sort i     忽略大小写
 
-跳转到光标的上/下次位置
+# 跳转到光标的上/下次位置
 Ctrl+O
 Ctrl+I
 
-替换
+# 替换
 :%s/pattern/string/g
