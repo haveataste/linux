@@ -1,0 +1,10 @@
+显示行号
+:set number
+:set nu!
+
+排序
+:[range]sor[t][!] [b][f][i][n][o][r][u][x] [/{pattern}/]
+:help sort
+:sort
+:sort!      逆序
+:sort i     忽略大小写
