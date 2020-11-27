@@ -69,3 +69,8 @@ sda      8:0    0 240057409536  0 disk
 
 # Debian Packager
 dpkg -i visual_studio.deb
+
+tar命令
+tar -zcvf fn.tar.gz file1 file2
+tar -zxvf fn.tar.gz
+tar -ztvf fn.tar.gz     # 列出压缩文件内容
