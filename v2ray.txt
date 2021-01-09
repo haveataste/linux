@@ -6,6 +6,7 @@ docker run -d --name v2ray -v ~/v2ray:/etc/v2ray -p 8888:1080 --restart=always v
 https://github.com/2dust/v2rayN/releases
 # 下载v2ray core
 https://github.com/v2ray/v2ray-core/releases/latest
+https://github.com/v2fly/v2ray-core/releases/download/v4.34.0/v2ray-windows-64.zip
 # 将v2ray core和v2rayN解压至同一文件夹中，启动v2rayN.exe
 
 ~/v2ray/config.json
