@@ -1,6 +1,13 @@
 docker pull v2ray/official
 docker run -d --name v2ray -v ~/v2ray:/etc/v2ray -p 8888:1080 --restart=always v2ray/official
 
+# 由于 V2Ray 没有自带 GUI 配置界面，所以说客户端使用还是有一点不方便。而V2RayN 则是 windows下 平台一个对新手比较友好的 V2Ray GUI 客户端。
+# 下载v2rayN
+https://github.com/2dust/v2rayN/releases
+# 下载v2ray core
+https://github.com/v2ray/v2ray-core/releases/latest
+# 将v2ray core和v2rayN解压至同一文件夹中，启动v2rayN.exe
+
 ~/v2ray/config.json
     {
       "inbounds": [{
