@@ -1,0 +1,23 @@
+# apt-get install mysql-client
+
+mysql -hserver -uuser -ppasswd
+select user();
+
+show databases;
+use db_name;
+select database();
+drop database db_name;
+create database if not exists db_name;
+
+show tables;
+desc tb_name;
+show columns from tb_name;
+mysql> select table_schema, table_name from information_schema.columns where column_name = 'ip';
++--------------+------------+
+| table_schema | table_name |
++--------------+------------+
+| blackwidow   | access_log |
++--------------+------------+
+1 row in set (0.38 sec)
+
+select ip from access_log limit 0,8;
