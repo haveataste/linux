@@ -18,7 +18,7 @@ sudo apt-get install filezilla
 安装flashplayer
 sudo apt-get install flashplugin-installer
 
-Notepadqq安装命令：
+安装Notepadqq命令：
 sudo add-apt-repository ppa:notepadqq-team/notepadqq
 sudo apt-get update
 sudo apt-get install notepadqq
@@ -56,3 +56,95 @@ sudo apt install obs-studio
 安装Visual Studio Code
 下载地址：https://code.visualstudio.com/docs/?dv=linux64_deb
 双击安装或使用dpkg命令安装
+
+安装Fiddler for linux
+# 安装mono: Sponsored by Microsoft, Mono is an open source implementation of Microsoft's .NET Framework based on the ECMA standards for C# and the Common Language Runtime for development of cross platform applications.
+sudo apt-get install  mono-complete
+# 下载MonoFiddler,并解压
+http://fiddler.wikidot.com/mono
+# 在Fiddler.exe目录下执行命令：
+mono Fiddler.exe
+# 手机抓包配置，要求要求手机和电脑处于同一网络环境下
+# 在Fiddler中，点击Tools——>Fiddler Options——>Connections——>勾选Allow remote computers to connect——>保存，重启Fiddler即可。
+# 进入手机WIFI设置——>高级设置——>打开手动HTTP代理——>代理服务器主机名为电脑IP地址——>代理服务器端口为8888——>保存退出。
+# https://appimage.org/   Need Fiddler for Mac or Linux?
+# Try the new Fiddler Everywhere Beta. Built from scratch to run on all major platforms.
+https://downloads.getfiddler.com/linux/fiddler-everywhere-0.10.2.AppImage
+# Ubuntu下添加系统根证书, 只要将证书(扩展名为crt)复制到 /usr/local/share/ca-certificates/ 文件夹然后运行即可。
+添加证书：sudo update-ca-certificates
+删除证书：sudo rm -f /usr/local/share/ca-certificates/*.crt
+         sudo update-ca-certificates
+
+安装VPN
+sudo apt-get install pptp-linux
+sudo pptpsetup --create myvpn --server 'dip.hicast.work' --username vpntest --password vpntest --encrypt --start
+poff myvpn
+pon myvpn
+sudo pppd call myvpn  updetach
+
+ip addr show
+ifconfig
+route add -net 0.0.0.0 dev ppp0
+route -n
+
+# 一般来说OpenVPN在Linux下都是基于命令行的，而Ubuntu可以通过安装扩展放在网络连接上实现GUI操作。
+sudo apt-get install openvpn
+sudo apt-get install network-manager-openvpn
+sudo apt-get install network-manager-openvpn-gnome
+
+root@vultr:~# pptpsetup --create myvpn --server 'dip.hicast.work' --username vpntest --password vpntest --encrypt --start
+Using interface ppp0
+Connect: ppp0 <--> /dev/pts/1
+CHAP authentication succeeded
+MPPE 128-bit stateless compression enabled
+local  IP address 172.31.1.5
+remote IP address 172.31.1.253
+root@vultr:~# poff myvpn
+root@vultr:~# ifconfig
+ens3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 45.76.163.10  netmask 255.255.254.0  broadcast 45.76.163.255
+        inet6 fe80::5400:2ff:fef2:5668  prefixlen 64  scopeid 0x20<link>
+        inet6 2001:19f0:4400:4941:5400:2ff:fef2:5668  prefixlen 64  scopeid 0x0<global>
+        ether 56:00:02:f2:56:68  txqueuelen 1000  (Ethernet)
+        RX packets 1590  bytes 1444994 (1.4 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1293  bytes 146492 (146.4 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 136  bytes 11369 (11.3 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 136  bytes 11369 (11.3 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@vultr:~# pon myvpn
+root@vultr:~# ifconfig
+ens3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 45.76.163.10  netmask 255.255.254.0  broadcast 45.76.163.255
+        inet6 fe80::5400:2ff:fef2:5668  prefixlen 64  scopeid 0x20<link>
+        inet6 2001:19f0:4400:4941:5400:2ff:fef2:5668  prefixlen 64  scopeid 0x0<global>
+        ether 56:00:02:f2:56:68  txqueuelen 1000  (Ethernet)
+        RX packets 1648  bytes 1449742 (1.4 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1334  bytes 151342 (151.3 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 138  bytes 11529 (11.5 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 138  bytes 11529 (11.5 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ppp0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1496
+        inet 172.31.1.5  netmask 255.255.255.255  destination 172.31.1.253
+        ppp  txqueuelen 3  (Point-to-Point Protocol)
+        RX packets 6  bytes 60 (60.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 6  bytes 66 (66.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
