@@ -8,8 +8,7 @@ then
 fi
 可以在命令行中根据输入字符快速的翻找命令
 
-Ubuntu下解压.rar文件，提示Parsing filters is unsupported错误解决方案
-原因是Linux版本默认不支持rar商业/非自由格式，我们只需要安装unrar即可
+Ubuntu下解压.rar文件，提示"Parsing filters is unsupported"错误，原因是Linux版本默认不支持rar商业/非自由格式，我们只需要安装unrar即可
 sudo apt-get install unrar
 
 安装FileZilla
@@ -58,6 +57,9 @@ sudo apt install obs-studio
 双击安装或使用dpkg命令安装
 
 安装Fiddler for linux
+# https://appimage.org/   Need Fiddler for Mac or Linux?
+# Try the new Fiddler Everywhere Beta. Built from scratch to run on all major platforms.
+->https://downloads.getfiddler.com/linux/fiddler-everywhere-0.10.2.AppImage
 # 安装mono: Sponsored by Microsoft, Mono is an open source implementation of Microsoft's .NET Framework based on the ECMA standards for C# and the Common Language Runtime for development of cross platform applications.
 sudo apt-get install  mono-complete
 # 下载MonoFiddler,并解压
@@ -67,9 +69,6 @@ mono Fiddler.exe
 # 手机抓包配置，要求要求手机和电脑处于同一网络环境下
 # 在Fiddler中，点击Tools——>Fiddler Options——>Connections——>勾选Allow remote computers to connect——>保存，重启Fiddler即可。
 # 进入手机WIFI设置——>高级设置——>打开手动HTTP代理——>代理服务器主机名为电脑IP地址——>代理服务器端口为8888——>保存退出。
-# https://appimage.org/   Need Fiddler for Mac or Linux?
-# Try the new Fiddler Everywhere Beta. Built from scratch to run on all major platforms.
-https://downloads.getfiddler.com/linux/fiddler-everywhere-0.10.2.AppImage
 # Ubuntu下添加系统根证书, 只要将证书(扩展名为crt)复制到 /usr/local/share/ca-certificates/ 文件夹然后运行即可。
 添加证书：sudo update-ca-certificates
 删除证书：sudo rm -f /usr/local/share/ca-certificates/*.crt
@@ -81,12 +80,11 @@ sudo pptpsetup --create myvpn --server 'dip.hicast.work' --username vpntest --pa
 poff myvpn
 pon myvpn
 sudo pppd call myvpn  updetach
-
 ip addr show
 ifconfig
 route add -net 0.0.0.0 dev ppp0
 route -n
-
+安装OpenVPN
 # 一般来说OpenVPN在Linux下都是基于命令行的，而Ubuntu可以通过安装扩展放在网络连接上实现GUI操作。
 sudo apt-get install openvpn
 sudo apt-get install network-manager-openvpn
