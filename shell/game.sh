@@ -31,10 +31,9 @@ sudo apt-get install robotfindskitten && robotfindskitten
 # http://wiki.linuxquestions.org/wiki/BSD_games
 # BSD Games 它不是一个单独的游戏，而是一个包含了许多小游戏的安装包。
 sudo apt-get install bsdgames
-
-# This article from https://fossbytes.com/10-linux-terminal-based-games/
-
-
+^
+^
+# This article from https://fossbytes.com/10-linux-terminal-based-games/
 
  
 # Web games
