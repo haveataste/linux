@@ -50,4 +50,11 @@ sudo vim /var/www/html/phpinfo.php
     phpinfo();
 ?>
 firefox http://localhost:80/phpinfo.php
-http://53bf97fb996e.ngrok.io/phpinfo.php
+
+# ngrok: Intranet penetration tool. 20210113
+curl -O https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip
+unzip ngrok-stable-linux-386.zip
+./ngrok authtoken 1n0nIhnmh5zd0y4RO0cF45FvJ7Z_6GBxqzX9N13oKFCpzHT5b
+cat ~/.ngrok2/ngrok.yml
+./ngrok http 80
+firefox http://53bf97fb996e.ngrok.io/phpinfo.php
