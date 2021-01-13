@@ -49,4 +49,5 @@ sudo vim /var/www/html/phpinfo.php
 <?php
     phpinfo();
 ?>
-firefox http://localhost:9000/phpinfo.php
+firefox http://localhost:80/phpinfo.php
+http://53bf97fb996e.ngrok.io/phpinfo.php
