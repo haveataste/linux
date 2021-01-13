@@ -5,23 +5,32 @@ sudo apt-get install -y nginx
 service nginx stop
 # 修改服务端口
 vim /etc/nginx/sites-available/default
-  server {
-      listen 9000 default_server;
-      listen [::]:9000 default_server ipv6only=on;
-  
-      root /var/www/html;
-      index index.html index.htm;
-  
-      # Make site accessible from http://localhost/
-      server_name localhost;
-  }
+# pass PHP scripts to FastCGI server
+server {
+    listen 80 default_server;
+    #listen [::]:80 default_server ipv6only=on;
+
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+
+    # Make site accessible from http://localhost/
+    server_name localhost;
+}
 # 支持PHP
-  location ~ \.php$ {
-      fastcgi_pass unix:/run/php/php7.2-fpm.sock;
-      fastcgi_index index.php;
-      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-      include fastcgi_params;
-  }
+location ~ \.php$ {
+    include snippets/fastcgi-php.conf;
+
+    # With php-fpm (or other unix sockets):
+    fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+    # With php-cgi (or other tcp sockets):
+    fastcgi_pass 127.0.0.1:9000;
+}
+location ~ \.php$ {
+    fastcgi_pass unix:/run/php/php7.2-fpm.sock;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    include fastcgi_params;
+}
 nginx -t
 service nginx reload
 service nginx restart
@@ -30,14 +39,14 @@ service nginx status
 # 安装MySQL
 sudo apt-get install mysql-server mysql-client
 sudo vim /etc/mysql/my.cnf
-  #bind-address = 127.0.0.1
+#bind-address = 127.0.0.1
 sudo service mysql start
 
 # php-fpm 是一个守护进程（FastCGI 进程管理器）用于替换 PHP FastCGI 的大部分附加功能，对于高负载网站是非常有用的。
 sudo apt-get install -y php-fpm
 sudo service php7.2-fpm start
 sudo vim /var/www/html/phpinfo.php
-  <?php
-      phpinfo();
-  ?>
+<?php
+    phpinfo();
+?>
 firefox http://localhost:9000/phpinfo.php
