@@ -42,3 +42,17 @@
 # 20200725
     pip3 install genpac
     genpac --proxy="SOCKS5 127.0.0.1:1080" --gfwlist-proxy="SOCKS5 127.0.0.1:1080" -o autoproxy.pac --gfwlist-url="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt"
+
+# 20200607
+# 在docker中使用V2Ray
+    docker pull v2ray/official
+    docker run -d --name v2ray -v ~/v2ray:/etc/v2ray -p 8888:1080 --restart=always v2ray/official
+
+# 20201212
+# 由于V2Ray没有自带GUI配置界面，而V2RayN则是windows平台下一个对新手比较友好的V2Ray GUI客户端。
+# 下载v2rayN
+    https://github.com/2dust/v2rayN/releases
+# 下载v2ray core
+    https://github.com/v2ray/v2ray-core/releases/latest
+    https://github.com/v2fly/v2ray-core/releases/download/v4.34.0/v2ray-windows-64.zip
+# 将v2ray core和v2rayN解压至同一文件夹中，启动v2rayN.exe
