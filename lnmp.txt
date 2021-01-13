@@ -1,10 +1,9 @@
 # Nginx 是一个高性能的 HTTP 和反向代理服务器，也是一个 IMAP/POP3/SMTP 代理服务器。
-apt-get update
-apt-get install -y nginx
-# 所有的启动配置文件都在 /etc/init.d/nginx
+sudo apt-get update
+sudo apt-get install -y nginx
 /etc/init.d/nginx start || service nginx start
 service nginx stop
-# 修改服务器端口
+# 修改服务端口
 vim /etc/nginx/sites-available/default
   server {
       listen 9000 default_server;
@@ -30,9 +29,9 @@ service nginx status
 
 # 安装MySQL
 sudo apt-get install mysql-server mysql-client
-sudo service mysql start 
 sudo vim /etc/mysql/my.cnf
-#bind-address = 127.0.0.1
+  #bind-address = 127.0.0.1
+sudo service mysql start
 
 # php-fpm 是一个守护进程（FastCGI 进程管理器）用于替换 PHP FastCGI 的大部分附加功能，对于高负载网站是非常有用的。
 sudo apt-get install -y php-fpm
