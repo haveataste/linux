@@ -18,7 +18,7 @@ vim /etc/nginx/sites-available/default
   }
 # 支持PHP
   location ~ \.php$ {
-      fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+      fastcgi_pass unix:/run/php/php7.2-fpm.sock;
       fastcgi_index index.php;
       fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
       include fastcgi_params;
@@ -35,8 +35,8 @@ sudo vim /etc/mysql/my.cnf
 #bind-address = 127.0.0.1
 
 # php-fpm 是一个守护进程（FastCGI 进程管理器）用于替换 PHP FastCGI 的大部分附加功能，对于高负载网站是非常有用的。
-sudo apt-get install -y php7.0-fpm
-sudo service php7.0-fpm start
+sudo apt-get install -y php-fpm
+sudo service php7.2-fpm start
 sudo vim /var/www/html/phpinfo.php
   <?php
       phpinfo();
