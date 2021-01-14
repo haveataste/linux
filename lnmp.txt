@@ -3,6 +3,8 @@ sudo apt-get update
 sudo apt-get install -y nginx
 /etc/init.d/nginx start || service nginx start
 service nginx stop
+# /etc/nginx/sites-available 是用来保存所有站点配置的目录，但是并不会被 Nginx 加载；
+# /etc/nginx/sites-enabled 是用来保存启用的站点配置文件的目录，目录下的文件是从 sites-available 目录软链接来的。
 # 修改服务端口
 vim /etc/nginx/sites-available/default
 # pass PHP scripts to FastCGI server
