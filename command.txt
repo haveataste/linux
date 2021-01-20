@@ -27,7 +27,7 @@ curl –socks5 127.0.0.1:1080 cip.cc
 curl -x socks5://127.0.0.1:1081 -i http://icanhazip.com/
 curl -L -o /tmp/go.sh https://install.direct/go.sh
 curl -O URL/\[1-10\].format
-curl -X POST --data-urlencode 'key=value' URI
+curl -X POST --date-urlencode 'url=https://www.baidu.com/&device=6&flag=main' https://www.page2images.com/api/call
 curl -G --data-urlencode 'key=value' URI
 curl -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"\
     -X POST\
