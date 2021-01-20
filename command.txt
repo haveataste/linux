@@ -26,6 +26,9 @@ curl -u "username":"password" -T upload-file webDAV_URL
 curl –socks5 127.0.0.1:1080 cip.cc
 curl -x socks5://127.0.0.1:1081 -i http://icanhazip.com/
 curl -L -o /tmp/go.sh https://install.direct/go.sh
+curl -O URL/\[1-10\].format
+curl -X POST --data-urlencode 'key=value' URI
+curl -G --data-urlencode 'key=value' URI
 curl -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"\
     -X POST\
     -d "flag=woplus&userMobile=1*********1"\
@@ -33,7 +36,6 @@ curl -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) 
     -H "Accept: application/json, text/plain, */*"\
     -H "Origin: http://club.10155.com"\
     http://club.10155.com/credit-mall/sms/getsmscode?flag=woplus
-curl -O URL/\[1-10\].format
 
 # AWK 是一种处理文本文件的语言，是一个强大的文本分析工具。
 # 之所以叫 AWK 是因为其取自三位创始人 Alfred Aho，Peter Weinberger 和 Brian Kernighan 的 Family Name 的首字符。
