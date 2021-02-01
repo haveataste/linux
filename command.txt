@@ -23,11 +23,17 @@ kill -9 $(ps -ef | grep user)
 
 curl命令
 curl -u "username":"password" -T upload-file webDAV_URL
-curl –socks5 127.0.0.1:1080 cip.cc
-curl -x socks5://127.0.0.1:1081 -i http://icanhazip.com/
+curl -x, --proxy [protocol://]host[:port] Use this proxy
+curl -x socks5://127.0.0.1:10808 -i http://icanhazip.com/
 curl -L -o /tmp/go.sh https://install.direct/go.sh
+curl -C, --continue-at <offset> Resumed transfer offset
+curl -b, --cookie <data> Send cookies from string/file
+curl -c, --cookie-jar <filename> Write cookies to <filename> after operation
+curl -k, --insecure      Allow insecure server connections when using SSL
+curl -s, --silent        Silent mode
+curl -S, --show-error    Show error even when -s is used
 curl -O URL/\[1-10\].format
-curl -G --data-urlencode 'key=value' URI
+curl -G --data-urlencode 'key=value' URL
 curl -A 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36'\
     -X POST\
     --data-urlencode 'url=http://vpnforgame.net/CN/?f=freevpn'\
