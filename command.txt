@@ -94,3 +94,11 @@ tar命令
 tar -zcvf fn.tar.gz file1 file2
 tar -zxvf fn.tar.gz
 tar -ztvf fn.tar.gz     # 列出压缩文件内容
+
+zip file.zip *
+  -r   recurse into directories
+  -q   quiet operation
+  -e   encrypt
+unzip file.zip
+  -t  test compressed archive data
+  -v  list verbosely/show version info
