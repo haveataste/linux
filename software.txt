@@ -57,8 +57,7 @@ sudo apt install obs-studio
 双击安装或使用dpkg命令安装
 
 安装Fiddler for linux
-# https://appimage.org/   Need Fiddler for Mac or Linux?
-# Try the new Fiddler Everywhere Beta. Built from scratch to run on all major platforms.
+# https://appimage.org/   Need Fiddler for Mac or Linux? Try the new Fiddler Everywhere Beta. Built from scratch to run on all major platforms.
 ->https://downloads.getfiddler.com/linux/fiddler-everywhere-0.10.2.AppImage
 # 安装mono: Sponsored by Microsoft, Mono is an open source implementation of Microsoft's .NET Framework based on the ECMA standards for C# and the Common Language Runtime for development of cross platform applications.
 sudo apt-get install  mono-complete
