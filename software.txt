@@ -11,6 +11,24 @@ fi
 Ubuntu下解压.rar文件，提示"Parsing filters is unsupported"错误，原因是Linux版本默认不支持rar商业/非自由格式，我们只需要安装unrar即可
 sudo apt-get install unrar
 
+安装Java
+下载地址：https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html
+解压命令：tar -zxvf jdk-8u281-linux-x64.tar.gz -C ~/temp/
+配置环境变量：
+$ sudo vi /etc/environment
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:$JAVA_HOME/bin"
+export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
+export JAVA_HOME=~/temp/jdk1.8.0_281
+$ source /etc/environment
+配置所有用户的环境变量：
+$ sudo vi /etc/profile  # 在最后增加
+#set Java environment
+export JAVA_HOME=~/temp/jdk1.8.0_281
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:JAVA_HOME/lib:JRE_HOME/lib:${CLASSPATH}
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
+$ source /etc/profile
+
 安装FileZilla
 sudo apt-get install filezilla
 
