@@ -1,5 +1,6 @@
 # 安装docker
 sudo apt-get install docker.io
+curl -fsSL https://get.docker.com -o docker.sh && sh docker.sh
 # 让root外用户能直接使用docker命令
 sudo usermod -aG docker myarpanet
 # 配置国内镜像源
