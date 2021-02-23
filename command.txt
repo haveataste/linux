@@ -97,6 +97,12 @@ cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
 
 # Debian Packager
 dpkg -i visual_studio.deb
+解决包依赖关系：
+apt-get install -f
+查看已经安装的软件：
+dpkg -l
+卸载软件：
+dpkg -r google-chrome
 
 tar命令
 tar -zcvf fn.tar.gz file1 file2
