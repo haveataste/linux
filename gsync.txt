@@ -1,10 +1,14 @@
-gsync job jiojio1 /f1=/root/RemoteWorking/zzz /f2=http://dav.jianguoyun.com/dav/gsync /userid2="" /password2="" /dir=ltor
-gsync analyze /all
-gsync analyze jiojio1 jiojio2
-gsync job-list
-gsync job-delete jiojio1
+# curl -O https://www.goodsync.com/download/goodsync-linux-x86_64-release.run
+# chmod a+x goodsync-linux-x86_64-release.run
+# ./goodsync-linux-x86_64-release.run
 
+# gsync job jiojio1 /f1=/root/RemoteWorking/zzz /f2=http://dav.jianguoyun.com/dav/gsync /userid2="" /password2="" /dir=ltor
+# gsync analyze /all
+# gsync analyze jiojio1 jiojio2
+# gsync job-list
+# gsync job-delete jiojio1
 
+# gsync -h
 Command=/help Profile=/root/.goodsync
 FirstAfterLogOpts=/help Profile=/root/.goodsync
 GSYNC ver 11.2.4.4
