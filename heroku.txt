@@ -1,0 +1,20 @@
+$ heroku login -i
+The CLI saves your email address and an API token to ~/.netrc for future use.
+$ cat ~/.netrc
+machine api.heroku.com
+  login user@email.com
+  password 9e5f5ad6-****-****-****-d942d27bed70
+machine git.heroku.com
+  login user@email.com
+  password 9e5f5ad6-****-****-****-d942d27bed70
+
+$ heroku auth:token
+ »   Warning: token will expire 03/11/2022
+ »   Use heroku authorizations:create to generate a long-term token
+9e5f5ad6-****-****-****-d942d27bed70
+
+$ heroku create
+$ heroku git:remote -a playgirl
+$ git push heroku main
+$ heroku open
+$ https://playgirl.herokuapp.com/
