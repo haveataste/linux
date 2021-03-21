@@ -1,4 +1,4 @@
-apt-get update && apt-get install ffmpeg py
+apt-get update && apt-get install ffmpeg -y
 
 # .ts 文件转 .mp4 文件
 ffmpeg -y -i file.ts -c:v libx264 -c:a copy -bsf:a aac_adtstoasc file.mp4
