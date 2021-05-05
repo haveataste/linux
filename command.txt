@@ -1,17 +1,17 @@
 ps命令
-选项：
-    a：显示现行终端机下的所有进程，包括其他用户的进程；
-    u：显示进程拥有者、状态、资源占用等的详细信息（注意有“-”和无“-”的区别）；
-    x：显示没有控制终端的进程。通常与 a 这个参数一起使用，可列出较完整信息；
-    -e：显示所有进程；
-    -f：完整输出显示进程之间的父子关系；
-    -l：较长、较详细的将该 PID 的的信息列出；
-    -o：自定义显示的字段；
+选项:
+    a:显示现行终端机下的所有进程，包括其他用户的进程；
+    u:显示进程拥有者、状态、资源占用等的详细信息（注意有“-”和无“-”的区别）；
+    x:显示没有控制终端的进程。通常与 a 这个参数一起使用，可列出较完整信息；
+    -e:显示所有进程；
+    -f:完整输出显示进程之间的父子关系；
+    -l:较长、较详细的将该 PID 的的信息列出；
+    -o:自定义显示的字段；
 请注意"ps -aux"不同于"ps aux"。POSIX和UNIX的标准要求"ps -aux"打印用户名为"x"的用户的所有进程，以及打印所有将由-a选项选择的过程。如果用户名为"x"不存在，ps的将会解释为"ps aux"，而且会打印一个警告。这种行为是为了帮助转换旧脚本和习惯。它是脆弱的，即将更改，因此不应依赖。
 ps aux和ps -ef两者的输出结果差别不大，但展示风格不同。aux是BSD风格，-ef是System V风格。这是次要的区别，一个影响使用的区别是aux会截断command列，而-ef不会。当结合grep时这种区别会影响到结果。
 
 kill命令
-选项：
+选项:
     -l  信号，若果不加信号的编号参数，则使用“-l”参数会列出全部的信号名称
     -a  当处理当前进程时，不限制命令名和进程号的对应关系
     -p  指定kill 命令只打印相关进程的进程号，而不发送任何信号
@@ -82,27 +82,37 @@ sda      8:0    0 240057409536  0 disk
 ├─sda2   8:2    0         1024  0 part 
 └─sda5   8:5    0 239517827072  0 part /
 
-查看Linux内核版本：
+查看Linux内核版本:
 cat /proc/version
 uname -a
-查看Linux系统版本：
+查看Linux系统版本:
 lsb_release -a
 cat /etc/issue
 cat /etc/redhat-release
-查看Linux系统位数：
+查看Linux系统位数:
 getconf LONG_BIT
-查看CPU核数：
+查看CPU核数:
 cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
     4  Intel(R) Core(TM) i5-4210M CPU @ 2.60GHz
 
 # Debian Packager
 dpkg -i visual_studio.deb
-解决包依赖关系：
+解决包依赖关系:
 apt-get install -f
-查看已经安装的软件：
+查看已经安装的软件:
 dpkg -l
-卸载软件：
-dpkg -r google-chrome
+卸载软件:
+dpkg -r google-chrome || dpkg -P google-chrome
+查看deb包中的内容:
+dpkg -c package.deb
+列出deb包安装的所有文件清单:
+dpkg -L package
+从deb包中提取信息:
+dpkg -I package.deb
+显示已安装包的信息:
+dpkg -s package
+重新配制一个已经安装的包，如果它使用的是 debconf （debconf 为包安装提供了一个统一的配制界面）:
+dpkg-reconfigure package
 
 tar命令
 tar -zcvf fn.tar.gz file1 file2
@@ -122,7 +132,145 @@ unzip -zvf all.zip
 
 export命令
 用于设置或显示环境变量，仅限于该次登陆时有效。
-选项：
+选项:
+    -f 　代表[变量名称]中为函数名称。
+    -n 　删除指定的变量。变量实际上并未删除，只是不会输出到后续指令的执行环境中。
+    -p 　列出所有的shell赋予程序的环境变量。
+export FLASK_APP=hello.pyps命令
+选项:
+    a:显示现行终端机下的所有进程，包括其他用户的进程；
+    u:显示进程拥有者、状态、资源占用等的详细信息（注意有“-”和无“-”的区别）；
+    x:显示没有控制终端的进程。通常与 a 这个参数一起使用，可列出较完整信息；
+    -e:显示所有进程；
+    -f:完整输出显示进程之间的父子关系；
+    -l:较长、较详细的将该 PID 的的信息列出；
+    -o:自定义显示的字段；
+请注意"ps -aux"不同于"ps aux"。POSIX和UNIX的标准要求"ps -aux"打印用户名为"x"的用户的所有进程，以及打印所有将由-a选项选择的过程。如果用户名为"x"不存在，ps的将会解释为"ps aux"，而且会打印一个警告。这种行为是为了帮助转换旧脚本和习惯。它是脆弱的，即将更改，因此不应依赖。
+ps aux和ps -ef两者的输出结果差别不大，但展示风格不同。aux是BSD风格，-ef是System V风格。这是次要的区别，一个影响使用的区别是aux会截断command列，而-ef不会。当结合grep时这种区别会影响到结果。
+
+kill命令
+选项:
+    -l  信号，若果不加信号的编号参数，则使用“-l”参数会列出全部的信号名称
+    -a  当处理当前进程时，不限制命令名和进程号的对应关系
+    -p  指定kill 命令只打印相关进程的进程号，而不发送任何信号
+    -s  指定发送信号
+    -u  指定用户
+kill -9 PID
+杀死指定用户所有进程
+kill -9 $(ps -ef | grep user)
+
+curl命令
+curl -u "username":"password" -T upload-file webDAV_URL
+curl -x, --proxy [protocol://]host[:port] Use this proxy
+curl -x socks5://127.0.0.1:10808 -i http://icanhazip.com/
+curl -L -o /tmp/go.sh https://install.direct/go.sh
+curl -C, --continue-at <offset> Resumed transfer offset
+curl -b, --cookie <data> Send cookies from string/file
+curl -c, --cookie-jar <filename> Write cookies to <filename> after operation
+curl -k, --insecure      Allow insecure server connections when using SSL
+curl -s, --silent        Silent mode
+curl -S, --show-error    Show error even when -s is used
+curl -O URL/\[1-10\].format
+curl -G --data-urlencode 'key=value' URL
+curl -A 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36'\
+    -X POST\
+    --data-urlencode 'url=http://vpnforgame.net/CN/?f=freevpn'\
+    -d 'device=6'\
+    -d 'flag=main'\
+    -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8'\
+    -e https://www.page2images.com/\
+    https://www.page2images.com/api/call
+curl -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"\
+    -X POST\
+    -d "flag=woplus&userMobile=1*********1"\
+    -e "http://club.10155.com/h5/wojia/"\
+    -H "Accept: application/json, text/plain, */*"\
+    -H "Origin: http://club.10155.com"\
+    http://club.10155.com/credit-mall/sms/getsmscode?flag=woplus
+
+# AWK 是一种处理文本文件的语言，是一个强大的文本分析工具。
+# 之所以叫 AWK 是因为其取自三位创始人 Alfred Aho，Peter Weinberger 和 Brian Kernighan 的 Family Name 的首字符。
+awk -F: 'BEGIN{counter=0;}{counter++;print $1,"\t",$NF;}END{if(counter==NR)printf(counter);}' /etc/passwd
+
+apt-get install net-tools
+netstat命令
+netstat -tupln  #TCP UDP Programs listening numeric
+lsof命令
+lsof -i #internet
+
+硬盘性能检测
+dd if=/dev/zero of=tf bs=1M count=512 conv=fdatasync
+echo 3 > /proc/sys/vm/drop_caches
+
+hdparm -t /dev/sda
+hdparm -T /dev/sda
+
+dmesg | grep SATA
+
+yum install -y bonnie++
+bonnie -u root
+
+df -h
+lsblk命令 用于列出所有可用块设备的信息，而且还能显示他们之间的依赖关系，但是它不会列出RAM盘的信息。块设备有硬盘，闪存盘，cd-ROM等等。lsblk命令包含在util-linux-ng包中，现在该包改名为util-linux。这个包带了几个其它工具，如dmesg。
+$ lsblk -a           #查看所有块设备
+$ lsblk -b /dev/sda  #查看指定设备的信息
+NAME   MAJ:MIN RM         SIZE RO TYPE MOUNTPOINT
+sda      8:0    0 240057409536  0 disk 
+├─sda1   8:1    0    536870912  0 part /boot/efi
+├─sda2   8:2    0         1024  0 part 
+└─sda5   8:5    0 239517827072  0 part /
+
+查看Linux内核版本:
+cat /proc/version
+uname -a
+查看Linux系统版本:
+lsb_release -a
+cat /etc/issue
+cat /etc/redhat-release
+查看Linux系统位数:
+getconf LONG_BIT
+查看CPU核数:
+cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
+    4  Intel(R) Core(TM) i5-4210M CPU @ 2.60GHz
+
+# Debian Packager
+dpkg -i visual_studio.deb
+解决包依赖关系:
+apt-get install -f
+查看已经安装的软件:
+dpkg -l
+卸载软件:
+dpkg -r google-chrome || dpkg -P google-chrome
+查看deb包中的内容:
+dpkg -c package.deb
+列出deb包安装的所有文件清单:
+dpkg -L package
+从deb包中提取信息:
+dpkg -I package.deb
+显示已安装包的信息:
+dpkg -s package
+重新配制一个已经安装的包，如果它使用的是 debconf （debconf 为包安装提供了一个统一的配制界面）:
+dpkg-reconfigure package
+
+tar命令
+tar -zcvf fn.tar.gz file1 file2
+tar -zxvf fn.tar.gz
+tar -ztvf fn.tar.gz     # 列出压缩文件内容
+
+zip file.zip *
+  -r   recurse into directories
+  -q   quiet operation
+  -e   encrypt
+unzip file.zip
+  -t  test compressed archive data
+  -v  list verbosely/show version info
+# 分卷压缩解压
+cat jdk* > all.zip
+unzip -zvf all.zip
+
+export命令
+用于设置或显示环境变量，仅限于该次登陆时有效。
+选项:
     -f 　代表[变量名称]中为函数名称。
     -n 　删除指定的变量。变量实际上并未删除，只是不会输出到后续指令的执行环境中。
     -p 　列出所有的shell赋予程序的环境变量。
