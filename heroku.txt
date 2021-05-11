@@ -18,3 +18,16 @@ $ heroku git:remote -a playgirl
 $ git push heroku main
 $ heroku open
 $ https://playgirl.herokuapp.com/
+
+$ heroku info playgirl
+=== playgirl
+Addons:         heroku-postgresql:hobby-dev
+Auto Cert Mgmt: false
+Dynos:          web: 1
+Git URL:        https://git.heroku.com/playgirl.git
+Owner:          myarpanet@protonmail.com
+Region:         us
+Repo Size:      14 KB
+Slug Size:      60 MB
+Stack:          heroku-20
+Web URL:        https://playgirl.herokuapp.com/
