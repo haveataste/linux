@@ -1,6 +1,6 @@
 git clone https://github.com/usr/repo.git
 git add <filename>|*
-git commit -a --allow-message-empty -m ''
+git commit -a --allow-empty-message -m ''
 git push origin master
 
 git remote -v # 显示当前仓库连接
