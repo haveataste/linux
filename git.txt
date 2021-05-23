@@ -20,7 +20,7 @@ git branch -m|-M oldname newname # 改名
 git branch -d|-D branch_name # 删除
 
 git push origin <branch> # 推送分支到远端
-git pull
+git pull <origin> <branch>
 git merge <branch> # 合并其他分支到当前分支
 git diff <source_branch> <target_branch>
 git diff [master] origin/master
