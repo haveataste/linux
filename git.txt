@@ -3,6 +3,7 @@ git add <filename>|*
 git commit -a --allow-message-empty -m ''
 git push origin master
 
+git remote -v # 显示当前仓库连接
 git remote rm origin # 删除以防止远端链接占用
 git remote add origin <server> # 连接远端仓库
 git remote add origin https://usr:psd@github.com/usr/repo.git
