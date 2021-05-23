@@ -31,3 +31,10 @@ Repo Size:      14 KB
 Slug Size:      60 MB
 Stack:          heroku-20
 Web URL:        https://playgirl.herokuapp.com/
+
+
+Provisioning the add-on
+$ heroku addons | grep heroku-redis
+$ heroku addons:create heroku-redis:hobby-dev -a your-app-name
+$ heroku addons:info soaring-duly-3158
+$ heroku config | grep REDIS
