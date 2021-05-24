@@ -15,7 +15,7 @@ $ heroku auth:token
 
 $ heroku create
 $ heroku git:remote -a playgirl
-$ git push heroku main
+$ git push heroku master
 Ensure that at least one instance of the app is running:
 $ heroku ps:scale web=1
 $ heroku open
