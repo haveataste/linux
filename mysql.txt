@@ -3,6 +3,8 @@
 mysql -hserver -uuser -ppasswd
 select user();
 select user, host from mysql.user;
+# 解决mysql无法远程连接的问题
+update mysql.user set host='%' where user='root';
 # 查看当前连接
 show processlist;
 
