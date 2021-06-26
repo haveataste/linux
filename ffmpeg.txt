@@ -4,3 +4,5 @@ apt-get update && apt-get install ffmpeg -y
 ffmpeg -y -i file.ts -c:v libx264 -c:a copy -bsf:a aac_adtstoasc file.mp4
 # 视频截取片段
 ffmpeg -i file.mp4 -ss 00:01:10 -t 10 out.mp4
+# 查看文件信息
+ffprobe file.mp4
