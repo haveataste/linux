@@ -7,3 +7,5 @@ R2 全称为Release2即为：第二次发行版（就是在第一版2008系统�
 Windows Server 2008 R2是一款服务器操作系统。同2008年1月发布的Windows Server 2008相比，Windows Server 2008 R2继续提升了虚拟化、系统管理弹性、网络存取方式，以及信息安全等领域的应用，其中有不少功能需搭配Windows 7。
 
 win10锁屏画报路径：C:\Users\%username%\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets\
+
+Windows 7以及Windows Server 2008 R2的开发代号为 Blackcomb 及 Vienna，内核代号为Windows NT 6.1。
