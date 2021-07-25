@@ -1,0 +1,17 @@
+# nmap纯扫描
+nmap [hostnames, IP addresses, networks, etc]
+
+# 显示详细信息
+nmap -vv 192.168.31.1
+
+# 扫描端口
+nmap -p[1-1000] ip
+
+# PING
+nmap -sP ip
+
+# tracert
+nmap --traceroute ip
+
+# 检测操作系统
+nmap -O ip
