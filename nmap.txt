@@ -1,3 +1,7 @@
+# install nmap
+apt-get update && apt-get install nmap -y
+Nmap 7.60 ( https://nmap.org )
+
 # nmap纯扫描
 nmap [hostnames, IP addresses, networks, etc]
 
