@@ -1,4 +1,9 @@
-$ heroku login -i
+$ heroku auth:login
+$ heroku login -h
+OPTIONS
+  -e, --expires-in=expires-in  duration of token in seconds (default 30 days)
+  -i, --interactive            login with username/password
+  --browser=browser            browser to open SSO with (example: "firefox", "safari")
 The CLI saves your email address and an API token to ~/.netrc for future use.
 $ cat ~/.netrc
 machine api.heroku.com
