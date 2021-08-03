@@ -1,3 +1,6 @@
+# To quickly setup into /usr/local/lib/heroku and /usr/local/bin/heroku, run this script (script requires sudo and not Windows compatible):
+$ curl https://cli-assets.heroku.com/install.sh | sh
+
 $ heroku auth:login
 $ heroku login -h
 OPTIONS
