@@ -1,5 +1,5 @@
 git clone https://github.com/usr/repo.git
-git add <filename>|*
+git add filename|*
 git commit -a --allow-empty-message -m ''
 git push origin master
 
@@ -19,9 +19,11 @@ git branch newbranch # 创建
 git branch -m|-M oldname newname # 改名
 git branch -d|-D branch_name # 删除
 
-git push origin <branch> # 推送分支到远端
+git push origin branch # 推送分支到远端
+git push -f, --force           force updates
+git push -u, --set-upstream    set upstream for git pull/status
 git pull <origin> <branch>
-git merge <branch> # 合并其他分支到当前分支
+git merge branch # 合并其他分支到当前分支
 git diff <source_branch> <target_branch>
 git diff [master] origin/master
 git log
