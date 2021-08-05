@@ -27,6 +27,7 @@ git merge branch # 合并其他分支到当前分支
 git diff <source_branch> <target_branch>
 git diff [master] origin/master
 git log
+git fetch --all &&  git reset --hard origin/master && git pull origin master # 强制远端覆盖本地
 git fetch origin # 同步远程服务器上的数据到本地
 git reset --hard origin/master # 获取远端最新版本，放弃本地的改动和提交
 
