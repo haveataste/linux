@@ -6,3 +6,5 @@ ffmpeg -y -i file.ts -c:v libx264 -c:a copy -bsf:a aac_adtstoasc file.mp4
 ffmpeg -i file.mp4 -ss 00:01:10 -t 10 out.mp4
 # 查看文件信息
 ffprobe file.mp4
+# m3u8文件下载视频
+ffmpeg -protocol_whitelist "file,http,https,tcp,tls" -i index.m3u8 dl.mp4
