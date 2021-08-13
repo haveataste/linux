@@ -6,5 +6,23 @@ ffmpeg -y -i file.ts -c:v libx264 -c:a copy -bsf:a aac_adtstoasc file.mp4
 ffmpeg -i file.mp4 -ss 00:01:10 -t 10 out.mp4
 # 查看文件信息
 ffprobe file.mp4
+
+ts是"Transport Stream"的缩写。
+ts是日本高清摄像机拍摄下进行的封装格式，全称为MPEG2-TS，MPEG2-TS格式的特点就是要求从视频流的任一片段开始都是可以独立解码的。
+大多数在线播放的视频使用ts格式作流媒体传输。
+
+“M3U” 和 “M3U8” 文件都是苹果公司使用的 HTTP Live Streaming（HLS） 协议格式的基础，这种协议格式可以在 iPhone 和 Macbook 等设备播放。
+M3U8 是 Unicode 版本的 M3U，使用 UTF-8 编码。
+通常m3u8包含了若干个ts文件的名称，按播放顺序有序排列，还包括版本、是否加密等信息。
+
+hls视频加密
+#EXT-X-KEY:MEATHOD=AES-128,URI="the Key URI/Value"
+
 # m3u8文件下载视频
 ffmpeg -protocol_whitelist "file,http,https,tcp,tls" -i index.m3u8 dl.mp4
+# 合并ts文件，使用ffmpeg清晰度更高
+ffmpeg -f concat -safe 0 -i ./filelist.txt -c copy ./test.mp4
+filelist.txt：
+file '0.ts'
+file '1.ts'
+file '2.ts'
