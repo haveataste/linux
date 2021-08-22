@@ -42,6 +42,12 @@ Slug Size:      60 MB
 Stack:          heroku-20
 Web URL:        https://playgirl.herokuapp.com/
 
+Heroku Exec is a feature for creating secure TCP and SSH tunnels into a dyno.
+$ heroku ps:exec
+By default, Heroku Exec connects to your web.1 dyno, but you can optionally specify a dyno:
+$ heroku ps:exec --dyno=web.2
+If you run into problems connecting to a dyno, use the --status flag to check the status of the Exec connection:
+$ heroku ps:exec --status
 
 Provisioning the add-on
 $ heroku addons | grep heroku-redis
