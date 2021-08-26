@@ -27,4 +27,4 @@ file '0.ts'
 file '1.ts'
 file '2.ts'
 # 或者直接写ffmpeg命令，通过“|”来分隔文件名
-ffmpeg -i "concat:f1.ts|f2.ts|" -c copy output.mp4
+ffmpeg -i "concat:f1.ts|f2.ts" -c copy output.mp4
