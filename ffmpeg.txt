@@ -21,8 +21,8 @@ hls视频加密
 # m3u8文件下载视频
 ffmpeg -protocol_whitelist "file,http,https,tcp,tls" -i index.m3u8 dl.mp4
 # 合并ts文件，使用ffmpeg清晰度更高
-ffmpeg -f concat -safe 0 -i ./filelist.txt -c copy ./test.mp4
-filelist.txt：
+ffmpeg -f concat -safe 0 -i ./fl.txt -c copy ./test.mp4
+fl.txt：
 file '0.ts'
 file '1.ts'
 file '2.ts'
