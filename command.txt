@@ -55,6 +55,13 @@ curl -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) 
 # 之所以叫 AWK 是因为其取自三位创始人 Alfred Aho，Peter Weinberger 和 Brian Kernighan 的 Family Name 的首字符。
 awk -F: 'BEGIN{counter=0;}{counter++;print $1,"\t",$NF;}END{if(counter==NR)printf(counter);}' /etc/passwd
 
+# 文件添加扩展名
+rename 's/$/\.txt/' *
+# 文件名大写改小写
+rename 'y/A-Z/a-z/' *
+# 更改文件名样式，-v 选项会显示文件名改变的细节
+rename -v 's/img_\d{3}(\d{4})\.jpeg/pic_$1.jpg/' *.jpeg
+
 apt-get install net-tools
 netstat命令
 netstat -tupln  #TCP UDP Programs listening numeric
