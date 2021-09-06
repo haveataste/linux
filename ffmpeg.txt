@@ -28,3 +28,15 @@ file '1.ts'
 file '2.ts'
 # 或者直接写ffmpeg命令，通过“|”来分隔文件名
 ffmpeg -i "concat:f1.ts|f2.ts" -c copy output.mp4
+
+# 提取关键帧
+  -vf:是一个命令行，表示过滤图形的描述。选择过滤器select会选择帧进行输出：pict_type和对应的类型:PICT_TYPE_I 表示是I帧，即关键帧；
+  -vsync 2:阻止每个关键帧产生多余的拷贝；
+  -s:分辨率，1920*1080；
+  -f image2 name_%02d.jpeg:将视频帧写入到图片中，样式的格式一般是: “%d” 或者 “%0Nd”
+ffmpeg -i video_name.mp4 -vf select='eq(pict_type\,I)' -vsync 2 -s 1920*1080 -f image2 keyframe-%02d.jpeg
+# 保存关键帧在原始视频中所有帧的时刻
+ffprobe -i video_name.mp4 -select_streams v -show_frames -show_entries frame=pict_type -of csv | grep -n I | cut -d ':' -f 1 > frame_index.txt
+# 将生成的关键帧与索引对应起来：
+ls -l keyframe*.jpeg | awk -F ' ' '{print$9}' > keyframe.txt
+paste frame_index.txt  keyframe.txt > result.txt
