@@ -12,6 +12,7 @@ nmap -vv 192.168.31.1
 nmap -p[1-1000] ip
 
 # PING
+# 如果服务器禁PING或者放在防火墙下面的，不加-Pn参数的它就会认为这个扫描的主机不存活就不会进行扫描了
 nmap -sP ip
 
 # tracert
@@ -20,7 +21,6 @@ nmap --traceroute ip
 # 检测操作系统
 nmap -O ip
 
-# 如果服务器禁PING或者放在防火墙下面的，不加-Pn参数的它就会认为这个扫描的主机不存活就不会进行扫描了
 # -sU  表示扫描UDP端口
 nmap -sU ntp.aliyun.com -p123 -Pn  
 Starting Nmap 7.60 ( https://nmap.org ) at 2021-07-27 16:12 CST
