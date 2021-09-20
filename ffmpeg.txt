@@ -40,3 +40,6 @@ ffprobe -i video_name.mp4 -select_streams v -show_frames -show_entries frame=pic
 # 将生成的关键帧与索引对应起来：
 ls -l keyframe*.jpeg | awk -F ' ' '{print$9}' > keyframe.txt
 paste frame_index.txt  keyframe.txt > result.txt
+
+# 视频加字幕
+ffmpeg -i Bangkok.mp4 -vf subtitles=Bangkok.srt Bangkok_new.mp4
