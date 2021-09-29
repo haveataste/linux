@@ -14,7 +14,7 @@ kill命令
 选项:
     -l  信号，若果不加信号的编号参数，则使用“-l”参数会列出全部的信号名称
     -a  当处理当前进程时，不限制命令名和进程号的对应关系
-    -p  指定kill 命令只打印相关进程的进程号，而不发送任何信号
+    -p  指定kill命令只打印相关进程的进程号，而不发送任何信号
     -s  指定发送信号
     -u  指定用户
 kill -9 PID
@@ -62,9 +62,9 @@ rename 'y/A-Z/a-z/' *
 # 更改文件名样式，-v 选项会显示文件名改变的细节
 rename -v 's/img_\d{3}(\d{4})\.jpeg/pic_$1.jpg/' *.jpeg
 
-apt-get install net-tools
 netstat命令
-netstat -tupln  #TCP UDP Programs listening numeric
+apt-get install net-tools
+netstat -tupln #TCP UDP Programs listening numeric
 lsof命令
 lsof -i #internet
 
@@ -131,7 +131,7 @@ dpkg -L package
 dpkg -I package.deb
 显示已安装包的信息:
 dpkg -s package
-重新配制一个已经安装的包，如果它使用的是 debconf （debconf 为包安装提供了一个统一的配制界面）:
+重新配制一个已经安装的包，如果它使用的是 debconf（debconf 为包安装提供了一个统一的配制界面）:
 dpkg-reconfigure package
 
 tar命令
