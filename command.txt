@@ -159,3 +159,9 @@ export命令
 export FLASK_APP=hello.py
 
 screen命令
+-ls [match]   or
+-list         Do nothing, just list our SockDir [on possible matches].
+-S sockname   Name this session <pid>.sockname instead of <pid>.<tty>.<host>.
+-r [session]  Reattach to a detached screen process.
+-d (-r)       Detach the elsewhere running screen (and reattach here).
+-wipe [match] Do nothing, just clean up SockDir [on possible matches].
