@@ -1,6 +1,6 @@
 Windows 7 SP1
 SP的英文全称是Service Pack，中文意思可以理解为服务包或是补丁包的意思，每当小补丁达到一定数量的时候微软公司就会推出一个整合了所有补丁的安装包，以减少用户打补丁的数量。
-SP1则是Service Pack1，SP3就是Service Pack 3。SP1与SP3的区别是SP3比SP1更新，SP3是SP1的升级版。
+SP1则是Service Pack1，SP3就是Service Pack3。SP1与SP3的区别是SP3比SP1更新，SP3是SP1的升级版。
 
 Windows Server 2008 R2
 R2 全称为Release2即为：第二次发行版（就是在第一版2008系统上做了改进的版本）。
