@@ -12,6 +12,7 @@ sudo tee /etc/docker/daemon.json <<EOF
 EOF
 sudo systemctl daemon-reload
 sudo systemctl restart docker
+
 # 显示Docker系统信息，包括镜像和容器数
 docker info
 # 显示Docker版本信息
