@@ -21,7 +21,7 @@ nmap --traceroute ip
 # 检测操作系统
 nmap -O ip
 
-# -sU  表示扫描UDP端口
+# -sU 表示扫描UDP端口
 nmap -sU ntp.aliyun.com -p123 -Pn  
 Starting Nmap 7.60 ( https://nmap.org ) at 2021-07-27 16:12 CST
 Nmap scan report for ntp.aliyun.com (203.107.6.88)
