@@ -15,3 +15,8 @@ Ctrl+I
 
 # 替换
 :%s/pattern/string/g
+
+# 将ascii模式转换成16进制字符
+:%!xxd
+# 还原原先模式
+:%!xxd -r
