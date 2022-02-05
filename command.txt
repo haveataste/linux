@@ -166,3 +166,7 @@ screen命令
 -r [session]  Reattach to a detached screen process.
 -d (-r)       Detach the elsewhere running screen (and reattach here).
 -wipe [match] Do nothing, just clean up SockDir [on possible matches].
+
+ldd命令
+在linux中，ldd是list, dynamic, dependencies的缩写，列出动态库依赖关系。
+在实际linux开发与调试中，要经常查看动态库依赖关系，ldd用得还是比较多的，特别是出现故障的时候。
