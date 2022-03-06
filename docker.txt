@@ -41,8 +41,9 @@ docker run --link=[container_name]:[alias] [image] [command]
 vim /etc/default/docker
 DOCKER_OPTS="--icc=false"
 # 只允许特定容器间的互联
-DOCKER_OPTS="--icc=false --iptables=true"
---link
+--icc=false --iptables=true --link
+iptables -F # 清除iptables
+iptables -L -n # 查看iptables
 
 sudo docker pull nginx:latest
 sudo docker tag nginx myarpanet/nginx:200514
