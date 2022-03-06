@@ -24,6 +24,12 @@ docker login
 docker tag nginx:latest myarpanet/nginx:v1
 docker push myarpanet/nginx:v1
 dokcer logout
+# docker login uhub.service.ucloud.cn -u user@qq.com
+Password: 
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+Login Succeeded
 
 [REGISTRYHOST/][USERNAME/]IMAGENAME[:TAG]
 sudo docker run -it IMAGENAME:TAG /bin/bash
@@ -43,10 +49,3 @@ sudo docker exec -it mynginx /bin/bash
 sudo docker cp somefile.html mynginx:/usr/share/nginx/html/
 sudo docker stop/start/restart mynginx
 sudo docker rm mynginx
-
-# docker login uhub.service.ucloud.cn -u user@qq.com
-Password: 
-WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
-Configure a credential helper to remove this warning. See
-https://docs.docker.com/engine/reference/commandline/login/#credentials-store
-Login Succeeded
