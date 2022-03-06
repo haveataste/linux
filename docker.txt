@@ -18,10 +18,9 @@ docker info
 # 显示Docker版本信息
 docker version
 # 标记本地镜像，将其归入某一仓库
-docker tag IMAGENAME USERNAME/IMAGENAME:TAG
+docker tag nginx:latest myarpanet/nginx:v1
 # docker仓库操作
 docker login
-docker tag nginx:latest myarpanet/nginx:v1
 docker push myarpanet/nginx:v1
 dokcer logout
 # docker login uhub.service.ucloud.cn -u user@qq.com
