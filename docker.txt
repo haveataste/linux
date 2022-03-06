@@ -21,8 +21,9 @@ docker version
 docker tag IMAGENAME USERNAME/IMAGENAME:TAG
 # docker仓库操作
 docker login
-dokcer logout
+docker tag nginx:latest myarpanet/nginx:v1
 docker push myarpanet/nginx:v1
+dokcer logout
 
 [REGISTRYHOST/][USERNAME/]IMAGENAME[:TAG]
 sudo docker run -it IMAGENAME:TAG /bin/bash
