@@ -35,6 +35,14 @@ Login Succeeded
 sudo docker run -it IMAGENAME:TAG /bin/bash
 sudo docker run -d ubuntu:15.10 /bin/sh -c "while true; do echo hello world; sleep 1; done"
 sudo docker run -d --name v2ray -v ~/v2ray:/etc/v2ray -p 1081:1081 --restart=always v2ray/official
+# 容器间网络互联
+docker run --link=[container_name]:[alias] [image] [command]
+# 配置拒绝容器间的访问
+vim /etc/default/docker
+DOCKER_OPTS="--icc=false"
+# 只允许特定容器间的互联
+DOCKER_OPTS="--icc=false --iptables=true"
+--link
 
 sudo docker pull nginx:latest
 sudo docker tag nginx myarpanet/nginx:200514
