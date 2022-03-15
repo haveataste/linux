@@ -17,7 +17,6 @@ kill命令
     -p  指定kill命令只打印相关进程的进程号，而不发送任何信号
     -s  指定发送信号
     -u  指定用户
-kill -9 PID
 杀死指定用户所有进程
 kill -9 $(ps -ef | grep user)
 
@@ -53,8 +52,8 @@ curl -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) 
     -H "Origin: http://club.10155.com"\
     http://club.10155.com/credit-mall/sms/getsmscode?flag=woplus
 
-# AWK 是一种处理文本文件的语言，是一个强大的文本分析工具。
-# 之所以叫 AWK 是因为其取自三位创始人 Alfred Aho，Peter Weinberger 和 Brian Kernighan 的 Family Name 的首字符。
+AWK 是一种处理文本文件的语言，是一个强大的文本分析工具。
+之所以叫 AWK 是因为其取自三位创始人 Alfred Aho，Peter Weinberger 和 Brian Kernighan 的 Family Name 的首字符。
 awk -F: 'BEGIN{counter=0;}{counter++;print $1,"\t",$NF;}END{if(counter==NR)printf(counter);}' /etc/passwd
 
 # 文件添加扩展名
@@ -86,14 +85,6 @@ nc命令 netcat的简写，有着网络界的瑞士军刀美誉。因为它短�
 dd if=/dev/zero of=tf bs=1M count=512 conv=fdatasync
 echo 3 > /proc/sys/vm/drop_caches
 
-hdparm -t /dev/sda
-hdparm -T /dev/sda
-
-dmesg | grep SATA
-
-yum install -y bonnie++
-bonnie -u root
-
 df -h
 lsblk命令 用于列出所有可用块设备的信息，而且还能显示他们之间的依赖关系，但是它不会列出RAM盘的信息。块设备有硬盘，闪存盘，cd-ROM等等。lsblk命令包含在util-linux-ng包中，现在该包改名为util-linux。这个包带了几个其它工具，如dmesg。
 $ lsblk -a           #查看所有块设备
@@ -103,6 +94,12 @@ sda      8:0    0 240057409536  0 disk
 ├─sda1   8:1    0    536870912  0 part /boot/efi
 ├─sda2   8:2    0         1024  0 part 
 └─sda5   8:5    0 239517827072  0 part /
+lsusb lscpu lsmem
+dmesg | grep SATA
+fdisk -l
+hdparm -t /dev/sda
+hdparm -T /dev/sda
+yum install -y bonnie++ && bonnie -u root
 
 查看Linux内核版本:
 cat /proc/version
@@ -148,7 +145,7 @@ zip file.zip *
 unzip file.zip
   -t  test compressed archive data
   -v  list verbosely/show version info
-# 分卷压缩解压
+分卷压缩解压
 cat jdk* > all.zip
 unzip -zvf all.zip
 
@@ -171,3 +168,7 @@ screen命令
 ldd命令
 在linux中，ldd是list, dynamic, dependencies的缩写，列出动态库依赖关系。
 在实际linux开发与调试中，要经常查看动态库依赖关系，ldd用得还是比较多的，特别是出现故障的时候。
+
+expr命令
+expr 10 \* 10
+expr length "abcdefg"
