@@ -1,6 +1,6 @@
 apt-get update && apt-get install ffmpeg -y
 
-# .ts 文件转 .mp4 文件
+# ts文件转mp4文件
 ffmpeg -y -i file.ts -c:v libx264 -c:a copy -bsf:a aac_adtstoasc file.mp4
 # 视频截取片段
 ffmpeg -i file.mp4 -ss 00:01:10 -t 10 out.mp4
@@ -10,11 +10,9 @@ ffprobe file.mp4
 ts是"Transport Stream"的缩写。
 ts是日本高清摄像机拍摄下进行的封装格式，全称为MPEG2-TS，MPEG2-TS格式的特点就是要求从视频流的任一片段开始都是可以独立解码的。
 大多数在线播放的视频使用ts格式作流媒体传输。
-
 “M3U” 和 “M3U8” 文件都是苹果公司使用的 HTTP Live Streaming（HLS） 协议格式的基础，这种协议格式可以在 iPhone 和 Macbook 等设备播放。
 M3U8 是 Unicode 版本的 M3U，使用 UTF-8 编码。
 通常m3u8包含了若干个ts文件的名称，按播放顺序有序排列，还包括版本、是否加密等信息。
-
 hls视频加密
 #EXT-X-KEY:MEATHOD=AES-128,URI="the Key URI/Value"
 
@@ -30,11 +28,11 @@ file '2.ts'
 ffmpeg -i "concat:f1.ts|f2.ts" -c copy output.mp4
 
 # 提取关键帧
+ffmpeg -i video_name.mp4 -vf select='eq(pict_type\,I)' -vsync 2 -s 1920*1080 -f image2 keyframe-%02d.jpeg
   -vf:是一个命令行，表示过滤图形的描述。选择过滤器select会选择帧进行输出：pict_type和对应的类型:PICT_TYPE_I 表示是I帧，即关键帧；
   -vsync 2:阻止每个关键帧产生多余的拷贝；
   -s:分辨率，1920*1080；
   -f image2 name_%02d.jpeg:将视频帧写入到图片中，样式的格式一般是: “%d” 或者 “%0Nd”
-ffmpeg -i video_name.mp4 -vf select='eq(pict_type\,I)' -vsync 2 -s 1920*1080 -f image2 keyframe-%02d.jpeg
 # 保存关键帧在原始视频中所有帧的时刻
 ffprobe -i video_name.mp4 -select_streams v -show_frames -show_entries frame=pict_type -of csv | grep -n I | cut -d ':' -f 1 > frame_index.txt
 # 将生成的关键帧与索引对应起来：
