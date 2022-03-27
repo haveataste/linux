@@ -31,9 +31,7 @@ nmap -sU ntp.aliyun.com -p123 -Pn                 # -sU 表示扫描UDP端口
   PORT    STATE SERVICE
   123/udp open  ntp
   Nmap done: 1 IP address (1 host up) scanned in 0.33 seconds
-
-# ntp_monlist漏洞检测
-# -sV: Probe open ports to determine service/version info
-# 在新的nmap版本中,添加了script功能的使用。在nmap的安装目录的share/nmap/scripts中，已经有将61个写好的脚本提供。
-# find / -type d -name "nmap" && ls /usr/share/nmap/scripts | wc -l --> 580
-nmap -sU -p 123 -sV -Pn --script='ntp-monlist' ntp.aliyun.com
+nmap -sU -p 123 -sV -Pn --script='ntp-monlist' ntp.aliyun.com     # ntp_monlist漏洞检测
+  # -sV: Probe open ports to determine service/version info
+  # 在新的nmap版本中,添加了script功能的使用。在nmap的安装目录的share/nmap/scripts中，已经有将61个写好的脚本提供。
+  # find / -type d -name "nmap" && ls /usr/share/nmap/scripts | wc -l --> 580
