@@ -63,24 +63,6 @@ rename 'y/A-Z/a-z/' *
 # 更改文件名样式，-v 选项会显示文件名改变的细节
 rename -v 's/img_\d{3}(\d{4})\.jpeg/pic_$1.jpg/' *.jpeg
 
-netstat命令
-apt-get install net-tools
-netstat -tupln #TCP UDP Programs listening numeric
-lsof命令
-lsof -i #internet
-
-ifconfig命令 配置的网卡信息，网卡重启后配置就清除。要想将配置信息永久保存，需要修改网卡的配置文件 /etc/network/interfaces
-ifconfig eth0 up
-ifconfig eth0 down
-ifconfig eth0 add 33ffe:3240:800:1005::2/64 # 为网卡eth0配置IPv6地址
-ifconfig eth0 del 33ffe:3240:800:1005::2/64 # 为网卡eth0删除IPv6地址
-ifconfig eth0 192.168.2.10 netmask 255.255.255.0 broadcast 192.168.2.255
-ifconfig eth0 arp # 开启网卡eth0的arp协议
-ifconfig eth0 -arp # 关闭网卡eth0的arp协议
-ifconfig eth0 mtu 1500 # 设置能通过的最大数据包大小为1500bytes
-
-nc命令 netcat的简写，有着网络界的瑞士军刀美誉。因为它短小精悍、功能实用，被设计为一个简单、可靠的网络工具。
-
 硬盘性能检测
 dd if=/dev/zero of=tf bs=1M count=512 conv=fdatasync
 echo 3 > /proc/sys/vm/drop_caches
