@@ -2,7 +2,7 @@ netstat命令
 apt-get install net-tools
 netstat -tupln # TCP UDP Programs listening numeric
 lsof命令
-lsof -i #internet
+lsof -i # internet
 
 ifconfig命令 配置的网卡信息，网卡重启后配置就清除。要想将配置信息永久保存，需要修改网卡的配置文件 /etc/network/interfaces
 ifconfig eth0 up
