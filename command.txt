@@ -147,8 +147,39 @@ screen命令
 -d (-r)       Detach the elsewhere running screen (and reattach here).
 -wipe [match] Do nothing, just clean up SockDir [on possible matches].
 
+# 源码安装linux软件
+Linux上几乎所有的软件都经过了GPL授权，因此几乎所有的软件都会提供源码。而一个软件要在Linux上执行，必须是二进制文件，因此当我们拿到软件源码后，需要将它编译成二进制文件才能在Linux上运行。将源码编译成可供Linux运行的二进制文件一共需要两步：
+1. 使用gcc编译器将源码编译成目标文件
+2. 再次使用gcc编译器将目标文件链接成二进制文件
+这过程看似简单，实则不然。一个软件的源代码往往被封装在多个源文件中，此外这些文件有错综复杂的依赖关系，编译需要严格按照指定的顺序进行，这无疑增加了编译的难度。好在make命令可以帮助我们简化编译过程。
+整个编译过程被浓缩在Makefile文件中(告诉make命令需要怎么去编译和链接程序)，当执行make命令时，make会去当前目录中寻找Makefile文件，并根据该文件中的要求完成整个编译过程。
+而Makefile文件由configure命令产生。当执行configure命令时，configure会根据当前系统环境动态生成一个适合本系统的Makefile文件，供make命令使用。
+安装步骤：
+1.cd /usr/local/ && mkdir memcached
+2.wget http://memcached.org/files/memcached-1.4.29.tar.gz
+3.tar -zxvf memcached-1.4.29.tar.gz                         # 解压源码，解压后查看INSTALL与README文件，这两个文件中详细介绍了本软件的安装方法和注意事项。
+4../configure --prefix=/usr/local/memcached/                # 此时当前目录下将会生成一个Makefile文件。注意：–prefix参数指定软件安装目录。当执行make install命令时，会将软件安装在此路径中。
+5.make uninstall  && make clean                             # make clean命令用来清除上一次编译生成的目标文件。这个步骤可有可无，但为了确保编译的成功，还是加上为好。防止由于软件中含有残留的目标文件导致编译失败。 
+  make                                                      # 此时make会读取Makefile文件，将源码编译成二进制文件，并存放在当前目录下。
+6.make install                                              # 此时二进制文件会被安装到先前configure prefix参数设置的路径中去。 
+
+# Linux函数库
+运行在Linux上的软件时常会调用Linux内核的某些功能或其他软件的某些功能，那么这些被软件调用的功能称为Linux的函数库。软件自身的函数库存放在软件安装目录下的lib中，而Linux的函数库存放在/usr/lib和/usr/include中，linux内核的函数库存放在/lib/modules中。
+# Linux函数库的分类
+1. 静态函数库 
+- 扩展名：xxx.a 
+- 在编译时会被整合到软件的二进制文件中去。因此拥有静态函数库的软件较为庞大。而且当系统的函数库更新时，引用该函数库的所有软件都需要重新编译才能正常使用。这是非常麻烦的！但拥有静态函数库的软件可以独立运行。 
+2. 动态函数库 
+- 扩展名：xxx.so 
+- 在编译时仅仅将函数库的路径整合到软件的二进制文件中去。由于软件中包含的是函数库的路径，因此该软件无法独立运行，且函数库的路径不能发生变化，一旦变化，该软件将无法找到函数库，从而无法运行！这是动态函数库的最大缺点。但当动态函数库更新时，软件无需重新编译，因此更新较为方便，这是动态函数库的最大优点。
+目前大部分软件均使用动态函数库，就是因为动态函数库在更新时体现出的优势。
+# 提升函数库读取效率
+软件在运行某些功能时需要调用函数库中的函数，而函数库又是以文件的形式存放在外设上。那么如果将函数库存放在内存中，那么将会大大提升读取速度。在Linux中，可以使用ldconfig命令将指定的函数库加载进内存。具体步骤如下： 
+1. 在/etc/ld.so.conf中设置需要加载进内存的函数库 
+2. 使用ldconfig命令使配置生效
+# 查看软件的动态函数库
 ldd命令
-在linux中，ldd是list, dynamic, dependencies的缩写，列出动态库依赖关系。
+在linux中，ldd是list, dynamic, dependencies的缩写，使用ldd命令即可查看指定软件所使用的全部动态函数库。
 在实际linux开发与调试中，要经常查看动态库依赖关系，ldd用得还是比较多的，特别是出现故障的时候。
 
 expr命令
