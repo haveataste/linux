@@ -69,8 +69,8 @@ echo 3 > /proc/sys/vm/drop_caches
 
 df -h
 lsblk命令 用于列出所有可用块设备的信息，而且还能显示他们之间的依赖关系，但是它不会列出RAM盘的信息。块设备有硬盘，闪存盘，cd-ROM等等。lsblk命令包含在util-linux-ng包中，现在该包改名为util-linux。这个包带了几个其它工具，如dmesg。
-$ lsblk -a           #查看所有块设备
-$ lsblk -b /dev/sda  #查看指定设备的信息
+$ lsblk -a           # 查看所有块设备
+$ lsblk -b /dev/sda  # 查看指定设备的信息
 NAME   MAJ:MIN RM         SIZE RO TYPE MOUNTPOINT
 sda      8:0    0 240057409536  0 disk
 ├─sda1   8:1    0    536870912  0 part /boot/efi
@@ -98,6 +98,11 @@ unzip file.zip
 分卷压缩解压
 cat jdk* > all.zip
 unzip -zvf all.zip
+
+gzip命令
+gzip file                # 压缩file，生成file.gz，并删除file
+gzip -c file > file.gz   # 压缩file，但不删除file
+gzip -d file.gz          # 解压并删除file.gz
 
 export命令
 用于设置或显示环境变量，仅限于该次登陆时有效。
