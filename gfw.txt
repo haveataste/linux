@@ -4,10 +4,10 @@
 # sslocal命令执行时报错，是由于openssl版本更新，里面的函数却没有跟上版本而造成的。
 # 修改~/.local/lib/python3.8/site-packages/shadowsocks/crypto/openssl.py文件
   # 修改地方1， 52行
-  libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,) 
+  libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)
   libcrypto.EVP_CIPHER_CTX_reset.argtypes = (c_void_p,)
   # 修改地方2， 112行
-  libcrypto.EVP_CIPHER_CTX_cleanup(self._ctx) 
+  libcrypto.EVP_CIPHER_CTX_cleanup(self._ctx)
   libcrypto.EVP_CIPHER_CTX_reset(self._ctx)
 # 创建配置文件ss.json
   {
@@ -20,7 +20,7 @@
     "method":"aes-256-cfb"
   }
 # 运行ss进程
-  $ sslocal -c ss.json 
+  $ sslocal -c ss.json
   INFO: loading config from ss.json
   2020-05-12 18:16:24 INFO   loading libcrypto from libcrypto.so.1.1
   2020-05-12 18:16:24 INFO   starting local at 127.0.0.1:1080
