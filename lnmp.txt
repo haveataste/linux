@@ -1,62 +1,57 @@
-# Nginx 是一个高性能的 HTTP 和反向代理服务器，也是一个 IMAP/POP3/SMTP 代理服务器。
-sudo apt-get update
-sudo apt-get install -y nginx
+# Nginx 是一个高性能的 Web 和反向代理服务器，也是一个 IMAP/POP3/SMTP 代理服务器。
+sudo apt-get update && sudo apt-get install -y nginx
 /etc/init.d/nginx start || service nginx start
 service nginx stop
-# /etc/nginx/sites-available 是用来保存所有站点配置的目录，但是并不会被 Nginx 加载；
-# /etc/nginx/sites-enabled 是用来保存启用的站点配置文件的目录，目录下的文件是从 sites-available 目录软链接来的。
+# /etc/nginx/sites-available/ 是用来保存所有站点配置的目录，但是并不会被 Nginx 加载；
+# /etc/nginx/sites-enabled/   是用来保存启用的站点配置文件的目录，目录下的文件是从 sites-available 目录软链接来的。
 # 修改服务端口
 vim /etc/nginx/sites-available/default
-# pass PHP scripts to FastCGI server
-server {
-    listen 80 default_server;
-    #listen [::]:80 default_server ipv6only=on;
+  server {
+      listen 80 default_server;
+      #listen [::]:80 default_server ipv6only=on;
 
-    root /var/www/html;
-    index index.html index.htm index.nginx-debian.html;
+      root /var/www/html;
+      index index.html index.htm index.nginx-debian.html;
 
-    # Make site accessible from http://localhost/
-    server_name localhost;
-}
+      # Make site accessible from http://localhost/
+      server_name localhost;
+  }
 # 支持PHP
-location ~ \.php$ {
-    include snippets/fastcgi-php.conf;
+  location ~ \.php$ {
+      include snippets/fastcgi-php.conf;
 
-    # With php-fpm (or other unix sockets):
-    fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
-    # With php-cgi (or other tcp sockets):
-    #fastcgi_pass 127.0.0.1:9000;
-}
-location ~ \.php$ {
-    fastcgi_pass unix:/run/php/php7.2-fpm.sock;
-    fastcgi_index index.php;
-    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    include fastcgi_params;
-}
+      # With php-fpm (or other unix sockets):
+      fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+      # With php-cgi (or other tcp sockets):
+      #fastcgi_pass 127.0.0.1:9000;
+  }
+  location ~ \.php$ {
+      fastcgi_pass unix:/run/php/php7.2-fpm.sock;
+      fastcgi_index index.php;
+      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+      include fastcgi_params;
+  }
 nginx -t
-service nginx reload
-service nginx restart
-service nginx status
+service nginx reload | restart | status
 
 # 安装MySQL
 sudo apt-get install mysql-server mysql-client
 sudo vim /etc/mysql/my.cnf
-#bind-address = 127.0.0.1
+  #bind-address = 127.0.0.1
 sudo service mysql start
 
 # php-fpm 是一个守护进程（FastCGI 进程管理器）用于替换 PHP FastCGI 的大部分附加功能，对于高负载网站是非常有用的。
 sudo apt-get install -y php-fpm
 sudo service php7.2-fpm start
 sudo vim /var/www/html/phpinfo.php
-<?php
-    phpinfo();
-?>
+  <?php
+      phpinfo();
+  ?>
 firefox http://localhost:80/phpinfo.php
 
 # ngrok: Intranet penetration tool. 20210113
 curl -O https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip
 unzip ngrok-stable-linux-386.zip
-./ngrok authtoken 1n0nIhnmh5zd0y4RO0cF45FvJ7Z_6GBxqzX9N13oKFCpzHT5b
-cat ~/.ngrok2/ngrok.yml
+./ngrok authtoken 1n0nIhnmh5zd0y4RO0cF45FvJ7Z_6GBxqzX9N13oKFCpzHT5b && cat ~/.ngrok2/ngrok.yml
 ./ngrok http 80
 firefox http://53bf97fb996e.ngrok.io/phpinfo.php
