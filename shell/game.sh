@@ -1,8 +1,11 @@
-# 2048
-wget https://raw.githubusercontent.com/mevdschee/2048.c/master/2048.c && gcc -o 2048 2048.c && ./2048
- 
 # Nethack 一款单人冒险探索类游戏。它的设计，和《龙与地下城》这款角色游戏比较类似。玩家需要在地下城的最底层取得炎多的护符项链（Amulet of Yendor），并返回最上层，在圣祭坛上供奉给自己的神灵。
 sudo apt-get install nethack-console && nethack
+
+# 2048
+wget https://raw.githubusercontent.com/mevdschee/2048.c/master/2048.c && gcc -o 2048 2048.c && ./2048
+
+# Sudoku 源自18世纪瑞士的一种数学游戏——数独。
+sudo apt-get install sudoku && sudoku
 
 # Greed 其实就是一款 Linux 终端下的数字贪吃蛇游戏。
 sudo apt-get install greed && greed
@@ -21,10 +24,7 @@ sudo apt-get install nsnake && nsnake
 
 # Pacman4Console 吃豆人
 sudo apt-get install pacman4console && pacman4console
- 
-# Sudoku 源自18世纪瑞士的一种数学游戏——数独。
-sudo apt-get install sudoku && sudoku
- 
+
 # Robot Finds Kitten 这个游戏会让你扮演一个机器人的角色，任务是在无数的随机字符中找到一只小猫。使用箭头键在屏幕上导航，不要忘记查看你遇到的每个对象的有趣描述！
 sudo apt-get install robotfindskitten && robotfindskitten
 
@@ -35,7 +35,7 @@ sudo apt-get install bsdgames
 ^
 # This article from https://fossbytes.com/10-linux-terminal-based-games/
 
- 
+
 # Web games
 # doublespeakgames / adarkroom
 https://github.com/doublespeakgames/adarkroom
