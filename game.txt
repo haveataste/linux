@@ -2,7 +2,7 @@
 sudo apt-get install nethack-console && nethack
 # https://www.nethack.org/
 # https://nethackwiki.com/wiki/Public_server
-https://alt.org/nethack/ => Play in browser OR telnet alt.org OR ssh nethack@alt.org
+https://alt.org/nethack/ => Play in browser OR telnet alt.org OR ssh nethack@alt.org => happyhack:happyhack123
 
 # 2048
 wget https://raw.githubusercontent.com/mevdschee/2048.c/master/2048.c && gcc -o 2048 2048.c && ./2048
