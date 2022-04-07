@@ -195,3 +195,23 @@ methods compiled in (* = default):
  1: zip1
 *2: zip2, USE_MULT_TAB
 # fcrackzip -b -l 8 -c 'aA1' -v -u wlmm.zip
+
+使用goodsync
+curl -O https://www.goodsync.com/download/goodsync-linux-x86_64-release.run && chmod a+x goodsync-linux-x86_64-release.run && ./goodsync-linux-x86_64-release.run
+gsync job jiojio1 /f1=/root/RemoteWorking/zzz /f2=http://dav.jianguoyun.com/dav/gsync /userid2="" /password2="" /dir=ltor
+gsync analyze /all
+gsync analyze jiojio1 jiojio2
+gsync job-list
+gsync job-delete jiojio1
+gsync -h
+    Command=/help Profile=/root/.goodsync
+    FirstAfterLogOpts=/help Profile=/root/.goodsync
+    GSYNC ver 11.2.4.4
+    Ver 11.2.4.4, Built: Jun 24 2020  22:16:46
+    License: GS-V11 Trial
+    GsAcctId=myarpanet-protonmail-com Email=myarpanet@protonmail.com CompId=ws-isubfd-0
+    DaysUsed=1 DaysInstalled=1 DaysInAccount=0 AccountTrial=0
+    /usr/bin/gsync
+    UNIX
+    AffID: [g-s]
+    Usage: GSYNC  [<profile-option>...] [<run-option>...] [<global-option>...] <global-command> or <job-command-and-options>
