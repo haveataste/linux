@@ -1,9 +1,8 @@
 # Nethack 一款单人冒险探索类游戏。它的设计，和《龙与地下城》这款角色游戏比较类似。玩家需要在地下城的最底层取得炎多的护符项链（Amulet of Yendor），并返回最上层，在圣祭坛上供奉给自己的神灵。
 sudo apt-get install nethack-console && nethack
+# https://www.nethack.org/
 # https://nethackwiki.com/wiki/Public_server
-https://alt.org/nethack/
-网页版或者ssh连接
-https://www.nethack.org/
+https://alt.org/nethack/ => Play in browser OR telnet alt.org OR ssh nethack@alt.org
 
 # 2048
 wget https://raw.githubusercontent.com/mevdschee/2048.c/master/2048.c && gcc -o 2048 2048.c && ./2048
