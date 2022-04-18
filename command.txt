@@ -104,6 +104,8 @@ gzip file                # 压缩file，生成file.gz，并删除file
 gzip -c file > file.gz   # 压缩file，但不删除file
 gzip -d file.gz          # 解压并删除file.gz
 
+du -sm * | sort -n | cat -n
+
 export命令
 用于设置或显示环境变量，仅限于该次登陆时有效。
 选项:
@@ -111,6 +113,10 @@ export命令
     -n 　删除指定的变量。变量实际上并未删除，只是不会输出到后续指令的执行环境中。
     -p 　列出所有的shell赋予程序的环境变量。
 export FLASK_APP=hello.py
+
+expr命令
+expr 10 \* 10
+expr length "abcdefg"
 
 screen命令
 -ls [match]   or
@@ -184,7 +190,3 @@ dpkg-reconfigure package
 ldd命令
 在linux中，ldd是list dynamic dependencies的缩写，使用ldd命令即可查看指定软件所使用的全部动态函数库。
 在实际linux开发与调试中，要经常查看动态库依赖关系，ldd用得还是比较多的，特别是出现故障的时候。
-
-expr命令
-expr 10 \* 10
-expr length "abcdefg"
