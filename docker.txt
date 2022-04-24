@@ -1,23 +1,24 @@
 # 安装docker
-sudo apt-get install docker.io
+apt-get install docker.io
 curl -fsSL https://get.docker.com -o docker.sh && sh docker.sh
 # 让root外用户能直接使用docker命令
-sudo usermod -aG docker myarpanet
+usermod -aG docker myarpanet
 # 配置国内镜像源
-sudo mkdir -p /etc/docker
-sudo tee /etc/docker/daemon.json <<EOF
+mkdir -p /etc/docker
+tee /etc/docker/daemon.json <<EOF
 {
   "registry-mirrors": ["https://bwt3ktnp.mirror.aliyuncs.com"]
 }
 EOF
-sudo systemctl daemon-reload
-sudo systemctl restart docker
+systemctl daemon-reload
+systemctl restart docker
 
 # 显示Docker系统信息，包括镜像和容器数
 docker info
 # 显示Docker版本信息
 docker version
 # 标记本地镜像，将其归入某一仓库
+[REGISTRYHOST/][USERNAME/]IMAGENAME[:TAG]
 docker tag nginx:latest myarpanet/nginx:v1
 # docker仓库操作
 docker login
@@ -29,11 +30,10 @@ WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
 Configure a credential helper to remove this warning. See
 https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 Login Succeeded
-
-[REGISTRYHOST/][USERNAME/]IMAGENAME[:TAG]
-sudo docker run -it IMAGENAME:TAG /bin/bash
-sudo docker run -d ubuntu:15.10 /bin/sh -c "while true; do echo hello world; sleep 1; done"
-sudo docker run -d --name v2ray -v ~/v2ray:/etc/v2ray -p 1081:1081 --restart=always v2ray/official
+# 运行容器
+docker run -it IMAGENAME:TAG /bin/bash
+docker run -d ubuntu:15.10 /bin/sh -c "while true; do echo hello world; sleep 1; done"
+docker run -d --name v2ray -v ~/v2ray:/etc/v2ray -p 1081:1081 --restart=always v2ray/official
 # 容器间网络互联
 docker run --link=[container_name]:[alias] [image] [command]
 # 配置拒绝容器间的访问
@@ -44,16 +44,16 @@ DOCKER_OPTS="--icc=false"
 iptables -F # 清除iptables
 iptables -L -n # 查看iptables
 
-sudo docker pull nginx:latest
-sudo docker tag nginx myarpanet/nginx:200514
-sudo docker images
-sudo docker rmi nginx
-sudo docker run --name mynginx -p 8080:80 -d myarpanet/nginx:200514
-sudo docker logs ee4cd9
-sudo docker ps
-sudo docker ps -a
-sudo docker exec -it mynginx /bin/bash
+docker pull nginx:latest
+docker tag nginx myarpanet/nginx:200514
+docker images
+docker rmi nginx
+docker run --name mynginx -p 8080:80 -d myarpanet/nginx:200514
+docker logs ee4cd9
+docker ps
+docker ps -a
+docker exec -it mynginx /bin/bash
 运行 exit 命令或者使用 CTRL+D 来退出容器
-sudo docker cp somefile.html mynginx:/usr/share/nginx/html/
-sudo docker stop/start/restart mynginx
-sudo docker rm mynginx
+docker cp somefile.html mynginx:/usr/share/nginx/html/
+docker stop/start/restart mynginx
+docker rm mynginx
