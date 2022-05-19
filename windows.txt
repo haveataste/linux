@@ -11,6 +11,10 @@ win10锁屏画报路径：C:\Users\%username%\AppData\Local\Packages\Microsoft.W
 
 Windows 7以及Windows Server 2008 R2的开发代号为 Blackcomb 及 Vienna，内核代号为Windows NT 6.1。
 
+windows 10激活：
+slmgr /skms kms.03k.org
+slmgr /ato
+
 Internet Explorer 11（脱机安装程序）
 https://support.microsoft.com/zh-cn/windows/%E4%B8%8B%E8%BD%BD-internet-explorer-11-%E8%84%B1%E6%9C%BA%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F-99d492a1-3a62-077b-c476-cf028aff9a7f
 .NET Framework | Free official downloads
