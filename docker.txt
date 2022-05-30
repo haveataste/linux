@@ -1,6 +1,5 @@
 # 安装docker
-apt-get install docker.io
-curl -fsSL https://get.docker.com -o docker.sh && sh docker.sh
+apt-get install docker.io || curl -fsSL https://get.docker.com -o docker.sh && sh docker.sh
 # 让root外用户能直接使用docker命令
 usermod -aG docker myarpanet
 # 配置国内镜像源
@@ -17,19 +16,29 @@ systemctl restart docker
 docker info
 # 显示Docker版本信息
 docker version
+
+# [REGISTRYHOST/][USERNAME/]IMAGENAME[:TAG]
+# 查看本地镜像
+docker images
+# 删除镜像
+docker rmi IMAGENAME[:TAG]
 # 标记本地镜像，将其归入某一仓库
-[REGISTRYHOST/][USERNAME/]IMAGENAME[:TAG]
 docker tag nginx:latest myarpanet/nginx:v1
-# docker仓库操作
+# 仓库操作
 docker login
 docker push myarpanet/nginx:v1
 dokcer logout
-# docker login uhub.service.ucloud.cn -u user@qq.com
+docker login uhub.service.ucloud.cn -u user@qq.com
 Password: 
 WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
 Configure a credential helper to remove this warning. See
 https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 Login Succeeded
+
+# 查看容器
+docker ps [-a]
+# 删除容器
+docker rm CONTAINER_ID
 # 运行容器
 docker run -it IMAGENAME:TAG /bin/bash
 docker run -d ubuntu:15.10 /bin/sh -c "while true; do echo hello world; sleep 1; done"
@@ -44,6 +53,7 @@ DOCKER_OPTS="--icc=false"
 iptables -F # 清除iptables
 iptables -L -n # 查看iptables
 
+# demo
 docker pull nginx:latest
 docker tag nginx myarpanet/nginx:200514
 docker images
