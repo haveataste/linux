@@ -11,6 +11,7 @@ win10锁屏画报路径：C:\Users\%username%\AppData\Local\Packages\Microsoft.W
 
 Windows 7以及Windows Server 2008 R2的开发代号为 Blackcomb 及 Vienna，内核代号为Windows NT 6.1。
 
+密钥管理服务 (KMS) 客户端激活和产品密钥：https://docs.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys
 windows 10激活：
 slmgr /skms kms.03k.org
 slmgr /ato
