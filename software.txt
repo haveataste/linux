@@ -167,7 +167,7 @@ ppp0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1496
 安装cadaver: cadaver is a command-line WebDAV client for Unix.
 # apt-get install cadaver -y
 # cadaver [OPTIONS] http://hostname[:port]/path
-# cadaver https://dav.jianguoyun.com/dav/files/
+# cadaver https://dav.jianguoyun.com/dav/
 
 安装fcrackzip: 破解zip文件密码
 # apt-get install fcrackzip -y
