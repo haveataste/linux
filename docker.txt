@@ -43,6 +43,11 @@ docker rm CONTAINER_ID
 docker run -it IMAGENAME:TAG /bin/bash
 docker run -d ubuntu:15.10 /bin/sh -c "while true; do echo hello world; sleep 1; done"
 docker run -d --name v2ray -v ~/v2ray:/etc/v2ray -p 1081:1081 --restart=always v2ray/official
+# 退出容器
+exit, CTRL+P+Q, CTRL+D
+# 重新进入运行中的容器
+docker exec -it CONTAINER_ID /bin/bash
+docker attach CONTAINER_ID
 # 容器间网络互联
 docker run --link=[container_name]:[alias] [image] [command]
 # 配置拒绝容器间的访问
@@ -63,7 +68,6 @@ docker logs ee4cd9
 docker ps
 docker ps -a
 docker exec -it mynginx /bin/bash
-运行 exit 命令或者使用 CTRL+D 来退出容器
 docker cp somefile.html mynginx:/usr/share/nginx/html/
 docker stop/start/restart mynginx
 docker rm mynginx
