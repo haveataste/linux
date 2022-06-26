@@ -48,6 +48,8 @@ exit, CTRL+P+Q, CTRL+D
 # 重新进入运行中的容器
 docker exec -it CONTAINER_ID /bin/bash
 docker attach CONTAINER_ID
+# 容器打包成镜像
+docker commit -a "author" -m "comment" CONTAINER_ID USERNAME/IMAGENAME:TAG
 # 容器间网络互联
 docker run --link=[container_name]:[alias] [image] [command]
 # 配置拒绝容器间的访问
