@@ -1,5 +1,0 @@
-.\adb.exe devices
-.\adb.exe shell screencap -p /sdcard/DCIM/Screenshots/jt.png
-.\adb.exe pull /sdcard/DCIM/Screenshots/jt.png .
-.\adb.exe shell input tap 208 386
-.\adb.exe kill-server
