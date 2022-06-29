@@ -1,6 +1,6 @@
 # apt-get install mysql-client
 
-mysql -hserver -uuser -ppasswd
+mysql -hserver -P3306 -uuser -ppasswd
 select user();
 select user, host from mysql.user;
 # 解决mysql无法远程连接的问题
