@@ -16,6 +16,8 @@ systemctl restart docker
 docker info
 # 显示Docker版本信息
 docker version
+# 获取容器/镜像的元数据
+docker inspect CONTAINER|IMAGE
 
 # [REGISTRYHOST/][USERNAME/]IMAGENAME[:TAG]
 # 查看本地镜像
@@ -26,14 +28,15 @@ docker rmi IMAGENAME[:TAG]
 docker tag nginx:latest myarpanet/nginx:v1
 # 仓库操作
 docker login
-docker push myarpanet/nginx:v1
-dokcer logout
 docker login uhub.service.ucloud.cn -u user@qq.com
 Password: 
 WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
 Configure a credential helper to remove this warning. See
 https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 Login Succeeded
+dokcer logout
+# 上传镜像
+docker push myarpanet/nginx:v1
 
 # 查看容器
 docker ps [-a]
@@ -48,6 +51,8 @@ exit, CTRL+P+Q, CTRL+D
 # 重新进入运行中的容器
 docker exec -it CONTAINER_ID /bin/bash
 docker attach CONTAINER_ID
+# 获取容器的日志
+docker logs [-f] --since="2022-07-13" -t --tail=10 mynginx
 # 容器打包成镜像
 docker commit -a "author" -m "comment" CONTAINER_ID USERNAME/IMAGENAME:TAG
 # 容器间网络互联
