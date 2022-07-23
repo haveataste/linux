@@ -1,12 +1,21 @@
 # apt-get install mysql-client
+# MySQL系统库
+information_schema: SCHEMATA、TABLES、COLUMNS, performance_schema, sys, mysql
 
 mysql -hserver -P3306 -uuser -ppasswd
+select version();
 select user();
 select user, host from mysql.user;
 # 解决mysql无法远程连接的问题
 update mysql.user set host='%' where user='root';
 # 查看当前连接
 show processlist;
+# 查看数据存储路径
+select @@datadir;
+# 查看MySQL安装路径
+select @@basedir;
+# 查看系统版本
+select @@version_compile_os;
 
 show databases;
 use db_name;
@@ -14,7 +23,7 @@ select database();
 drop database db_name;
 create database if not exists db_name;
 
-show tables;
+show tables [from db_name];
 desc tb_name;
 show columns from tb_name;
 mysql> select table_schema, table_name from information_schema.columns where column_name = 'ip';
@@ -25,8 +34,7 @@ mysql> select table_schema, table_name from information_schema.columns where col
 +--------------+------------+
 1 row in set (0.38 sec)
 
-select 1+1;
-select pi()*2;
+select 1+1; select pi()*2; select now;
 # 查询前8行和最后10行
 select ip from access_log limit 0,8;
 select id from access_log order by id desc limit 10;
