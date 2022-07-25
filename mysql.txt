@@ -34,7 +34,7 @@ mysql> select table_schema, table_name from information_schema.columns where col
 +--------------+------------+
 1 row in set (0.38 sec)
 
-select 1+1; select pi()*2; select now; select substr('abc', 2, 1); group_concat(zd); sleep(1);
+select 1+1; select pi()*2; select now; group_concat(zd); select ascii(substr('abc', 2, 1))=98 and sleep(1);
 # 查询前8行和最后10行
 select ip from access_log limit 0,8;
 select id from access_log order by id desc limit 10;
