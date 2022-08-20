@@ -29,6 +29,11 @@ $ heroku ps:scale web=1
 $ heroku open
 $ https://playgirl.herokuapp.com/
 
+$ heroku plugins:install someplugin
+$ heroku plugins
+$ heroku plugins:uninstall heroku-repo
+$ heroku update
+
 $ heroku info playgirl
 === playgirl
 Addons:         heroku-postgresql:hobby-dev
