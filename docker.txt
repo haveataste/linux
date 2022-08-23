@@ -35,11 +35,17 @@ Configure a credential helper to remove this warning. See
 https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 Login Succeeded
 dokcer logout
+# 拉取镜像
+docker pull USERNAME/IMAGENAME:TAG
+# 导入本地镜像
+docker import file.tar IMAGENAME:TAG
 # 上传镜像
 docker push myarpanet/nginx:v1
 
 # 查看容器
 docker ps [-a]
+# 将容器打包为文件
+docker export -o file.tar CONTAINER_ID
 # 删除容器
 docker rm CONTAINER_ID
 # 运行容器
