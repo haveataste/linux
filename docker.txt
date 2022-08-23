@@ -37,15 +37,20 @@ Login Succeeded
 dokcer logout
 # 拉取镜像
 docker pull USERNAME/IMAGENAME:TAG
-# 导入本地镜像
-docker import file.tar IMAGENAME:TAG
 # 上传镜像
 docker push myarpanet/nginx:v1
 
+# 导出镜像到本地文件
+docker save [-o file.tar] IMAGENAME:TAG
+# 导入文件到本地镜像库
+docker load [-i] file.tar
+# 将容器打包为本地文件，相当于快照
+docker export -o file.tar CONTAINER_ID
+# 将容器导入成为一个新的镜像
+docker import file.tar IMAGENAME:TAG
+
 # 查看容器
 docker ps [-a]
-# 将容器打包为文件
-docker export -o file.tar CONTAINER_ID
 # 删除容器
 docker rm CONTAINER_ID
 # 运行容器
