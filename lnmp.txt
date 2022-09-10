@@ -1,7 +1,6 @@
 # Nginx 是一个高性能的 Web 和反向代理服务器，也是一个 IMAP/POP3/SMTP 代理服务器。
 sudo apt-get update && sudo apt-get install -y nginx
-/etc/init.d/nginx start || service nginx start
-service nginx stop
+/etc/init.d/nginx || service nginx start
 # /etc/nginx/sites-available/ 是用来保存所有站点配置的目录，但是并不会被 Nginx 加载；
 # /etc/nginx/sites-enabled/   是用来保存启用的站点配置文件的目录，目录下的文件是从 sites-available 目录软链接来的。
 # 修改服务端口
@@ -32,7 +31,7 @@ vim /etc/nginx/sites-available/default
       include fastcgi_params;
   }
 nginx -t
-service nginx reload | restart | status
+service nginx stop | reload | restart | status
 
 # 安装MySQL
 sudo apt-get install mysql-server mysql-client
