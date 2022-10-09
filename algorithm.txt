@@ -1,6 +1,0 @@
-SSH(Secure SHell)到目前为止有两个不兼容的版本——SSH1和SSH2。
-SSH1又分为1.3和 1.5两个版本。SSH1采用DES、3DES、Blowfish和RC4等对称加密算法保护数据安全传输，而对称加密算法的密钥是通过非对称加密算法（RSA）来完成交换的。SSH1使用循环冗余校验码（CRC）来保证数据的完整性，但是后来发现这种方法有缺陷。
-SSH2避免了RSA的专利问题，并修补了CRC的缺陷。SSH2用数字签名算法（DSA）和Diffie-Hellman（DH）算法代替RSA来完成对称密钥的交换，用消息证实代码（HMAC）来代替CRC。同时SSH2增加了AES和Twofish等对称加密算法。
-
-SSH2 避免了 RSA 的专利问题，并修补了 CRC 的缺陷。
-SSH2 用数字签名算法（DSA）和 Diffie-Hellman（DH）算法代替 RSA 来完成对称密钥的交换
