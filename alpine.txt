@@ -1,0 +1,21 @@
+# 安装alpine
+setup-alpine
+# alpine辅助配置工具包
+apk add alpine-conf
+apk manifest alpine-conf
+# 配置网络
+setup-interfaces
+# 修改dns
+setup-dns
+# 重启网络相关服务
+rc-service networking restart
+# 查看网络配置
+ip a
+
+service sshd restart
+# 配置软件源
+setup-apkrepos
+apk update
+apk add docker
+rc-update add docker boot
+service docker start
