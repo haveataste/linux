@@ -19,3 +19,38 @@ apk update
 apk add docker
 rc-update add docker boot
 service docker start
+
+Alpine linux包管理
+/etc/apk/repositories
+    https://mirrors.aliyun.com/alpine/
+    https://mirrors.aliyun.com/alpine/v3.9/main/
+    https://mirrors.aliyun.com/alpine/v3.9/main/
+apk update
+
+apk search // 查找所有可用软件包
+apk search -v // 查找所用可用软件包及其描述内容
+apk search -v ‘包名’ // 通过软件包名称查找软件包
+apk search -v -d ‘docker’ // 通过描述文件查找特定的软件包
+
+apk add openssh // 安装一个软件
+apk add openssh openntp vim // 安装多个软件
+apk add --no-cache mysql-client // 不使用本地镜像源缓存，相当于先执行update，再执行add
+
+apk info // 列出所有已安装的软件包
+apk info -a zlib // 显示完整的软件包信息
+apk info --who-owns /sbin/lbu // 显示指定文件属于的包
+
+apk upgrade // 升级所有软件
+apk upgrade openssh // 升级指定软件
+apk upgrade openssh openntp vim // 升级多个软件
+apk add --upgrade busybox // 指定升级部分软件包
+
+apk del openssh // 删除一个软件
+
+Alpine Linux服务管理
+rc-update // 主要用于不同运行级增加或者删除服务
+rc-status // 主要用于运行级的状态管理
+rc-status -a // 列出所有服务
+rc-service // 主用于管理服务的状态
+rc-service networking restart
+openrc // 主要用于管理不同的运行级
