@@ -189,3 +189,19 @@ dpkg-reconfigure package
 ldd命令
 在linux中，ldd是list dynamic dependencies的缩写，使用ldd命令即可查看指定软件所使用的全部动态函数库。
 在实际linux开发与调试中，要经常查看动态库依赖关系，ldd用得还是比较多的，特别是出现故障的时候。
+Q：error while loading shared libraries: libcares.so.2: cannot open shared object file: No such file or directory
+A：sudo find / -name *libcares*
+   如果找得到 libcares.so.2 这个,也就是和报错一模一样的名字的就说明本地有
+   如果找不到, 可以试试 apt-get install libcares2 (apt install libc-ares2)
+   如果 apt-get 失败, 就去 opensuse 下载:
+   https://software.opensuse.org/download/package?package=libcares2&pro
+   然后转换成 deb 包 alien libcares2_1.15.0+20200117-2.1_amd64.rpm
+   最后 dkpg 安装 dpkg -i libcares2_1.15.0+20200117-2.1_amd64.deb
+   如果还是报错, 就执行 ldconfig 命令重新链接一下
+   尝试后还是报错的话就 cat /etc/ld.so.conf, 我的这个文件内容如下:
+   include /etc/ld.so.conf.d/*.conf
+   /usr/local/lib
+   只需要将我的结果目录插入到这个 ld.so.conf 文件内就好:
+   $ echo "/usr/lib64" >> /etc/ld.so.conf
+   // 重新链接
+   $ ldconfig
