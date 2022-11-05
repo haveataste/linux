@@ -17,8 +17,7 @@ hls视频加密
 #EXT-X-KEY:MEATHOD=AES-128,URI="the Key URI/Value"
 
 # m3u8文件下载视频
-ffmpeg -protocol_whitelist "file,http,https,tcp,tls" -i main.m3u8 file.mp4
-ffmpeg -i main.m3u8 -vcodec copy -acodec copy file.mp4
+ffmpeg -protocol_whitelist "file,http,https,tcp,tls" -i hls.m3u8 [-vcodec copy -acodec copy] hls.mp4
 # 合并ts文件，使用ffmpeg清晰度更高
 ffmpeg -f concat -safe 0 -i ./fl.txt -c copy ./test.mp4
 fl.txt：
