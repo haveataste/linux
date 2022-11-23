@@ -1,5 +1,5 @@
 git clone https://github.com/usr/repo.git
-git add fn|* || git rm -r --cached .
+git add fn|*
 git commit -a --allow-empty-message -m ''
 git push origin master
 
@@ -34,12 +34,11 @@ git fetch --all && git reset --hard origin/master && git pull origin master # �
 git fetch origin # 同步远程服务器上的数据到本地
 git reset --hard origin/master # 获取远端最新版本，放弃本地的改动和提交
 
-# .gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore文件是无效的。
+# .gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore文件是无效的
 # 解决方法就是先把本地缓存删除（改变成未track状态），然后再提交:
-git rm -r --cached .
-git add .
+git rm -r --cached . && git add .
 git commit -m 'update .gitignore'
-# 如果你想添加被.gitignore忽略的文件，可以用-f强制添加到Git：
-git add -f App.class
+# 如果你想添加被.gitignore忽略的文件，可以用-f强制添加：
+git add -f fn.class
 # 或者你发现，可能是.gitignore写得有问题，需要找出来到底哪个规则写错了，可以用git check-ignore命令检查：
-git check-ignore -v App.class
+git check-ignore -v fn.class
