@@ -1,5 +1,5 @@
 git clone https://github.com/usr/repo.git
-git add filename|*
+git add fn|* || git rm -r --cached .
 git commit -a --allow-empty-message -m ''
 git push origin master
 
