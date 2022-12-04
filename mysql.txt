@@ -22,6 +22,7 @@ use db_name;
 select length(database());
 drop database db_name;
 create database if not exists db_name;
+select * from tb into outfile filename;
 
 show tables [from db_name];
 desc tb_name;
