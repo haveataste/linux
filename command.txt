@@ -69,7 +69,7 @@ awk 'BEGIN{FS=","} {print $1, $2}' filename
 awk 'BEGIN{OFS=","} {print $1, $2}' filename
 awk '{print NR, FILENAME, $0}' file1 file2
 # 打印每行的最后一列
-awk '{print $NR}' filename
+awk '{print $NF}' filename
 awk '{print $(NR-1)}' filename
 
 # 文件添加扩展名
