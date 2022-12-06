@@ -54,6 +54,23 @@ curl -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) 
 AWK 是一种处理文本文件的语言，是一个强大的文本分析工具。
 之所以叫 AWK 是因为其取自三位创始人 Alfred Aho，Peter Weinberger 和 Brian Kernighan 的 Family Name 的首字符。
 awk -F: 'BEGIN{counter=0;}{counter++;print $1,"\t",$NF;}END{if(counter==NR)printf(counter);}' /etc/passwd
+# 打印文件内容
+awk '{print}' filename
+awk '{print $0}' filename
+awk '{print $1, $2}' filename
+awk '{print $1 "\t" $2}' filename
+awk '{print NR "\t" $1 "\t" $2}' filename   # NR number of record
+awk '{print NF "\t" $0}' filename           # NF number of field
+awk '$3==1986{print $0}' filename
+awk '$1=="gold"{print $0}' filename
+awk 'NR==7{print $0}' filename
+# 默认输入、输出分隔符是空格，自定义分隔符如下
+awk 'BEGIN{FS=","} {print $1, $2}'
+awk 'BEGIN{0FS=","} {print $1, $2}'
+awk '{print NR, FILENAME, $0}' file1 file2
+# 打印每行的最后一列
+awk '{print $NR}' filename
+awk '{print $(NR-1)}' filename
 
 # 文件添加扩展名
 rename 's/$/\.txt/' *
