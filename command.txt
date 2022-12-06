@@ -65,8 +65,8 @@ awk '$3==1986{print $0}' filename
 awk '$1=="gold"{print $0}' filename
 awk 'NR==7{print $0}' filename
 # 默认输入、输出分隔符是空格，自定义分隔符如下
-awk 'BEGIN{FS=","} {print $1, $2}'
-awk 'BEGIN{0FS=","} {print $1, $2}'
+awk 'BEGIN{FS=","} {print $1, $2}' filename
+awk 'BEGIN{OFS=","} {print $1, $2}' filename
 awk '{print NR, FILENAME, $0}' file1 file2
 # 打印每行的最后一列
 awk '{print $NR}' filename
