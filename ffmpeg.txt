@@ -89,7 +89,8 @@ duration 指定每个媒体段(ts)的持续时间（秒），仅对其后面的U
 
 #EXT-X-KEY
 #EXT-X-KEY:MEATHOD=AES-128,URI="the Key URI/Value"
-表示怎么对media segments进行解码。其作用范围是下次该tag出现前的所有media URI，属性为NONE 或者 AES-128。NONE表示 URI以及IV（Initialization Vector）属性必须不存在， AES-128(Advanced EncryptionStandard)表示URI必须存在，IV可以不存在。对于AES-128的情况，keytag和URI属性共同表示了一个key文件，通过URI可以获得这个key，如果没有IV（Initialization Vector）,则使用序列号作为IV进行编解码，将序列号的高位赋到16个字节的buffer中，左边补0；如果有IV，则将改值当成16个字节的16进制数。
+表示怎么对media segments进行解码。其作用范围是下次该tag出现前的所有media URI，属性为NONE 或者 AES-128。NONE表示 URI以及IV（Initialization Vector）属性必须不存在， AES-128(Advanced EncryptionStandard)表示URI必须存在，IV可以不存在。
+对于AES-128的情况，keytag和URI属性共同表示了一个key文件，通过URI可以获得这个key，如果没有IV（Initialization Vector）,则使用序列号作为IV进行编解码，将序列号的高位赋到16个字节的buffer中，左边补0；如果有IV，则将改值当成16个字节的16进制数。
 
 #EXT-X-PROGRAM-DATE-TIME
 将一个绝对时间或是日期和一个媒体段中的第一个sample相关联，只对下一个meida URI有效，格式如#EXT-X-PROGRAM-DATE-TIME:
