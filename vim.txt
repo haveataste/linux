@@ -15,6 +15,14 @@ Ctrl+I
 
 # 替换
 :%s/pattern/string/g
+# 删除空白行
+:g/^\s*$/d
+# 删除偶数行
+:g/^/+1 d
+:%norm jdd
+# 删除奇数行
+:g/^/d|m
+:%norm jkdd
 
 # 将ascii模式转换成16进制字符
 :%!xxd
