@@ -1,31 +1,20 @@
 apt-get update && apt-get install ffmpeg -y
-
-# ts文件转mp4文件
-ffmpeg -y -i file.ts -c:v libx264 -c:a copy -bsf:a aac_adtstoasc file.mp4
-# 视频截取片段
-ffmpeg -i file.mp4 -ss 00:01:10 -t 10 out.mp4
-# 查看文件信息
-ffprobe file.mp4
-
-ts是"Transport Stream"的缩写。
-ts是日本高清摄像机拍摄下进行的封装格式，全称为MPEG2-TS，MPEG2-TS格式的特点就是要求从视频流的任一片段开始都是可以独立解码的。
-大多数在线播放的视频使用ts格式作流媒体传输。
-“M3U” 和 “M3U8” 文件都是苹果公司使用的 HTTP Live Streaming（HLS） 协议格式的基础，这种协议格式可以在 iPhone 和 Macbook 等设备播放。
-M3U8 是 Unicode 版本的 M3U，使用 UTF-8 编码。
-通常m3u8包含了若干个ts文件的名称，按播放顺序有序排列，还包括版本、是否加密等信息。
-hls视频加密
-#EXT-X-KEY:MEATHOD=AES-128,URI="the Key URI/Value"
-
 # m3u8文件下载视频
 ffmpeg -protocol_whitelist "file,http,https,tcp,tls" -i hls.m3u8 [-vcodec copy -acodec copy] hls.mp4
-# 合并ts文件，使用ffmpeg清晰度更高
-ffmpeg -f concat -safe 0 -i ./fl.txt -c copy ./test.mp4
+# 使用ffmpeg合并ts文件清晰度更高
+ffmpeg -f concat -safe 0 -i ./fl.txt -c copy ./hls.mp4
 fl.txt：
 file '0.ts'
 file '1.ts'
 file '2.ts'
 # 或者直接写ffmpeg命令，通过“|”来分隔文件名
-ffmpeg -i "concat:f1.ts|f2.ts" -c copy output.mp4
+ffmpeg -i "concat:f1.ts|f2.ts" -c copy hls.mp4
+# ts文件转mp4文件
+ffmpeg -y -i file.ts -c:v libx264 -c:a copy -bsf:a aac_adtstoasc out.mp4
+# 视频截取片段
+ffmpeg -i file.mp4 -ss 00:01:10 -t 10 out.mp4
+# 查看文件信息
+ffprobe file.mp4
 
 # 提取关键帧
 ffmpeg -i video_name.mp4 -vf select='eq(pict_type\,I)' -vsync 2 -s 1920*1080 -f image2 keyframe-%02d.jpeg
@@ -35,7 +24,7 @@ ffmpeg -i video_name.mp4 -vf select='eq(pict_type\,I)' -vsync 2 -s 1920*1080 -f 
   -f image2 name_%02d.jpeg:将视频帧写入到图片中，样式的格式一般是: “%d” 或者 “%0Nd”
 # 保存关键帧在原始视频中所有帧的时刻
 ffprobe -i video_name.mp4 -select_streams v -show_frames -show_entries frame=pict_type -of csv | grep -n I | cut -d ':' -f 1 > frame_index.txt
-# 将生成的关键帧与索引对应起来：
+# 将生成的关键帧与索引对应起来
 ls -l keyframe*.jpeg | awk -F ' ' '{print$9}' > keyframe.txt
 paste frame_index.txt  keyframe.txt > result.txt
 
@@ -43,7 +32,13 @@ paste frame_index.txt  keyframe.txt > result.txt
 ffmpeg -i Bangkok.mp4 -vf subtitles=Bangkok.srt Bangkok_new.mp4
 
 
-HLS和M3U8简介
+ts是"Transport Stream"的缩写。
+ts是日本高清摄像机拍摄下进行的封装格式，全称为MPEG2-TS，MPEG2-TS格式的特点就是要求从视频流的任一片段开始都是可以独立解码的。
+大多数在线播放的视频使用ts格式作流媒体传输。
+“M3U” 和 “M3U8” 文件都是苹果公司使用的 HTTP Live Streaming（HLS） 协议格式的基础，这种协议格式可以在 iPhone 和 Macbook 等设备播放。
+M3U8 是 Unicode 版本的 M3U，使用 UTF-8 编码。
+通常m3u8包含了若干个ts文件的名称，按播放顺序有序排列，还包括版本、是否加密等信息。
+
 HLS(HTTP Live Streaming)是苹果公司针对iPhone、iPod、iTouch和iPad等移动设备而开发的基于HTTP协议的流媒体解决方案。
 在 HLS 技术中 Web 服务器向客户端提供接近实时的音视频流。但在使用的过程中是使用的标准的 HTTP 协议，所以这时，只要使用 HLS 的技术，就能在普通的 HTTP 的应用上直接提供点播和直播。
 在App Store中的视频相关的应用，基本都是应用的此种技术。该技术基本原理是将视频文件或视频流切分成小片(ts)并建立索引文件(m3u8)。支持的视频流编码为H.264，音频流编码为AAC。
@@ -67,7 +62,6 @@ M3U8文件是指UTF-8编码格式的M3U文件。M3U文件是记录了一个索�
 例如使用云图TV点播直播节目时，发送请求：
 http://121.199.63.236:7613/m3u8/cckw1/szws.m3u8?from=bab&fun=yes&chk=y&chunk=xax&ppw=yuntutv&auth=yuntutvyuntutvyuntutv&auth=yuntutvyuntutvyuntutv&nwtime=1406515232&sign=033d5483609e6bc87987fc7d2f30a024
 返回M3U8文件，文件内容如下
-
 [cpp] view plain copy
 #EXTM3U  
 #EXT-X-MEDIA-SEQUENCE:140651513  
@@ -94,6 +88,7 @@ M3U文件中可以包含多个tag，每个tag的功能和属性如下：
 duration 指定每个媒体段(ts)的持续时间（秒），仅对其后面的URI有效，title是下载资源的url
 
 #EXT-X-KEY
+#EXT-X-KEY:MEATHOD=AES-128,URI="the Key URI/Value"
 表示怎么对media segments进行解码。其作用范围是下次该tag出现前的所有media URI，属性为NONE 或者 AES-128。NONE表示 URI以及IV（Initialization Vector）属性必须不存在， AES-128(Advanced EncryptionStandard)表示URI必须存在，IV可以不存在。对于AES-128的情况，keytag和URI属性共同表示了一个key文件，通过URI可以获得这个key，如果没有IV（Initialization Vector）,则使用序列号作为IV进行编解码，将序列号的高位赋到16个字节的buffer中，左边补0；如果有IV，则将改值当成16个字节的16进制数。
 
 #EXT-X-PROGRAM-DATE-TIME
