@@ -149,9 +149,9 @@ uname -a
 查看Linux系统版本:
 lsb_release -a
 cat /etc/issue
-cat /etc/redhat-release
+cat /etc/redhat-release # 适用于所有的linux，包括Redhat、SuSE、Debian等发行版，但是在debian下要安装lsb
 查看Linux系统位数:
-getconf LONG_BIT
+getconf LONG_BIT        # getconf - Query system configuration variables
 查看CPU核数:
 cat /proc/cpuinfo | grep name | cut -d: -f2 | uniq -c
     4  Intel(R) Core(TM) i5-4210M CPU @ 2.60GHz
