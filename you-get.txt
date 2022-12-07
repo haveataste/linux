@@ -1,0 +1,60 @@
+apt-get install ffmpeg
+git clone git://github.com/soimort/you-get.git
+# 将目录加入 PATH, 或运行 make install 以安装 you-get 于永久路径
+cd you-get && python3 you-get URL
+
+# 查看当前视频的清晰度和格式
+you-get -i 'https://www.youtube.com/watch?v=jNQXAC9IVRw'
+# 选择需要下载的清晰度及格式
+you-get --format=hd2 http://v.youku.com/v_show/id_XMTQ2NzQyMjY1Ng.html
+# 下载一段美拍视频并保存在E:\Desktop
+you-get -o E:/Desktop http://www.meipai.com/media/454570774
+# 在本地播放器中播放流媒体视频
+Flash 因CPU占用高被嗤之以鼻，而 You-Get 可以直接在本地播放器中播放网页视频。类似功能的还有 Livestreamer 这个神奇的工具。
+e.g.在 PotPlayer 中播放一段下面这段爱奇艺视频(视频链接：http://www.iqiyi.com/v_19rrgzy5ls.html)
+1.在资源管理器中打开 PotPlayer 安装目录
+2.按住Shift并右击鼠标，选择在此处打开命令窗口
+3.输入下面的 You-Get 播放命令即可
+you-get -p PotPlayerMini64.exe http://v.youku.com/v_show/id_XMTY0MTA4ODM1Mg==.html
+(注意 PotPalyer 可执行文件的文件名的大小写，大小写错误将会导致 you-get 报错，如果 Potplayer 播放失败请尝试使用 VLC 进行播放)
+# 暂停下载与继续下载
+1.暂停下载：和Linux一样，按Ctrl+C可以中断命令，下载目录下会保存有一个以.download为扩展名的缓存文件。
+2.继续下载：重新执行下载任务，如果下载目录下有上次下载保存的缓存文件，则继续上次下载进度。
+3.强制重新下载（即使下载完成也会重新写入）：
+you-get -f http://www.meipai.com/media/437971164
+# 下载视频列表中的所有视频
+优酷等网站会提供视频列表，而 You-Get 可以通过视频列表进行批量下载。
+e.g.下载一个优酷视频专辑
+you-get http://www.youku.com/playlist_show/id_25917721.html
+# 下载Bilibili视频的弹幕
+看Bilibili没有弹幕简直失去了人生一大乐趣，You-Get同样提供了弹幕下载功能。
+1.输入命令下载 Bilibili 视频
+2.下载完成后会自动下载.xml格式的弹幕
+3.使用 Danmu2Ass 将.xml格式转换为.ass格式
+4.打开播放器，将.ass文件加载即可
+
+# You-Get 下载图片
+You-Get 不但支持视频下载，同样支持图片下载，支持的站点已在其主页列出，部分网站支持批量下载。
+1.访问网站
+2.点击图片/帖子，进入图片/帖子详情
+3.复制地址到 You-Get 下载即可
+
+Centos上面默认的Python版本是2.6，本文介绍如何安装3.4版本。
+0. 下载前准备
+需要安装以下库，不然会有问题。
+yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gcc make
+1. 下载Python3.4源码
+# wget http://mirrors.sohu.com/python/3.4.1/Python-3.4.1.tar.xz
+2. 解压缩并安装
+# xz -d Python-3.4.1.tar.xz
+# tar xf Python-3.4.1.tar -C /usr/local/src/
+# cd /usr/local/src/Python-3.4.1/
+# ./configure --prefix=/usr/local/python34
+# make -j8 && make install
+3. 安装的目录
+默认情况下，python会安装在 /usr/local/python34
+4. 安装you-get
+pip3 install you-get
+项目主页：https://github.com/soimort/you-get
+You-Get 主页：https://you-get.org/
+You-Get 原版中文说明：https://github.com/soimort/you-get/wiki/中文说明/
