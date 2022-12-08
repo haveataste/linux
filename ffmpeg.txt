@@ -8,11 +8,11 @@ file '0.ts'
 file '1.ts'
 file '2.ts'
 # 或者直接写ffmpeg命令，通过“|”来分隔文件名
-ffmpeg -i "concat:f1.ts|f2.ts" -c copy hls.mp4
+ffmpeg -i concat:"f1.ts|f2.ts" -c copy hls.mp4
 # ts文件转mp4文件
 ffmpeg -y -i file.ts -c:v libx264 -c:a copy -bsf:a aac_adtstoasc out.mp4
 # 视频截取片段
-ffmpeg -i file.mp4 -ss 00:01:10 -t 10 out.mp4
+ffmpeg -i file.mp4 -ss 00:01:10 [-to 00:02:00] -t 10 out.mp4
 # 查看文件信息
 ffprobe file.mp4
 
