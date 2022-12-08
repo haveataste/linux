@@ -1,13 +1,11 @@
 :<<!
 # generate ssh.git
 ssh-keygen
-# tar -zcf - test.txt |openssl des3 -salt -k 123@123 | dd of=test.txt.des3
-# dd if=test.txt.des3 |openssl des3 -d -k 123@123 | tar zxf -
+# tar -zcf - test.txt | openssl des3 -salt -k 123@123 | dd of=test.txt.des3
+# dd if=test.txt.des3 | openssl des3 -d -k 123@123 | tar zxf -
 tar -cvf ssh.tar .ssh/
-mkdir ssh
-cd ssh
+mkdir ssh && cd ssh && mv ../ssh.tar .
 git init
-mv ../ssh.tar .
 git add ssh.tar
 git commit -a --allow-empty-message -m ''
 git remote add origin git@github.com:kuugagoku/ssh.git
