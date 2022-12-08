@@ -7,4 +7,4 @@ done
 ls -l | awk '{print $9}' | sort -k1.5 -nr
 
 # ffmpeg merge ts
-ls | grep ts | sort -n -k1.5 | awk 'BEGIN{s="concat:"}{s=s$0"|"}END{print "ffmpeg -i "s" -c copy hls.mp4s"}'
+ls | grep ts | sort -n -k1.5 | awk 'BEGIN{s="concat:"}{s=s$0"|"}END{cmd = "ffmpeg -i \""s"\" -c copy hls.mp4";sub(/\|\"/,"\"",cmd);print cmd;system(cmd)}'
