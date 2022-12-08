@@ -1,17 +1,13 @@
 #!/bin/bash
 
 #no blank space
-a=10
-b=17
-echo $a
-echo $b
+a=10;b=17
+echo $a $b
 echo $(($a+$b)) $(($b/$a))
 s="Hello,my friend"
 echo $s
-#string long
-echo ${#s}
-#split
-echo ${s#Hel*,}
+echo ${#s}        #string long
+echo ${s#Hel*,}   #split
 
 echo '--------------------'
 filename=$HOME/linux/shell/test.sh
@@ -84,14 +80,8 @@ echo $a
 a=$(($a-1))
 done
 
-for i in 1 2 3 4 5
-do
-echo $i
-done
+for i in 1 2 3 4 5; do echo $i; done
+for((i=1;i<6;i++)); do echo $i; done
+for i in `seq 1 5`; do echo $i; done
 
-for((i=1;i<6;i++))
-do
-echo $i
-done
- 
 echo $# $0 $1 $2 $$
