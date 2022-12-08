@@ -72,6 +72,10 @@ awk '{print NR, FILENAME, $0}' file1 file2
 # 打印每行的最后一列
 awk '{print $NF}' filename
 awk '{print $(NR-1)}' filename
+# awk中执行Linux命令的两种方式
+awk 'BEGIN {system("pwd")}'
+echo "pwd" | awk '{print $0 | "sh"}'
+echo '-H "accept: application/json"' | awk '{cmd = "curl -X GET https://httpbin.org/get "$0; system(cmd);}'
 
 # 文件添加扩展名
 rename 's/$/\.txt/' *
