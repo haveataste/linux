@@ -1,0 +1,221 @@
+shell: CLI GUI		kernel
+#   root权限
+$   普通用户
+
+su -用户名 #切换用户
+su - || su #回到根用户
+sudo  #使用管理员用户身份运行命令
+exit
+hostname
+ls
+uname [-r -a --all]
+id  #显示当前用户信息
+passwd #修改当前用户密码
+
+firefox
+firefox & #后台运行
+
+history
+!!
+!+字符
+!+num
+!?abc
+!-n
+
+Ctrl+r
+esc.
+
+通配符
+*
+？
+[0-9]
+[abc]
+[^abc]
+
+jobs
+sleep 5000
+bg 2
+fg 3
+
+cp -r
+rm -r -i -f
+rmdir
+mkdir -p
+
+
+linux系统中网络命令
+安装ifconfig：apt install net-tools -y
+ping -n 只输出数值
+     -q 不显示任何传送封包的信息，只显示最后的结果
+     -r 忽略普通的Routing Table，直接将数据包送到远端主机上。通常是查看本机的网络接口是否有问题。
+     -R 记录路由过程。
+     -v 详细显示指令的执行过程。
+     -c 数目：在发送指定数目的包后停止。
+     -i 秒数：设定间隔几秒送一个网络封包给一台机器，预设值是一秒送一次。
+     -t 存活数值：设置存活数值TTL的大小
+lsof -i    查看端口
+netstat -tupln
+nestat -in 查看网络接口的MTU
+route -n   查看路由表
+arp -a     查看ARP缓存表
+sudo apt-get install traceroute
+
+安装抓包工具tcpdump命令：sudo apt-get install tcpdump
+sudo tcpdump -vvv -x udp port 7777
+
+host domain #进行DNS查询
+sudo gedit /etc/hosts
+
+
+uniq -dc # -d 不同 -c 统计
+sort -n -k -r 排序
+wc -l -c -m -w
+du -sh
+
+alias永久生效：在$HOME/.bashrc 文件中添加后，source .bashrc
+
+source命令用法：
+source FileName
+作用:在当前bash环境下读取并执行文件中的命令。
+注：该命令通常用命令“.”来替代。
+如：source .bashrc 与 . .bashrc 是等效的。
+
+apt-get purge xxx   删除已安装包（不保留配置文件)
+
+split 分割文件
+split -b 10k -d -a 3 filename   #以10kB大小分割文件，分割后文件命名为x000、x001...
+split -l 10 filename            #以10行内容分割文件
+
+seq -w 1 1 10                   #等宽产生从1开始，1为步长，到10的序号列
+seq -s ' ' 10                   #分隔符
+
+shuf -n 1 -e 1 2 3 4            #生成随机排列
+shuf filename
+
+cat file1 file2 file3 > newfile     #合并多个文件
+
+chattr +i filename              #无法删除，移动，重命名文件
+chattr +a filename              #只能追加内容，不能删除文件
+lsattr filename
+
+tac 按行反向输出文件内容
+
+paste
+paste单词意思是粘贴。该命令主要用来将多个文件的内容合并，与cut命令完成的功能刚好相反。粘贴两个不同来源的数据时，首先需将其分类，并确保两个文件行数相同。paste将按行将不同文件行信息放在一行。缺省情况下， paste连接时，用空格或tab键分隔新行中不同文本，除非指定-d选项，它将成为域分隔符。
+paste格式为:paste -d ‘ ’ -s -file1 file2
+选项含义如下：
+-d 指定不同于空格或tab键的域分隔符。例如用@分隔域，使用- d @。
+-s 将每个文件合并成行而不是按行粘贴。
+paste命令还有一个很有用的选项（-）。意即对每一个（-），从标准输入中读一次数据。使用空格作域分隔符，以一个6列格式显示目录列表。方法如下：
+> ls /etc | paste -d" " - - - - - -
+seq -w 0 10 |paste -d ' ' - - - - -
+00 01 02 03 04
+05 06 07 08 09
+
+find . -maxdepth 1 -type d  #找出当前目录下的文件夹
+
+diff filename1 filename2
+vimdiff [-o] filename1 filename2     #vim中视图比较两个文本文件
+
+join -a1            -a2         [-a1 -a2]       -o 1.1          -o 1.1 1.2 2.1 2.2              -t " "              file1 file2
+     左连接       右连接    全连接           表示只输出第一个文件的第一个字段       指定分隔符
+
+tr命令可以对来自标准输入的字符进行替换、压缩和删除。它可以将一组字符变成另一组字符，经常用来编写优美的单行命令，作用很强大。
+tr "charset1" "charset2"
+echo "HELLO WORLD" | tr 'A-Z' 'a-z'
+tr -c "charset"   " "  #替换不属于字符集的字符
+tr -d "charset"        #删除属于字符集的字符
+tr -s "charset"        #缩连续字符为一个
+
+gcc -S main.c       #生成main.s汇编代码
+gcc -o main main.c      #指定生成文件
+gcc -o main main.c -m32     #生成32位系统可执行代码
+
+nl filename
+-b ：指定行号指定的方式，主要有两种：
+-b a ：表示不论是否为空行，也同样列出行号(类似 cat -n)；
+-b t ：如果有空行，空的那一行不要列出行号(默认值)；
+-n ：列出行号表示的方法，主要有三种：
+-n ln ：行号在屏幕的最左方显示；
+-n rn ：行号在自己栏位的最右方显示，且不加 0 ；
+-n rz ：行号在自己栏位的最右方显示，且加 0 ；
+-w ：行号栏位的占用的位数。
+
+watch命令以周期性的方式执行给定的指令，指令输出以全屏方式显示。
+watch是一个非常实用的命令，基本所有的Linux发行版都带有这个小工具，如同名字一样，watch可以帮你监测一个命令的运行结果，省得你一遍遍的手动运行。
+语法 watch(选项)(参数) 选项 -n：指定指令执行的间隔时间（秒）； -d：高亮显示指令输出信息不同之处； -t：不显示标题。
+
+uptime - Tell how long the system has been running.
+DESCRIPTION
+       uptime  gives a one line display of the following information.
+       The current time,
+       how long the system has been running,
+       how many users are currently logged on,
+       and the system load averages for the past 1, 5, and 15 minutes.
+
+       This is the same information contained in the header line displayed by w(1).
+       System  load  averages  is  the  average number of processes that are either in a
+       runnable or uninterruptable state.  A process in a runnable state is either using
+       the CPU or waiting to use the CPU.  A process in uninterruptable state is waiting
+       for some I/O access, eg waiting for disk.  The averages are taken over the  three
+       time  intervals.   Load  averages  are not normalized for the number of CPUs in a
+       system, so a load average of 1 means a single CPU system is loaded all  the  time
+       while on a 4 CPU system it means it was idle 75% of the time.
+OPTIONS
+       -p, --pretty     show uptime in pretty format
+       -h, --help        display this help text
+
+dmesg   print or control the kernel ring buffer.
+dmesg --clear
+dmesg --console-on
+dmesg --console-off
+dmesg --console-level level
+dmesg --read-clear [options]
+
+
+Linux链接概念
+Linux链接分两种，一种被称为硬链接（Hard Link），另一种被称为符号链接（Symbolic Link）。默认情况下，ln命令产生硬链接。
+【硬连接】
+硬连接指通过索引节点来进行连接。在Linux的文件系统中，保存在磁盘分区中的文件不管是什么类型都给它分配一个编号，称为索引节点号(Inode Index)。在Linux中，多个文件名指向同一索引节点是存在的。一般这种连接就是硬连接。硬连接的作用是允许一个文件拥有多个有效路径名，这样用户就可以建立硬连接到重要文件，以防止“误删”的功能。其原因如上所述，因为对应该目录的索引节点有一个以上的连接。只删除一个连接并不影响索引节点本身和其它的连接，只有当最后一个连接被删除后，文件的数据块及目录的连接才会被释放。也就是说，文件真正删除的条件是与之相关的所有硬连接文件均被删除。
+【软连接】
+另外一种连接称之为符号连接（Symbolic Link），也叫软连接。软链接文件有类似于Windows的快捷方式。它实际上是一个特殊的文件。在符号连接中，文件实际上是一个文本文件，其中包含的有另一文件的位置信息。两个文件名不同，相对应的INode也不一样，但是一个文件的内容是另一个文件的路径信息，打开了一个相当于打开了另外一个，相当于快捷方式。
+
+ln -s 源文件/源文件夹 连接名
+rm [-rf] 连接名
+
+&  表示任务在后台执行，如要在后台运行redis-server,则有  redis-server &
+&& 表示前一条命令执行成功时，才执行后一条命令 ，如 echo '1‘ && echo '2'
+| 表示管道，上一条命令的输出，作为下一条命令参数，如 echo 'yes' | wc -l
+|| 表示上一条命令执行失败后，才执行下一条命令，如 cat nofile || echo "fail"
+
+stat指令：文件/文件系统的详细信息显示。
+stat命令主要用于显示文件或文件系统的详细信息，该命令的语法格式如下：
+-f　　不显示文件本身的信息，显示文件所在文件系统的信息
+-L　　显示符号链接
+-t　　简洁模式，只显示摘要信息
+
+df命令用于显示磁盘分区上的可使用的磁盘空间
+-a或--all：包含全部的文件系统；
+--block-size=<区块大小>：以指定的区块大小来显示区块数目；
+-h或--human-readable：以可读性较高的方式来显示信息；
+
+free -b k m g
+-t display a line showing the column totals.
+
+find从磁盘遍历查找文件或目录。
+which查找二进制命令，按环境变量 PATH 路径查找。
+whereis查找二进制命令，按环境变量 PATH 路径查找。
+locate从数据库 (/var/lib/mlocate/mlocate.db) 查找命令，使用 updatedb 更新库。
+
+echo -n str #不输出换行
+echo -e str #输出转义字符
+root@ubuntu:~# echo -n '123456' | md5sum
+e10adc3949ba59abbe56e057f20f883e  -
+root@ubuntu:~#
+
+在Ubuntu中，有时候运用sudo  apt-get install 安装软件时，会出现一下的情况
+E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)
+E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?
+主要是因为apt还在运行，查找所有apt相关的进程，并用命令杀死。
+ps afx|grep apt
+kill -9 pid
