@@ -57,8 +57,10 @@ docker rm CONTAINER_ID
 docker run -it IMAGENAME:TAG /bin/bash
 docker run -d ubuntu:15.10 /bin/sh -c "while true; do echo hello world; sleep 1; done"
 docker run -d --name v2ray -v ~/v2ray:/etc/v2ray -p 1081:1081 --restart=always v2ray/official
-# 退出容器
-exit, CTRL+P+Q, CTRL+D
+# 退出容器后关闭
+exit, CTRL+D
+# 退出后继续运行
+CTRL+P+Q
 # 重新进入运行中的容器
 docker exec -it CONTAINER_ID /bin/bash
 docker attach CONTAINER_ID
