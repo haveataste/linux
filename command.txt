@@ -130,7 +130,10 @@ zip file.zip *
 unzip file.zip
   -t  test compressed archive data
   -v  list verbosely/show version info
-分卷压缩解压
+  -l  list files (short format)
+  -q  quiet mode (-qq => quieter)
+  -d  extract files into exdir
+分卷压缩包解压
 cat jdk* > all.zip
 unzip -zvf all.zip
 
