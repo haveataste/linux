@@ -1,6 +1,9 @@
 # Nginx 是一个高性能的 Web 和反向代理服务器，也是一个 IMAP/POP3/SMTP 代理服务器。
 sudo apt-get update && sudo apt-get install -y nginx
 /etc/init.d/nginx || service nginx start
+ps aux | grep nginx && kill -s QUIT NGINXPID
+# 编译安装：下载nginx.tar.gz安装包解压， ./configure 检查当前安装环境，解决包依赖问题
+make && make install && cd nginx/sbin && ./nginx
 # /etc/nginx/sites-available/ 是用来保存所有站点配置的目录，但是并不会被 Nginx 加载；
 # /etc/nginx/sites-enabled/   是用来保存启用的站点配置文件的目录，目录下的文件是从 sites-available 目录软链接来的。
 # 修改服务端口
@@ -40,6 +43,7 @@ sudo vim /etc/mysql/my.cnf
   #bind-address = 127.0.0.1
 sudo service mysql start
 
+# nginx 本身不能处理 PHP，它只是个 web 服务器，当接收到请求后，如果是 php 请求，则发给 php 解释器处理，并把结果返回给客户端。
 # php-fpm 是一个守护进程（FastCGI 进程管理器）用于替换 PHP FastCGI 的大部分附加功能，对于高负载网站是非常有用的。
 sudo apt-get install -y php-fpm
 sudo service php7.2-fpm start
@@ -48,6 +52,8 @@ sudo vim /var/www/html/phpinfo.php
       phpinfo();
   ?>
 firefox http://localhost:80/phpinfo.php
+# 要想让 php5 支持 Mysql，还需要安装一系列的配套模块。
+sudo apt-get install php5-mysql
 
 # ngrok: Intranet penetration tool. 20210113
 curl -O https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip
