@@ -54,3 +54,14 @@ rc-status -a // 列出所有服务
 rc-service // 主用于管理服务的状态
 rc-service networking restart
 openrc // 主要用于管理不同的运行级
+
+# Alpine容器中安装openssh服务
+docker run -it -p 122:22 --name alpinessh alpine
+apk add openssh-server
+# 如果要想使用root用户远程管理，需要修改配置文件 /etc/ssh/sshd_config ：
+PermitRootLogin yes
+# 将ssh服务配置为开机自动启动
+rc-update add sshd
+#如果你想立刻生效，可以执行命令：
+apk add openrc
+/etc/init.d/sshd restart
