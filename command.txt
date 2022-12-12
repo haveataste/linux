@@ -77,6 +77,20 @@ awk 'BEGIN {system("pwd")}'
 echo "pwd" | awk '{print $0 | "sh"}'
 echo '-H "accept: application/json"' | awk '{cmd = "curl -X GET https://httpbin.org/get "$0; system(cmd);}'
 
+crontab命令
+crontab -l  # 显示定时任务
+crontab -r  # 删除定时任务
+crontab -e  # 编辑定时任务，* * * * * command，分 时 日 月 周
+# */1 * * * * touch $(date +%Y-%m-%d-%H-%M-%S).txt
+# 定时任务文件目录
+cd /etc/; ls -ld cron*
+# 启动系统日志服务
+service rsyslog start
+# 启动定时任务服务
+cron -f &
+service cron start
+service crontab start
+
 # 文件添加扩展名
 rename 's/$/\.txt/' *
 # 文件名大写改小写
