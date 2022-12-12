@@ -215,3 +215,10 @@ gsync -h
     UNIX
     AffID: [g-s]
     Usage: GSYNC  [<profile-option>...] [<run-option>...] [<global-option>...] <global-command> or <job-command-and-options>
+
+安装asciinema
+apt-add-repository ppa:zanchey/asciinema
+apt-get update && apt-get install asciinema
+asciinema rec [filename]
+asciinema play [/path/to/asciicast.cast]
+asciinema auth
