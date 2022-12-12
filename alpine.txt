@@ -62,6 +62,6 @@ apk add openssh-server
 PermitRootLogin yes
 # 将ssh服务配置为开机自动启动
 rc-update add sshd
-#如果你想立刻生效，可以执行命令：
+# 如果你想立刻生效，可以执行命令：
 apk add openrc
 /etc/init.d/sshd restart
