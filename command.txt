@@ -91,6 +91,17 @@ cron -f &
 service cron start
 service crontab start
 
+screen命令
+screen -S sockname # 创建并进入一个session
+screen -r session  # Reattach to a detached screen process
+screen -ls         # 列出所有SockDir pid.sockname
+screen -wipe       # just clean up SockDir
+在screen中Ctrl+a开始：
+k kill
+d Detached，暂时断开screen会话
+Ctrl+a 切换到之前显示的窗口
+w 显示所有窗口列表
+
 # 文件添加扩展名
 rename 's/$/\.txt/' *
 # 文件名大写改小写
