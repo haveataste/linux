@@ -243,3 +243,17 @@ Global options:
 vfsync -u happyhack co https://vfsync.org/u/happyhack/home my_home
 # export a file from the virtual machine
 export_file filename
+
+BBR(Bottleneck Bandwidth and RTT) 新的 TCP 拥塞控制算法
+Ubuntu开启BBR的前提是内核版本必须等于高于4.9
+# uname -ir
+Ubuntu内核升级
+# echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+# echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+# sysctl -p
+检察内核能否已开启BBR，显现以下即已开启：
+# sysctl net.ipv4.tcp_available_congestion_control
+net.ipv4.tcp_available_congestion_control = bbr cubic reno
+检察BBR能否启动，显现以下即启动胜利：
+# lsmod | grep bbr
+tcp_bbr                20480  14
