@@ -222,3 +222,22 @@ apt-get update && apt-get install asciinema
 asciinema rec [filename]
 asciinema play [/path/to/asciicast.cast]
 asciinema auth
+
+使用vfsync
+vfsync version 2017-06-10, Copyright (c) 2017 Fabrice Bellard
+usage: vfsync [options] [command] [args]
+command is:
+help [command]          show the help for 'command'
+checkout (co) url dir   checkout files from url to dir
+sync                    update then commit (default command)
+update (up)             update local files from server
+commit (ci)             commit local files to server
+info                    info about the files
+Global options:
+-h           show this help
+-n           dry run (do not send the commit to the server)
+-q           quiet mode
+-g           restore user/group (default for super-user)
+-p password  set password
+# 将vfs中的home目录复制到本地文件夹
+vfsync -u happyhack co https://vfsync.org/u/happyhack/home my_home
