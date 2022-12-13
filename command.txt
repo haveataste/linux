@@ -77,6 +77,16 @@ awk 'BEGIN {system("pwd")}'
 echo "pwd" | awk '{print $0 | "sh"}'
 echo '-H "accept: application/json"' | awk '{cmd = "curl -X GET https://httpbin.org/get "$0; system(cmd);}'
 
+split 分割文件
+split -a 3 -b 10k -d filename   # 以10kB大小分割文件，分割后文件命名为x000、x001...
+      -a, --suffix-length=N   generate suffixes of length N (default 2)
+          --additional-suffix=SUFFIX  append an additional SUFFIX to file names
+      -b, --bytes=SIZE        put SIZE bytes per output file
+      -d                      use numeric suffixes starting at 0, not alphabetic
+          --numeric-suffixes[=FROM]  same as -d, but allow setting the start value
+split -l 10 filename            # 以10行内容分割文件
+      -l, --lines=NUMBER      put NUMBER lines/records per output file
+
 crontab命令
 crontab -l  # 显示定时任务
 crontab -r  # 删除定时任务
