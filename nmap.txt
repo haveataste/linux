@@ -45,3 +45,20 @@ nmap -sU -p 123 -sV -Pn --script='ntp-monlist' ntp.aliyun.com     # ntp_monlist�
   # -sV: Probe open ports to determine service/version info
   # 在新的nmap版本中,添加了script功能的使用。在nmap的安装目录的share/nmap/scripts中，已经有将61个写好的脚本提供。
   # find / -type d -name "nmap" && ls /usr/share/nmap/scripts | wc -l --> 580
+
+tcpdump命令
+tcpdump -c 10           # 设置抓包个数
+tcpdump -c 10 -w log    # 保存抓包信息
+tcpdump -D              # 显示网卡信息
+tcpdump -i interface    # 选择监听网卡
+tcpdump -n              # 解析所有域名
+tcpdump -vvv            # 显示流量包详细信息
+tcpdump https
+tcpdump port 80
+tcpdump portrange 1-1024
+tcpdump [src|dst] port 80
+tcpdump host hostname
+tcpdump greater/less 字节数      # 抓取大于/小于多少字节的流量包
+tcpdump tcp and src 192.168.0.1 and port 80   # 参数and or not
+tcpdump -A              # 详细分析数据包
+tcpdump -X
