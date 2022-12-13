@@ -241,3 +241,5 @@ Global options:
 -p password  set password
 # 将vfs中的home目录复制到本地文件夹
 vfsync -u happyhack co https://vfsync.org/u/happyhack/home my_home
+# export a file from the virtual machine
+export_file filename
