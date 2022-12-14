@@ -1,6 +1,6 @@
 # Nginx 是一个高性能的 Web 和反向代理服务器，也是一个 IMAP/POP3/SMTP 代理服务器。
 sudo apt-get update && sudo apt-get install -y nginx
-/etc/init.d/nginx || service nginx start
+sudo nginx || service nginx start || /etc/init.d/nginx
 ps aux | grep nginx && kill -s QUIT NGINXPID
 # 编译安装：下载nginx.tar.gz安装包解压， ./configure 检查当前安装环境，解决包依赖问题
 make && make install && cd nginx/sbin && ./nginx
