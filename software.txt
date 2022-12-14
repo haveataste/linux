@@ -193,6 +193,29 @@ methods compiled in (* = default):
 *2: zip2, USE_MULT_TAB
 # fcrackzip -b -l 8 -c 'aA1' -v -u wlmm.zip
 
+使用bypy
+pip install requests bypy
+bypy info
+Please visit:
+https://openapi.baidu.com/oauth/2.0/authorize?scope=basic+netdisk&redirect_uri=oob&response_type=code&client_id=q8WE4EpCsau1oS0MplgMKNBn
+And authorize this app
+Paste the Authorization Code here within 10 minutes.
+Press [Enter] when you are done     # 提示在下边粘贴授权码
+bf26197f8fe799843565ac734648****    # 授权码
+# 由于百度PCS API权限限制，程序只能存取百度云端/apps/bypy目录下面的文件和目录。
+bypy list
+/apps/bypy ($t $f $s $m $d):
+# 把本地当前目录下的文件同步到百度云盘：
+bypy upload
+bypy syncup
+# 把云盘上的内容同步到本地:
+bypy downdir
+bypy syncdown
+# 比较本地当前目录和云盘根目录，看是否一致，来判断是否同步成功：
+bypy compare
+# 更详细的了解某一个命令：
+bypy help
+
 使用goodsync
 curl -O https://www.goodsync.com/download/goodsync-linux-x86_64-release.run && chmod a+x goodsync-linux-x86_64-release.run && ./goodsync-linux-x86_64-release.run
 gsync job jiojio1 /f1=/root/RemoteWorking/zzz /f2=http://dav.jianguoyun.com/dav/gsync /userid2="" /password2="" /dir=ltor
