@@ -46,8 +46,10 @@ docker save [-o file.tar] IMAGENAME:TAG
 docker load [-i] file.tar
 # 将容器打包为本地文件，相当于快照
 docker export -o file.tar CONTAINER_ID
-# 将容器导入成为一个新的镜像
+# 将容器快照导入成为一个新的镜像
 docker import file.tar IMAGENAME:TAG
+# 将已存在容器中的镜像和修改内容提交为一个新的镜像，通过这个方式能保存读写层内容
+docker commit -a "author" -m "comment" CONTAINER_ID USERNAME/IMAGENAME:TAG
 
 # 查看容器
 docker ps [-a]
@@ -66,8 +68,6 @@ docker exec -it CONTAINER_ID /bin/bash
 docker attach CONTAINER_ID
 # 获取容器的日志
 docker logs [-f] --since="2022-07-13" -t --tail=10 mynginx
-# 容器打包成镜像
-docker commit -a "author" -m "comment" CONTAINER_ID USERNAME/IMAGENAME:TAG
 # 容器间网络互联
 docker run --link=[container_name]:[alias] [image] [command]
 # 配置拒绝容器间的访问
