@@ -257,3 +257,31 @@ net.ipv4.tcp_available_congestion_control = bbr cubic reno
 检察BBR能否启动，显现以下即启动胜利：
 # lsmod | grep bbr
 tcp_bbr                20480  14
+
+VNC(Virtual Network Console) 虚拟网络控制台
+# 服务器端安装桌面环境和VNC服务
+apt-get install xfce4 vnc4server
+# vncserver 设置密码，没有设置密码将不能运行
+vncpasswd
+cd ~/.vnc
+vi xstartup 将最后一行替换成：startxfce4 &
+# 重启vnc服务
+vncserver -kill :1
+vncserver :1
+vncserver -geometry 1280x720
+Usage: vncserver [<OPTIONS>] [:<DISPLAY#>]
+       vncserver -kill :<DISPLAY#>
+<OPTIONS> are Xvnc4 options, or:
+        -name <DESKTOP-NAME>
+        -depth <DEPTH>
+        -geometry <WIDTH>x<HEIGHT>
+        -httpport number
+        -basehttpport number
+        -alwaysshared
+        -nevershared
+        -pixelformat rgb<NNN>
+        -pixelformat bgr<NNN>
+        <Xvnc4-options>...
+See vnc4server and Xvnc4 manual pages for more information.
+# 客户端访问
+104.224.131.4:5901
