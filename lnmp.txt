@@ -63,4 +63,5 @@ unzip ngrok-stable-linux-386.zip
 ./ngrok http 80
 firefox http://53bf97fb996e.ngrok.io/phpinfo.php
 # 20221214
-curl -O https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz && tar -zxvf ngrok-v3-stable-linux-amd64.tgz && ./ngrok config add-authtoken 1n0nIhnmh5zd0y4RO0cF45FvJ7Z_6GBxqzX9N13oKFCpzHT5b && ./ngrok http 80 &
+curl -O https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz && tar -zxvf ngrok-v3-stable-linux-amd64.tgz && ./ngrok config add-authtoken 1n0nIhnmh5zd0y4RO0cF45FvJ7Z_6GBxqzX9N13oKFCpzHT5b && ./ngrok http 80
+curl -x socks://localhost:10808 -i https://f539-34-168-243-109.ngrok.io/
