@@ -48,20 +48,17 @@ sudo add-apt-repository --remove ppa:notepadqq-team/notepadqq
 解压命令：sudo tar -zxf Postman-linux-x64-7.6.0.tar.gz
 更改权限：sudo chmod -R 777 Postman
 启动运行：./Postman/Postman或者双击Postman
-创建图标
-1.建立软链接
-sudo ln -s /home/lixing/software/Postman/Postman /usr/bin/postman    
-2.创建启动项文件
-sudo vim /usr/share/applications/postman.desktop
-内容如下：
-[Desktop Entry]
-Encoding=UTF-8
-Name=Postman
-Exec=/usr/bin/postman
-Icon=/home/lixing/software/Postman/app/resources/app/assets/icon.png
-Terminal=false
-Type=Application
-Categories=Development
+创建图标：sudo ln -s /home/lixing/software/Postman/Postman /usr/bin/postman
+         sudo vim /usr/share/applications/postman.desktop
+         内容如下：
+         [Desktop Entry]
+         Encoding=UTF-8
+         Name=Postman
+         Exec=/usr/bin/postman
+         Icon=/home/lixing/software/Postman/app/resources/app/assets/icon.png
+         Terminal=false
+         Type=Application
+         Categories=Development
 
 安装OBS(Open Broadcaster Software)
 sudo apt install ffmpeg
