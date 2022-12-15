@@ -155,7 +155,7 @@ zip file.zip *
     -q   quiet operation
     -e   encrypt
 zip -s 10m file.zip --out prefix    # 分卷压缩解压
-cat jdk* > all.zip
+cat prefix.z* > all.zip
 unzip -zvf all.zip
     -p  extract files to pipe, no messages     -l  list files (short format)
     -f  freshen existing files, create none    -t  test compressed archive data
