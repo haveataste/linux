@@ -42,26 +42,23 @@ rm -r -i -f
 rmdir
 mkdir -p
 
-
-linux系统中网络命令
-安装ifconfig：apt install net-tools -y
-ping -n 只输出数值
-     -q 不显示任何传送封包的信息，只显示最后的结果
-     -r 忽略普通的Routing Table，直接将数据包送到远端主机上。通常是查看本机的网络接口是否有问题。
-     -R 记录路由过程。
-     -v 详细显示指令的执行过程。
-     -c 数目：在发送指定数目的包后停止。
-     -i 秒数：设定间隔几秒送一个网络封包给一台机器，预设值是一秒送一次。
-     -t 存活数值：设置存活数值TTL的大小
+网络命令
+apt install net-tools -y      # ifconfig
+apt install iputils-ping      # ping
+apt install traceroute        # traceroute
+ping -n    只输出数值
+     -q    不显示任何传送封包的信息，只显示最后的结果
+     -r    忽略普通的Routing Table，直接将数据包送到远端主机上。通常是查看本机的网络接口是否有问题。
+     -R    记录路由过程。
+     -v    详细显示指令的执行过程。
+     -c    数目：在发送指定数目的包后停止。
+     -i    秒数：设定间隔几秒送一个网络封包给一台机器，预设值是一秒送一次。
+     -t    存活数值：设置存活数值TTL的大小
 lsof -i    查看端口
 netstat -tupln
-nestat -in 查看网络接口的MTU
+netstat -in 查看网络接口的MTU
 route -n   查看路由表
 arp -a     查看ARP缓存表
-sudo apt-get install traceroute
-
-安装抓包工具tcpdump命令：sudo apt-get install tcpdump
-sudo tcpdump -vvv -x udp port 7777
 
 host domain #进行DNS查询
 sudo gedit /etc/hosts
