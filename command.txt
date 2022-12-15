@@ -151,20 +151,18 @@ tar -zxvf fn.tar.gz
 tar -ztvf fn.tar.gz     # 列出压缩文件内容
 
 zip file.zip *
-  -r   recurse into directories
-  -q   quiet operation
-  -e   encrypt
-unzip file.zip
-  -t  test compressed archive data
-  -v  list verbosely/show version info
-  -l  list files (short format)
-  -q  quiet mode (-qq => quieter)
-  -d  extract files into exdir
-分卷压缩包解压
+    -r   recurse into directories
+    -q   quiet operation
+    -e   encrypt
+zip -s 10m file.zip --out prefix    # 分卷压缩解压
 cat jdk* > all.zip
 unzip -zvf all.zip
-
-gzip命令
+    -p  extract files to pipe, no messages     -l  list files (short format)
+    -f  freshen existing files, create none    -t  test compressed archive data
+    -u  update files, create if necessary      -z  display archive comment only
+    -v  list verbosely/show version info       -T  timestamp archive to latest
+    -x  exclude files that follow (in xlist)   -d  extract files into exdir
+    -q  quiet mode (-qq => quieter)            -n  never overwrite existing files
 gzip file                # 压缩file，生成file.gz，并删除file
 gzip -c file > file.gz   # 压缩file，但不删除file
 gzip -d file.gz          # 解压并删除file.gz
