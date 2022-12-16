@@ -1,3 +1,51 @@
+# 20171011
+Bandwagon Host：  root:xxoo123@104.224.131.4:28673
+Promotional Code：FYvkv9L9ud8P, mjLv1AUvucpE, UbaWhUgsMHF8, eW4EsSpvPIGQ, DGWni5tLLks8, bjHCESh5ULk0, povS9yIy7TLv
+# 服务器端安装shadowsocks
+  wget –no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh && chmod +x shadowsocks.sh && ./shadowsocks.sh 2>&1 | tee shadowsocks.log
+  git clone https://github.com/shadowsocks/shadowsocks.git && cd shadowsocks && python setup.py
+  yum install python-setuptools && easy_install pip && pip install shadowsocks
+  apt-get install python-pip python-dev build-essential && pip install --upgrade pip && pip install shadowsocks
+# /etc/shadowsocks.json
+  {
+      "server":"104.224.131.4",
+      "port_password":{
+          "8381":"123456",
+          "8382":"123456",
+          "8383":"123456"
+      },
+      "timeout":300,
+      "method":"aes-256-cfb"
+  }
+  ssserver -c /etc/shadowsocks.json -d start
+  netstat -lnp
+Tips:
+usage: ssserver [OPTION]...
+A fast tunnel proxy that helps you bypass firewalls.
+You can supply configurations via either config file or command line arguments.
+Proxy options:
+  -c CONFIG              path to config file
+  -s SERVER_ADDR         server address, default: 0.0.0.0
+  -p SERVER_PORT         server port, default: 8388
+  -k PASSWORD            password
+  -m METHOD              encryption method, default: aes-256-cfb
+  -t TIMEOUT             timeout in seconds, default: 300
+  --fast-open            use TCP_FASTOPEN, requires Linux 3.7+
+  --workers WORKERS      number of workers, available on Unix/Linux
+  --forbidden-ip IPLIST  comma seperated IP list forbidden to connect
+  --manager-address ADDR optional server manager UDP address, see wiki
+General options:
+  -h, --help             show this help message and exit
+  -d start/stop/restart  daemon mode
+  --pid-file PID_FILE    pid file for daemon mode
+  --log-file LOG_FILE    log file for daemon mode
+  --user USER            username to run as
+  -v, -vv                verbose mode
+  -q, -qq                quiet mode, only show warnings/errors
+  --version              show version information
+Online help: <https://github.com/shadowsocks/shadowsocks>
+
+# 20200512
 在Ubuntu 20.04中使用ss:
 # 安装sslocal
   pip3 install shadowsocks
