@@ -1,6 +1,6 @@
 # 20171011
   Bandwagon Host：  root:xxoo123@104.224.131.4:28673
-  Promotional Code：FYvkv9L9ud8P, mjLv1AUvucpE, UbaWhUgsMHF8, eW4EsSpvPIGQ, DGWni5tLLks8, bjHCESh5ULk0, povS9yIy7TLv
+  Promotional Code：BWH1ZBPVK - 6.00% Recurring Discount
 # 服务器端安装shadowsocks
   wget –no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh && chmod +x shadowsocks.sh && ./shadowsocks.sh 2>&1 | tee shadowsocks.log
   git clone https://github.com/shadowsocks/shadowsocks.git && cd shadowsocks && python setup.py
