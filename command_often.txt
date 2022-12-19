@@ -63,6 +63,11 @@ arp -a     查看ARP缓存表
 host domain #进行DNS查询
 sudo gedit /etc/hosts
 
+mktorrent -v -p -l 22 -a url -o fn.torrent file
+mktorrent -v -p -l 22 -a http://bt2.54new.com:8080/announce -o yaaaaz.torrent Glorious.Day.E36.720p.HDTV.x264-DoA.mkv
+url换成你要发布PT站的tracker,例如chdbits是http://tracker.chdbits.org/announce.php  
+fn换成你发布的种子文件的名字如：ab.torrent   
+file换成你的发布资源的文件或文件夹名字
 
 uniq -dc # -d 不同 -c 统计
 sort -n -k -r 排序
