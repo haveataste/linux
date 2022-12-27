@@ -229,6 +229,28 @@ bypy compare
 # 更详细的了解某一个命令：
 bypy help
 
+使用dropbox_uploader.sh
+curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox_uploader.sh
+curl -O "https://raw.githubusercontent.com/kuugagoku/coding/master/shell/dropbox_uploader.sh" || chmod +x dropbox_uploader.sh
+./dropbox_uploader.sh
+Access token:
+# 查询用户信息
+./dropbox_uploader.sh info
+# 显示根目录内容
+./dropbox_uploader.sh list
+# 要列出某个特定文件夹中的所有内容
+./dropbox_uploader.sh list Documents/manuals
+# 将一个本地文件上传到 Dropbox 文件夹
+./dropbox_uploader.sh upload snort.pdf Documents/manuals
+# 从 Dropbox 下载一个文件到本地
+./dropbox_uploader.sh download Documents/manuals/mysql.pdf ./mysql.pdf
+# 从 Dropbox 下载一个完整的远程文件夹到一个本地的文件夹
+./dropbox_uploader.sh download Documents/manuals ./manuals
+# 在 Dropbox 上创建一个新的远程文件夹
+./dropbox_uploader.sh mkdir Documents/whitepapers
+# 完全删除 Dropbox 中某个远程的文件夹（包括它所含的所有内容）
+./dropbox_uploader.sh delete Documents/manuals
+
 使用goodsync
 curl -O https://www.goodsync.com/download/goodsync-linux-x86_64-release.run && chmod a+x goodsync-linux-x86_64-release.run && ./goodsync-linux-x86_64-release.run
 gsync job jiojio1 /f1=/root/RemoteWorking/zzz /f2=http://dav.jianguoyun.com/dav/gsync /userid2="" /password2="" /dir=ltor
