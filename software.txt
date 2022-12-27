@@ -11,6 +11,14 @@ fi
 Ubuntu下解压.rar文件，提示"Parsing filters is unsupported"错误，原因是Linux版本默认不支持rar商业/非自由格式，我们只需要安装unrar即可
 sudo apt-get install unrar
 
+安装ftp服务
+apt-get install vsftpd && service vsftpd start || chkconfig vsftpd on
+修改两个文件
+vi /etc/ftpusers     # 在root前加#
+vi /etc/vsftpd.conf  # 修改配置文件
+关防火墙
+service iptables stop || chkconfig iptables off
+ 
 安装Java
 下载地址：https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html
 解压命令：tar -zxvf jdk-8u281-linux-x64.tar.gz -C ~/temp/
