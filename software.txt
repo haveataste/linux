@@ -16,6 +16,11 @@ apt-get install vsftpd && service vsftpd start || chkconfig vsftpd on
 修改两个文件
 vi /etc/ftpusers     # 在root前加#
 vi /etc/vsftpd.conf  # 修改配置文件
+  # Uncomment this to enable any form of FTP write command.
+  write_enable=YES
+  # ASCII mangling is a horrible feature of the protocol.
+  ascii_upload_enable=YES
+  ascii_download_enable=YES
 关防火墙
 service iptables stop || chkconfig iptables off
  
