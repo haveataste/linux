@@ -10,7 +10,7 @@ git commit -a --allow-empty-message -m ''
 
 git remote -v # 显示当前仓库连接
 git remote rm origin # 删除以防止远端链接占用
-git remote add origin <server> # 连接远端仓库
+git remote add origin server_uri # 连接远端仓库
 git remote add origin https://usr:psd@github.com/usr/repo.git
 ssh-keygen
 ssh -T git@github.com # 查看主机是否与github网站之间的ssh通信是否连接成功
