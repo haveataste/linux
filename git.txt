@@ -9,7 +9,7 @@ git remote -v # 显示当前仓库连接
 git remote rm origin # 删除以防止远端链接占用
 git remote add origin <server> # 连接远端仓库
 git remote add origin https://usr:psd@github.com/usr/repo.git
-git config --global user.name "username"
+git config --global user.name "haveataste"
 git config --global user.email user@qq.com
 git config --list # ~/.gitconfig
 ssh-keygen
