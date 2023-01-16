@@ -13,7 +13,7 @@ sudo apt-get install unrar
 
 安装中文环境
 locale [-a]
-apt-get update && apt-get install language-pack-zh-hans -y
+apt-get update && apt-get install language-pack-zh-hans -y  # 安装中文语言包
 vim /etc/default/locale
   LANG="zh_CN.UTF-8"
   LANGUAGE="zh_CN:zh"
@@ -28,7 +28,7 @@ vim /etc/default/locale
   LC_IDENTIFICATION="zh_CN"
   LC_ALL="zh_CN.UTF-8"
 reboot
-echo $LANG
+echo $LANG  # 显示当前语言环境
   zh_CN.UTF-8
 
 安装ftp服务
