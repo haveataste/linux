@@ -11,6 +11,26 @@ fi
 Ubuntu下解压.rar文件，提示"Parsing filters is unsupported"错误，原因是Linux版本默认不支持rar商业/非自由格式，我们只需要安装unrar即可
 sudo apt-get install unrar
 
+安装中文环境
+locale [-a]
+apt-get update && apt-get install language-pack-zh-hans -y
+vim /etc/default/locale
+  LANG="zh_CN.UTF-8"
+  LANGUAGE="zh_CN:zh"
+  LC_NUMERIC="zh_CN"
+  LC_TIME="zh_CN"
+  LC_MONETARY="zh_CN"
+  LC_PAPER="zh_CN"
+  LC_NAME="zh_CN"
+  LC_ADDRESS="zh_CN"
+  LC_TELEPHONE="zh_CN"
+  LC_MEASUREMENT="zh_CN"
+  LC_IDENTIFICATION="zh_CN"
+  LC_ALL="zh_CN.UTF-8"
+reboot
+echo $LANG
+  zh_CN.UTF-8
+
 安装ftp服务
 apt-get install vsftpd && service vsftpd start || chkconfig vsftpd on
 修改两个文件
