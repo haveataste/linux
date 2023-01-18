@@ -15,6 +15,8 @@ Ctrl+I
 
 # 替换
 :%s/pattern/string/g
+# 统计k行到l行出现pattern的次数
+:k,ls/pattern//gn
 # 删除空白行
 :g/^\s*$/d
 # 删除偶数行
