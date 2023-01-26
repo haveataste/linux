@@ -25,7 +25,7 @@ create database if not exists db_name;
 select * from tb into outfile filename;
 
 show tables [from db_name];
-desc tb_name;
+desc[ribe] tb_name;
 show columns from tb_name;
 mysql> select table_schema, table_name from information_schema.columns where column_name = 'ip';
 +--------------+------------+
@@ -34,6 +34,9 @@ mysql> select table_schema, table_name from information_schema.columns where col
 | blackwidow   | access_log |
 +--------------+------------+
 1 row in set (0.38 sec)
+
+load data local infile "D:/mysql.txt" into table tb_name;
+source "D:/mysql.sql";
 
 select 1+1; select pi()*2; select now; group_concat(zd); select ascii(substr('abc', 2, 1))=98 and sleep(1);
 # 查询前8行和最后10行
