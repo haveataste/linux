@@ -1,7 +1,6 @@
 apt-get install ffmpeg
-git clone git://github.com/soimort/you-get.git
-# 将目录加入 PATH, 或运行 make install 以安装 you-get 于永久路径
-cd you-get && python3 you-get URL
+git clone git://github.com/soimort/you-get.git && cd you-get && python3 you-get URL # 将目录加入 PATH, 或运行 make install 以安装 you-get 于永久路径
+pip install you-get # pip 安装
 
 # 查看当前视频的清晰度和格式
 you-get -i 'https://www.youtube.com/watch?v=jNQXAC9IVRw'
