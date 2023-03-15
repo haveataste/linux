@@ -108,10 +108,12 @@ service cron start
 service crontab start
 
 screen命令
-screen -S sockname # 创建并进入一个session
-screen -r session  # Reattach to a detached screen process
-screen -ls         # 列出所有SockDir pid.sockname
-screen -wipe       # just clean up SockDir
+
+screen命令
+screen -S sockname   Name this session <pid>.sockname instead of <pid>.<tty>.<host>.
+screen -r session    Reattach to a detached screen process
+screen -ls           Do nothing, just list our SockDir [on possible matches].
+screen -wipe         Do nothing, just clean up SockDir [on possible matches].
 在screen中Ctrl+a开始：
 k kill
 d Detached，暂时断开screen会话
@@ -180,14 +182,6 @@ export FLASK_APP=hello.py
 expr命令
 expr 10 \* 10
 expr length "abcdefg"
-
-screen命令
--ls [match]   or
--list         Do nothing, just list our SockDir [on possible matches].
--S sockname   Name this session <pid>.sockname instead of <pid>.<tty>.<host>.
--r [session]  Reattach to a detached screen process.
--d (-r)       Detach the elsewhere running screen (and reattach here).
--wipe [match] Do nothing, just clean up SockDir [on possible matches].
 
 查看Linux内核版本:
 cat /proc/version
