@@ -68,6 +68,8 @@ docker exec -it CONTAINER_ID /bin/bash
 docker attach CONTAINER_ID
 # 获取容器的日志
 docker logs [-f] --since="2022-07-13" -t --tail=10 mynginx
+# 复制容器内文件到本地
+docker cp CONTAINER:/etc/mysql/my.cnf ~
 # 容器间网络互联
 docker run --link=[container_name]:[alias] [image] [command]
 # 配置拒绝容器间的访问
