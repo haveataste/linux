@@ -1,5 +1,6 @@
 # 加载镜像后，输入用户名 root 直接回车登录，开始安装alpine
 setup-alpine
+
 # 辅助配置工具包
 apk add alpine-conf
 apk manifest alpine-conf
