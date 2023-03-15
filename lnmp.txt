@@ -37,11 +37,55 @@ nginx -t
 service nginx stop | reload | restart | status
 # 当Nginx接到一个HTTP请求时，它仅仅是通过查找配置文件将此次请求映射到一个location块，而此location中所配置的各个指令则会启动不同的模块去完成工作，因此模块可以看做Nginx真正的劳动工作者。 通常一个location中的指令会涉及一个handler模块和多个filter模块（当然，多个location可以复用同一个模块）。handler模块负责处理请求，完成响应内容的生成，而filter模块对响应内容进行处理。因此Nginx模块开发分为handler开发和filter开发。
 
+
 # 安装MySQL
 sudo apt-get install mysql-server mysql-client
 sudo vim /etc/mysql/my.cnf
   #bind-address = 127.0.0.1
 sudo service mysql start
+# MySQL系统库
+information_schema: SCHEMATA、TABLES、COLUMNS, performance_schema, sys, mysql
+
+mysql -hserver -P3306 -uuser -ppasswd
+select version(), user();
+select user, host from mysql.user;
+# 解决mysql无法远程连接的问题
+update mysql.user set host='%' where user='root';
+# 查看当前连接
+show processlist;
+# 查看数据存储路径
+select @@datadir;
+# 查看MySQL安装路径
+select @@basedir;
+# 查看系统版本
+select @@version_compile_os;
+
+show databases;
+use db_name;
+select length(database());
+drop database db_name;
+create database if not exists db_name;
+select * from tb into outfile filename;
+
+show tables [from db_name];
+desc[ribe] tb_name;
+show columns from tb_name;
+mysql> select table_schema, table_name from information_schema.columns where column_name = 'ip';
++--------------+------------+
+| table_schema | table_name |
++--------------+------------+
+| blackwidow   | access_log |
++--------------+------------+
+1 row in set (0.38 sec)
+
+load data local infile "D:/mysql.txt" into table tb_name;
+source "D:/mysql.sql";
+
+select 1+1; select pi()*2; select now; group_concat(zd); select ascii(substr('abc', 2, 1))=98 and sleep(1);
+# 查询前8行和最后10行
+select ip from access_log limit 0,8;
+select id from access_log order by id desc limit 10;
+
 
 # nginx 本身不能处理 PHP，它只是个 web 服务器，当接收到请求后，如果是 php 请求，则发给 php 解释器处理，并把结果返回给客户端。
 # php-fpm 是一个守护进程（FastCGI 进程管理器）用于替换 PHP FastCGI 的大部分附加功能，对于高负载网站是非常有用的。
@@ -54,6 +98,7 @@ sudo vim /var/www/html/phpinfo.php
 firefox http://localhost:80/phpinfo.php
 # 要想让 php5 支持 Mysql，还需要安装一系列的配套模块。
 sudo apt-get install php5-mysql
+
 
 # ngrok: Intranet penetration tool
 # 20210113
