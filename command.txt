@@ -206,11 +206,11 @@ Linux上几乎所有的软件都经过了GPL授权，因此几乎所有的软件
 安装步骤：
 1.cd /usr/local/ && mkdir memcached
 2.wget http://memcached.org/files/memcached-1.4.29.tar.gz
-3.tar -zxvf memcached-1.4.29.tar.gz                         # 解压源码，解压后查看INSTALL与README文件，这两个文件中详细介绍了本软件的安装方法和注意事项。
-4../configure --prefix=/usr/local/memcached/                # 此时当前目录下将会生成一个Makefile文件。注意：–prefix参数指定软件安装目录。当执行make install命令时，会将软件安装在此路径中。
-5.make uninstall && make clean                              # make clean命令用来清除上一次编译生成的目标文件。这个步骤可有可无，但为了确保编译的成功，还是加上为好。防止由于软件中含有残留的目标文件导致编译失败。
-  make                                                      # 此时make会读取Makefile文件，将源码编译成二进制文件，并存放在当前目录下。
-6.make install                                              # 此时二进制文件会被安装到先前configure prefix参数设置的路径中去。
+3.tar -zxvf memcached-1.4.29.tar.gz            # 解压源码，解压后查看INSTALL与README文件，这两个文件中详细介绍了本软件的安装方法和注意事项。
+4../configure --prefix=/usr/local/memcached/   # 此时当前目录下将会生成一个Makefile文件。注意：–prefix参数指定软件安装目录。当执行make install命令时，会将软件安装在此路径中。
+5.make uninstall && make clean                 # make clean命令用来清除上一次编译生成的目标文件。这个步骤可有可无，但为了确保编译的成功，还是加上为好。防止由于软件中含有残留的目标文件导致编译失败。
+  make                                         # 此时make会读取Makefile文件，将源码编译成二进制文件，并存放在当前目录下。
+6.make install                                 # 此时二进制文件会被安装到先前configure prefix参数设置的路径中去。
 
 # Debian Packager
 dpkg -i visual_studio.deb
