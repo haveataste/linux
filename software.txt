@@ -246,7 +246,7 @@ vim ~/.jupyter/jupyter_notebook_config.py
     c.NotebookApp.allow_remote_access = True
     c.NotebookApp.open_browser = False
 # 启动
-jupyter notebook
+jupyter notebook --allow-root
 
 使用bypy
 pip install requests bypy
