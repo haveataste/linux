@@ -226,6 +226,28 @@ methods compiled in (* = default):
 *2: zip2, USE_MULT_TAB
 # fcrackzip -b -l 8 -c 'aA1' -v -u wlmm.zip
 
+安装jupyter
+# pip install jupyterlab && jupyter-lab
+# pip install notebook && jupyter notebook
+pip install jupyter
+# 生成密钥
+python
+>> from notebook.auth import passwd  
+>> passwd() 
+Enter password:abc123
+'argon2:$argon2id$v=19$m=10240,t=10,p=8$uTN20WdQ6cjHM4+0aNHquQ$UMNOiaSx8w3A8ZDLTrRsl+2/A3bi5mWxic8kemREn50'
+# 生成jupyter配置文件
+jupyter notebook --generate-config
+# 修改配置文件
+vim ~/.jupyter/jupyter_notebook_config.py
+    c.NotebookApp.ip = '*'
+    c.NotebookApp.password = 'argon2:$argon2id$v=19$m=10240,t=10,p=8$uTN20WdQ6cjHM4+0aNHquQ$UMNOiaSx8w3A8ZDLTrRsl+2/A3bi5mWxic8kemREn50'
+    c.NotebookApp.port = 8888
+    c.NotebookApp.allow_remote_access = True
+    c.NotebookApp.open_browser = False
+# 启动
+jupyter notebook
+
 使用bypy
 pip install requests bypy
 bypy info
