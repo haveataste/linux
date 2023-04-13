@@ -100,3 +100,21 @@ Online help: <https://github.com/shadowsocks/shadowsocks>
   https://github.com/v2ray/v2ray-core/releases/latest
   https://github.com/v2fly/v2ray-core/releases/download/v4.34.0/v2ray-windows-64.zip
 # 将v2ray core和v2rayN解压至同一文件夹中，启动v2rayN.exe
+
+# 20230413
+# VPS端配置文件config.json
+  {
+    "inbounds": [{
+      "port": 13306,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [{ "id": "29347f4a-28e5-4b8e-82cf-5e0cf1fcb151" }]
+      }
+    }],
+    "outbounds": [{
+      "protocol": "freedom",
+      "settings": {}
+    }]
+  }
+  docker pull v2fly/v2fly-core
+  docker run -d --name v2ray -v /var/www/html/config.json:/etc/v2fly/config.json -p 13306:13306 v2fly/v2fly-core run -c /etc/v2fly/config.json
