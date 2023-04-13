@@ -108,7 +108,7 @@ Online help: <https://github.com/shadowsocks/shadowsocks>
       "port": 13306,
       "protocol": "vmess",
       "settings": {
-        "clients": [{ "id": "29347f4a-28e5-4b8e-82cf-5e0cf1fcb151" }]
+        "clients": [{ "id": "uuid" }]
       }
     }],
     "outbounds": [{
