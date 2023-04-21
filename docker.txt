@@ -64,8 +64,8 @@ exit, CTRL+D
 # 退出后继续运行
 CTRL+P+Q
 # 重新进入运行中的容器
-docker exec -it CONTAINER_ID /bin/bash
-docker attach CONTAINER_ID
+docker exec -it CONTAINER_ID /bin/bash  # 进入容器并开启一个新的bash终端，退出容器终端时，不会导致容器的停止
+docker attach CONTAINER_ID              # 进入正在执行容器，不会启动新的终端，退出容器时，会导致容器的停止
 # 获取容器的日志
 docker logs [-f] --since="2022-07-13" -t --tail=10 mynginx
 # 复制容器内文件到本地
