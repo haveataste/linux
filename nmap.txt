@@ -30,7 +30,7 @@ apt-get update && apt-get install nmap -y
   Nmap 7.60 ( https://nmap.org )
 nmap [hostnames, IP addresses, networks, etc]     # nmap纯扫描
 nmap -vv 192.168.31.1                             # 显示详细信息
-nmap -p[1-1000] ip                                # 扫描端口
+nmap -p[1-1024|65535|-] ip                        # 扫描端口
 nmap -sP ip                                       # PING，如果服务器禁PING或者放在防火墙下面的，不加-Pn参数的它就会认为这个扫描的主机不存活就不会进行扫描了
 nmap --traceroute ip                              # tracert
 nmap -O ip                                        # 检测操作系统
