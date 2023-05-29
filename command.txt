@@ -39,7 +39,7 @@ curl -s, --silent        Silent mode
 curl -S, --show-error    Show error even when -s is used
 curl -v, --verbose       Make the operation more talkative
 curl --limit-rate 200k   Simulate speed limit
-curl -#                  progress-bar  
+curl -#                  progress-bar
 curl -G --data-urlencode 'key=value' URL
 curl -A 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36'\
     -X POST\
@@ -194,6 +194,27 @@ getconf LONG_BIT     # getconf - Query system configuration variables
 cat /proc/cpuinfo | grep name | cut -d: -f2 | uniq -c
     4  Intel(R) Core(TM) i5-4210M CPU @ 2.60GHz
 
+查看运行级别:
+who -r  # 显示当前运行级别以及系统当前时间
+# 运行级别 5 2023-04-27 11:58
+runlevel # 显示前一个运行级别（无则显示”N”）, 当前运行级别
+# N 5
+# Default runlevel. The runlevels used by RHS are:
+# 0 - halt (Do NOT set initdefault to this)
+# 1 - Single user mode
+# 2 - Multiuser, without NFS (The same as 3, if you do not have networking)
+# 3 - Full multiuser mode
+# 4 - unused
+# 5 - X11（/etc/X11/prefdm ）
+# 6 - reboot (Do NOT set initdefault to this)
+修改运行级别:
+init [0123456]
+在命令行级别打开GUI:
+startx
+runlevel
+# 5 3
+发现当前运行级别是3，这是因为在startx启动的桌面只是相当于在命令行级别中开启了一个进程，所以运行级别没有变化。
+
 ssh免密登录
 ssh-copy-id -i .ssh/id_rsa.pub root@server_ip
 ssh root@198.98.50.177 && cat .ssh/authorized_keys
@@ -335,8 +356,8 @@ sudo gedit /etc/hosts
 
 mktorrent -v -p -l 22 -a url -o fn.torrent file
 mktorrent -v -p -l 22 -a http://bt2.54new.com:8080/announce -o yaaaaz.torrent Glorious.Day.E36.720p.HDTV.x264-DoA.mkv
-url换成你要发布PT站的tracker,例如chdbits是http://tracker.chdbits.org/announce.php  
-fn换成你发布的种子文件的名字如：ab.torrent   
+url换成你要发布PT站的tracker,例如chdbits是http://tracker.chdbits.org/announce.php
+fn换成你发布的种子文件的名字如：ab.torrent
 file换成你的发布资源的文件或文件夹名字
 
 uniq -dc # -d 不同 -c 统计
