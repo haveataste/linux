@@ -388,8 +388,7 @@ VNC(Virtual Network Console) 虚拟网络控制台
 apt-get install xfce4 vnc4server
 # vncserver 设置密码，没有设置密码将不能运行
 vncpasswd
-cd ~/.vnc
-vi xstartup 将最后一行替换成：startxfce4 &
+vi ~/.vnc/xstartup  将最后一行替换成：startxfce4 &
 # 重启vnc服务
 vncserver -kill :1
 vncserver :1
