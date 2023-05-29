@@ -409,3 +409,14 @@ Usage: vncserver [<OPTIONS>] [:<DISPLAY#>]
 See vnc4server and Xvnc4 manual pages for more information.
 # 客户端访问
 104.224.131.4:5901
+# 20230430 buyvm VPS
+# 下载vncviewer: https://vnc-viewer.en.softonic.com/download?ex=DINS-635.2
+apt-get update
+apt-get install libc6 libgcc1 libstdc++6 libx11-6 libxext6 libxtst6 x11-common xbase-clients zlib1g xfonts-base vnc-java xfce4 -y
+apt-get install -f
+# https://www.tightvnc.com/download.php
+# 下载vnc4server: https://packages.ubuntu.com/bionic/vnc4server
+curl -sSL -O http://za.archive.ubuntu.com/ubuntu/pool/universe/v/vnc4/vnc4server_4.1.1+xorg4.3.0-37.3ubuntu2_amd64.deb
+dpkg -i vnc4server_4.1.1+xorg4.3.0-37.3ubuntu2_amd64.deb
+# 如果提示dbus-launch not found,the desktop will not work porperly，需要安装 dbus-x11
+sudo apt install dbus-x11 -y
