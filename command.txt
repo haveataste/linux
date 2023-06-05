@@ -132,6 +132,7 @@ echo 3 > /proc/sys/vm/drop_caches
 # 创建临时文件系统
 mkdir -p /mnt/tmp
 mount -t tmpfs -o size=100m tmpfs /mnt/tmp
+mount -o size=1500m -o nr_inodes=1000000 -o noatime,nodiratime -o remount /dev/shm
 
 df -h
 lsblk命令 用于列出所有可用块设备的信息，而且还能显示他们之间的依赖关系，但是它不会列出RAM盘的信息。块设备有硬盘，闪存盘，cd-ROM等等。lsblk命令包含在util-linux-ng包中，现在该包改名为util-linux。这个包带了几个其它工具，如dmesg。
