@@ -380,25 +380,20 @@ source FileName
 
 apt-get purge xxx   删除已安装包（不保留配置文件)
 
-split 分割文件
-split -b 10k -d -a 3 filename    # 以10kB大小分割文件，分割后文件命名为x000、x001...
-split -l 10 filename             # 以10行内容分割文件
-
 seq -w 1 1 10                    # 等宽产生从1开始，1为步长，到10的序号列
 seq -s ' ' 10                    # 分隔符
-
 shuf -n 1 -e 1 2 3 4             # 生成随机排列
 shuf filename
 
 cat file1 file2 file3 > newfile  # 合并多个文件
 
-chattr +i filename               # 无法删除，移动，重命名文件
-chattr +a filename               # 只能追加内容，不能删除文件
+chattr +i filename               # 无法删除,移动,重命名文件
+chattr +a filename               # 只能追加内容,不能删除文件
 lsattr filename
 
 tac 按行反向输出文件内容
 
-paste
+paste命令
 paste单词意思是粘贴。该命令主要用来将多个文件的内容合并，与cut命令完成的功能刚好相反。粘贴两个不同来源的数据时，首先需将其分类，并确保两个文件行数相同。paste将按行将不同文件行信息放在一行。缺省情况下， paste连接时，用空格或tab键分隔新行中不同文本，除非指定-d选项，它将成为域分隔符。
 paste格式为:paste -d ' ' -s -file1 file2
 选项含义如下：
