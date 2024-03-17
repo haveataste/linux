@@ -13,7 +13,7 @@ ps aux和ps -ef两者的输出结果差别不大，但展示风格不同。aux�
 E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)
 E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?
 主要是因为apt还在运行，查找所有apt相关的进程，并用命令杀死。
-ps afx | grep apt | awk '{print $1}' | xargs kill -9
+ps afx | grep apt | awk '{print $2}' | xargs kill -9
 
 kill命令
 选项:
