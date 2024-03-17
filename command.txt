@@ -23,7 +23,7 @@ kill命令
     -s  指定发送信号
     -u  指定用户
 杀死指定用户所有进程
-kill -9 $(ps -ef | grep user)
+ps -ef | grep user | awk '{ print $2 }' | sudo xargs kill -9
 
 curl命令
 curl -u "username":"password" -T upload-file webDAV_URL
