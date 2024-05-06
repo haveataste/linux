@@ -16,6 +16,8 @@ echo 3 > /proc/sys/vm/drop_caches
 　　rw：采用读写方式挂接设备
 　　iocharset：指定访问文件系统所用字符集
     remount：在线重新挂载
+    noexec：不允许执行二进制文件
+    exec：允许执行二进制文件
 # 创建临时文件系统
 mkdir -p /mnt/tmp
 mount -t tmpfs -o size=100m tmpfs /mnt/tmp
