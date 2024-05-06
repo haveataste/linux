@@ -54,6 +54,15 @@ sda      8:0    0 240057409536  0 disk
 dmesg | grep SATA
 
 fdisk -l
+fdisk /dev/sdb
+    -m
+    -p
+    -n
+    -w
+    -d
+mkfs -t ext4 /dev/sdb1
+mount /dev/sdb1 /mnt/temp
+
 hdparm -t /dev/sda
 hdparm -T /dev/sda
 yum install -y bonnie++ && bonnie -u root
