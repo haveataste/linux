@@ -433,6 +433,8 @@ OPTIONS
        -p, --pretty     show uptime in pretty format
        -h, --help        display this help text
 
+lsusb lscpu lsmem lsof lsblk
+
 dmesg   print or control the kernel ring buffer.
 dmesg --clear
 dmesg --console-on
