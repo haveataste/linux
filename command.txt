@@ -459,11 +459,6 @@ stat命令主要用于显示文件或文件系统的详细信息，该命令的�
 -L 显示符号链接
 -t 简洁模式，只显示摘要信息
 
-df命令用于显示磁盘分区上的可使用的磁盘空间
--a或--all：包含全部的文件系统；
---block-size=<区块大小>：以指定的区块大小来显示区块数目；
--h或--human-readable：以可读性较高的方式来显示信息；
-
 free -b k m g
 -t display a line showing the column totals.
 
