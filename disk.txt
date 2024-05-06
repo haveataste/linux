@@ -23,6 +23,10 @@ mkdir -p /mnt/tmp
 mount -t tmpfs -o size=100m tmpfs /mnt/tmp
 mount -o size=1500m -o nr_inodes=1000000 -o noatime,nodiratime -o remount /dev/shm
 
+df命令 用于显示磁盘分区上的可使用的磁盘空间
+    -a或--all：包含全部的文件系统；
+    --block-size=<区块大小>：以指定的区块大小来显示区块数目；
+    -h或--human-readable：以可读性较高的方式来显示信息；
 # df -Th
 Filesystem 文件系统,设备分区的路径  Type     Size  Used Avail Use% Mounted on
 overlay                           overlay  114G   99G   15G  87% /
