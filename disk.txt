@@ -23,7 +23,18 @@ mkdir -p /mnt/tmp
 mount -t tmpfs -o size=100m tmpfs /mnt/tmp
 mount -o size=1500m -o nr_inodes=1000000 -o noatime,nodiratime -o remount /dev/shm
 
-df -Th
+# df -Th
+Filesystem 文件系统,设备分区的路径  Type     Size  Used Avail Use% Mounted on
+overlay                           overlay  114G   99G   15G  87% /
+tmpfs                             tmpfs     64M     0   64M   0% /dev
+/dev/sda1                         ext4     114G   99G   15G  87% /root
+/dev/disk/by-id/google-home-part1 ext4     4.8G  288M  4.3G   7% /home
+/dev/root                         ext2     2.0G  1.2G  829M  59% /usr/lib/modules
+shm                               tmpfs     64M     0   64M   0% /dev/shm
+tmpfs                             tmpfs    1.6G  860K  1.6G   1% /google/host/var/run
+shm                               tmpfs     64M     0   64M   0% /google/host/var/run/containerd/io.containerd.grpc.v1.cri/sandboxes/0bb9ff377d84a46126ccd105b7ccccc99309047afc99ec86cdf83f3541c0df32/shm
+shm                               tmpfs     64M     0   64M   0% /google/host/var/run/containerd/io.containerd.grpc.v1.cri/sandboxes/30060ff8016f66cd7b20b791adfbec8080ad93ce80a19f6f1942636a567b8b01/shm
+
 lsblk命令 用于列出所有可用块设备的信息，而且还能显示他们之间的依赖关系，但是它不会列出RAM盘的信息。块设备有硬盘，闪存盘，cd-ROM等等。lsblk命令包含在util-linux-ng包中，现在该包改名为util-linux。这个包带了几个其它工具，如dmesg。
 $ lsblk -a           # 查看所有块设备
 $ lsblk -t           # 将以树形结构展示设备的层次关系
