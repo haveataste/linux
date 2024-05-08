@@ -2,6 +2,15 @@
 dd if=/dev/zero of=tf bs=1M count=512 conv=fdatasync
 echo 3 > /proc/sys/vm/drop_caches
 
+vgdisplay命令 显示LVM卷组的信息
+vgdisplay [-A|-s] [指定的卷组名称]
+    -A：仅显示活动卷组的属性
+    -s：使用短格式输出的信息
+
+pvs vgs lvs
+
+du -h -x --max-depth=1
+
 # mount [-t vfstype] [-o options] device dir
 -t vfstype 指定文件系统的类型，通常不必指定，mount 会自动选择正确的类型。常用类型有：
 　　光盘或光盘镜像：iso9660
@@ -66,3 +75,54 @@ mount /dev/sdb1 /mnt/temp
 hdparm -t /dev/sda
 hdparm -T /dev/sda
 yum install -y bonnie++ && bonnie -u root
+
+demo:
+fdisk /dev/sdc
+    -n
+    -t 8e
+    -w
+pvcreate /dev/sdc1
+vgextent web /dev/sdc1
+lvextent /dev/web/web /dev/sdc1
+xfs_growfs /dev/web/web
+df -h
+
+
+lvextend -L +30G /dev/mapper/centos-root
+fdisk -l
+df -h
+lsblk
+vgs
+cd /root/
+du -h -x --max-depth=1
+
+vgs
+ll
+fdisk -l
+lsblk
+fdisk /dev/sdc
+pvcreate /dev/sdc
+vgdisplay
+vgextend centos /dev/sdc
+df -h
+lvextend -L +50G /dev/mapper/centos-root
+df -h
+vgdisplay
+df -h
+
+reboot
+df -h
+vgdisplay
+lvextend -L +% /dev/mapper/centos-root
+
+df -h
+vgdisplay
+resize2fs /dev/mapper/centos-root
+vgdisplay
+lvextend -100%FREE /dev/mapper/centos-root
+lvextend -l +100%FREE /dev/mapper/centos-root
+df -h
+fdisk -l
+resize2fs /dev/mapper/centos-root
+vgdisplay
+xfs_growfs /dev/mapper/centos-root
