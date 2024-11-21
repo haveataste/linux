@@ -118,6 +118,13 @@ d Detached，暂时断开screen会话
 Ctrl+a 切换到之前显示的窗口
 w 显示所有窗口列表
 
+systemctl命令
+# 查看服务状态
+systemctl -t service
+systemctl list-units -t service
+chkconfig --list
+chkconfig netconsole off
+
 # 文件添加扩展名
 rename 's/$/\.txt/' *
 # 文件名大写改小写
@@ -148,6 +155,21 @@ gzip -c file > file.gz   # 压缩file，但不删除file
 gzip -d file.gz          # 解压并删除file.gz
 
 du -sm * | sort -n | cat -n
+
+chronyd服务
+yum install chrony -y
+vim /etc/chrony.conf
+systemctl restart chronyd
+systemctl enable chronyd
+firewall-cmd --add-service=ntp --permanent
+firewall-cmd --reload
+chronyc sources -v
+chronyc tracking
+chronyc -a makestep
+timedatectl
+timedatectl set-ntp true
+hwclock --systohc
+ntpstat
 
 export命令
 用于设置或显示环境变量，仅限于该次登陆时有效。
