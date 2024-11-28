@@ -190,6 +190,7 @@ uname -a
 lsb_release -a       # 适用于所有的linux，包括Redhat、SuSE、Debian等发行版，但是在debian下要安装lsb
 cat /etc/issue
 cat /etc/redhat-release
+hostnamectl
 查看Linux系统位数:
 getconf LONG_BIT     # getconf - Query system configuration variables
 查看CPU核数:
