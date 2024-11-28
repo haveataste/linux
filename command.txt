@@ -403,8 +403,6 @@ seq -w 0 10 |paste -d ' ' - - - - -
 00 01 02 03 04
 05 06 07 08 09
 
-find . -maxdepth 1 -type d  # 找出当前目录下的文件夹
-
 diff filename1 filename2
 vimdiff [-o] filename1 filename2     #vim中视图比较两个文本文件
 
@@ -486,6 +484,7 @@ free -b k m g
 -t display a line showing the column totals.
 
 find从磁盘遍历查找文件或目录。
+find . -maxdepth 1 -type d  # 找出当前目录下的文件夹
 which查找二进制命令，按环境变量 PATH 路径查找。
 whereis查找二进制命令，按环境变量 PATH 路径查找。
 locate从数据库 (/var/lib/mlocate/mlocate.db) 查找命令，使用 updatedb 更新库。
@@ -494,10 +493,3 @@ echo -n str # 不输出换行
 echo -e str # 输出转义字符
 root@ubuntu:~# echo -n '123456' | md5sum
 e10adc3949ba59abbe56e057f20f883e  -
-
-在Ubuntu中，有时候运用sudo apt-get install 安装软件时，会出现一下的情况
-E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)
-E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?
-主要是因为apt还在运行，查找所有apt相关的进程，并用命令杀死。
-ps afx|grep apt
-kill -9 pid
