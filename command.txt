@@ -153,6 +153,8 @@ unzip -zvf all.zip
 gzip file                # 压缩file，生成file.gz，并删除file
 gzip -c file > file.gz   # 压缩file，但不删除file
 gzip -d file.gz          # 解压并删除file.gz
+apt install rar && rar [l|x] fn.rar && rar a nf.rar *
+apt install unrar && unrar x fn.rar
 
 du -sm * | sort -n | cat -n
 
