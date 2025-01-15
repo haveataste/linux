@@ -82,7 +82,7 @@ awk 'BEGIN {system("pwd")}'
 echo "pwd" | awk '{print $0 | "sh"}'
 echo '-H "accept: application/json"' | awk '{cmd = "curl -X GET https://httpbin.org/get "$0; system(cmd);}'
 
-split 分割文件
+split命令 分割文件
 split -a 3 -b 10k -d filename   # 以10kB大小分割文件，分割后文件命名为x000、x001...
       -a, --suffix-length=N   generate suffixes of length N (default 2)
           --additional-suffix=SUFFIX  append an additional SUFFIX to file names
@@ -106,6 +106,21 @@ service rsyslog start
 cron -f &
 service cron start
 service crontab start
+
+chronyd服务
+yum install chrony -y
+vim /etc/chrony.conf
+systemctl restart chronyd
+systemctl enable chronyd
+firewall-cmd --add-service=ntp --permanent
+firewall-cmd --reload
+chronyc sources -v
+chronyc tracking
+chronyc -a makestep
+timedatectl
+timedatectl set-ntp true
+hwclock --systohc
+ntpstat
 
 screen命令
 screen -S sockname   Name this session <pid>.sockname instead of <pid>.<tty>.<host>.
@@ -136,7 +151,6 @@ tar命令
 tar -zcvf fn.tar.gz file1 file2
 tar -zxvf fn.tar.gz
 tar -ztvf fn.tar.gz     # 列出压缩文件内容
-
 zip file.zip *
     -r   recurse into directories
     -q   quiet operation
@@ -157,21 +171,6 @@ apt install rar && rar [l|x] fn.rar && rar a nf.rar *
 apt install unrar && unrar x fn.rar
 
 du -sm * | sort -n | cat -n
-
-chronyd服务
-yum install chrony -y
-vim /etc/chrony.conf
-systemctl restart chronyd
-systemctl enable chronyd
-firewall-cmd --add-service=ntp --permanent
-firewall-cmd --reload
-chronyc sources -v
-chronyc tracking
-chronyc -a makestep
-timedatectl
-timedatectl set-ntp true
-hwclock --systohc
-ntpstat
 
 export命令
 用于设置或显示环境变量，仅限于该次登陆时有效。
@@ -257,6 +256,10 @@ Linux上几乎所有的软件都经过了GPL授权，因此几乎所有的软件
   make                                         # 此时make会读取Makefile文件，将源码编译成二进制文件，并存放在当前目录下。
 6.make install                                 # 此时二进制文件会被安装到先前configure prefix参数设置的路径中去。
 
+gcc -S main.c       #生成main.s汇编代码
+gcc -o main main.c      #指定生成文件
+gcc -o main main.c -m32     #生成32位系统可执行代码
+
 # Linux函数库
 运行在Linux上的软件时常会调用Linux内核的某些功能或其他软件的某些功能，那么这些被软件调用的功能称为Linux的函数库。软件自身的函数库存放在软件安装目录下的lib中，而Linux的函数库存放在/usr/lib和/usr/include中，linux内核的函数库存放在/lib/modules中。
 # Linux函数库的分类
@@ -338,27 +341,6 @@ rm -r -i -f
 rmdir
 mkdir -p
 
-# 网络命令
-apt install net-tools -y      # ifconfig
-apt install iputils-ping      # ping
-apt install traceroute        # traceroute
-ping -n    只输出数值
-     -q    不显示任何传送封包的信息，只显示最后的结果
-     -r    忽略普通的Routing Table，直接将数据包送到远端主机上。通常是查看本机的网络接口是否有问题。
-     -R    记录路由过程。
-     -v    详细显示指令的执行过程。
-     -c    数目：在发送指定数目的包后停止。
-     -i    秒数：设定间隔几秒送一个网络封包给一台机器，预设值是一秒送一次。
-     -t    存活数值：设置存活数值TTL的大小
-lsof -i    查看端口
-netstat -tupln
-netstat -in 查看网络接口的MTU
-route -n    查看路由表
-arp -a      查看ARP缓存表
-
-host domain # 进行DNS查询
-sudo gedit /etc/hosts
-
 mktorrent -v -p -l 22 -a url -o fn.torrent file
 mktorrent -v -p -l 22 -a http://bt2.54new.com:8080/announce -o yaaaaz.torrent Glorious.Day.E36.720p.HDTV.x264-DoA.mkv
 url换成你要发布PT站的tracker,例如chdbits是http://tracker.chdbits.org/announce.php
@@ -393,6 +375,9 @@ lsattr filename
 
 tac 按行反向输出文件内容
 
+diff filename1 filename2
+vimdiff [-o] filename1 filename2     #vim中视图比较两个文本文件
+
 paste命令
 paste单词意思是粘贴。该命令主要用来将多个文件的内容合并，与cut命令完成的功能刚好相反。粘贴两个不同来源的数据时，首先需将其分类，并确保两个文件行数相同。paste将按行将不同文件行信息放在一行。缺省情况下，paste连接时，用空格或tab键分隔新行中不同文本，除非指定-d选项，它将成为域分隔符。
 paste格式为:paste -d ' ' -s -file1 file2
@@ -405,9 +390,6 @@ seq -w 0 10 |paste -d ' ' - - - - -
 00 01 02 03 04
 05 06 07 08 09
 
-diff filename1 filename2
-vimdiff [-o] filename1 filename2     #vim中视图比较两个文本文件
-
 join -a1          -a2       [-a1 -a2]       -o 1.1          -o 1.1 1.2 2.1 2.2             -t " "        file1 file2
      左连接       右连接     全连接          表示只输出第一个文件的第一个字段                指定分隔符
 
@@ -417,10 +399,6 @@ echo "HELLO WORLD" | tr 'A-Z' 'a-z'
 tr -c "charset"   " "  #替换不属于字符集的字符
 tr -d "charset"        #删除属于字符集的字符
 tr -s "charset"        #缩连续字符为一个
-
-gcc -S main.c       #生成main.s汇编代码
-gcc -o main main.c      #指定生成文件
-gcc -o main main.c -m32     #生成32位系统可执行代码
 
 nl filename
 -b ：指定行号指定的方式，主要有两种：
