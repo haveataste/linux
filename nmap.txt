@@ -1,8 +1,26 @@
 netstat命令
 apt-get install net-tools
 netstat -tupln # TCP UDP Programs listening numeric
+netstat -in 查看网络接口的MTU
 lsof（list open files）命令
 lsof -i :80
+
+apt install net-tools -y      # ifconfig
+apt install iputils-ping      # ping
+apt install traceroute        # traceroute
+ping -n    只输出数值
+     -q    不显示任何传送封包的信息，只显示最后的结果
+     -r    忽略普通的Routing Table，直接将数据包送到远端主机上。通常是查看本机的网络接口是否有问题。
+     -R    记录路由过程。
+     -v    详细显示指令的执行过程。
+     -c    数目：在发送指定数目的包后停止。
+     -i    秒数：设定间隔几秒送一个网络封包给一台机器，预设值是一秒送一次。
+     -t    存活数值：设置存活数值TTL的大小
+route -n   查看路由表
+arp -a     查看ARP缓存表
+
+host domain # 进行DNS查询
+sudo gedit /etc/hosts
 
 ifconfig命令 配置的网卡信息，网卡重启后配置就清除。要想将配置信息永久保存，需要修改网卡的配置文件 /etc/network/interfaces
 ifconfig eth0 up
