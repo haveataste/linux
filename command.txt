@@ -321,6 +321,14 @@ ls
 uname [-r -a --all]
 id  # 显示当前用户信息
 passwd # 修改当前用户密码
+cp -r
+rm -r -i -f
+rmdir
+mkdir -p
+uniq -dc # -d 不同 -c 统计
+sort -n -k -r 排序
+wc -l -c -m -w
+du -sh
 
 firefox
 firefox & #后台运行
@@ -336,21 +344,11 @@ bg 命令可以将作业号作为参数。作业编号显示在作业输出的�
 bg 命令还可以通过名称引用作业。例如%String指名称以指定字符串开头的作业，%?String指名称中包含指定字符串的作业。
 $ fg %?ed
 
-cp -r
-rm -r -i -f
-rmdir
-mkdir -p
-
 mktorrent -v -p -l 22 -a url -o fn.torrent file
 mktorrent -v -p -l 22 -a http://bt2.54new.com:8080/announce -o yaaaaz.torrent Glorious.Day.E36.720p.HDTV.x264-DoA.mkv
 url换成你要发布PT站的tracker,例如chdbits是http://tracker.chdbits.org/announce.php
 fn换成你发布的种子文件的名字如：ab.torrent
 file换成你的发布资源的文件或文件夹名字
-
-uniq -dc # -d 不同 -c 统计
-sort -n -k -r 排序
-wc -l -c -m -w
-du -sh
 
 alias永久生效：在$HOME/.bashrc 文件中添加后，source .bashrc
 
@@ -359,13 +357,6 @@ source FileName
 作用:在当前bash环境下读取并执行文件中的命令。
 注：该命令通常用命令“.”来替代。
 如：source .bashrc 与 . .bashrc 是等效的。
-
-apt-get purge xxx   删除已安装包（不保留配置文件)
-
-seq -w 1 1 10                    # 等宽产生从1开始，1为步长，到10的序号列
-seq -s ' ' 10                    # 分隔符
-shuf -n 1 -e 1 2 3 4             # 生成随机排列
-shuf filename
 
 cat file1 file2 file3 > newfile  # 合并多个文件
 
@@ -377,6 +368,11 @@ tac 按行反向输出文件内容
 
 diff filename1 filename2
 vimdiff [-o] filename1 filename2     #vim中视图比较两个文本文件
+
+seq -w 1 1 10                    # 等宽产生从1开始，1为步长，到10的序号列
+seq -s ' ' 10                    # 分隔符
+shuf -n 1 -e 1 2 3 4             # 生成随机排列
+shuf filename
 
 paste命令
 paste单词意思是粘贴。该命令主要用来将多个文件的内容合并，与cut命令完成的功能刚好相反。粘贴两个不同来源的数据时，首先需将其分类，并确保两个文件行数相同。paste将按行将不同文件行信息放在一行。缺省情况下，paste连接时，用空格或tab键分隔新行中不同文本，除非指定-d选项，它将成为域分隔符。
