@@ -91,6 +91,7 @@ split -a 3 -b 10k -d filename   # 以10kB大小分割文件，分割后文件命
           --numeric-suffixes[=FROM]  same as -d, but allow setting the start value
 split -l 10 filename            # 以10行内容分割文件
       -l, --lines=NUMBER      put NUMBER lines/records per output file
+cat x0* > newfile
 
 crontab命令
 crontab -l  # 显示定时任务
@@ -357,8 +358,6 @@ source FileName
 作用:在当前bash环境下读取并执行文件中的命令。
 注：该命令通常用命令“.”来替代。
 如：source .bashrc 与 . .bashrc 是等效的。
-
-cat file1 file2 file3 > newfile  # 合并多个文件
 
 chattr +i filename               # 无法删除,移动,重命名文件
 chattr +a filename               # 只能追加内容,不能删除文件
