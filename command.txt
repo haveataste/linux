@@ -171,8 +171,6 @@ gzip -d file.gz          # 解压并删除file.gz
 apt install rar && rar [l|x] fn.rar && rar a nf.rar *
 apt install unrar && unrar x fn.rar
 
-du -sm * | sort -n | cat -n
-
 export命令
 用于设置或显示环境变量，仅限于该次登陆时有效。
 选项:
@@ -300,8 +298,7 @@ shell: CLI GUI		kernel
 #  root权限
 $  普通用户
 
-# 通配符
-*, ?, [0-9], [abc], [^abc]
+通配符: *, ?, [0-9], [abc], [^abc]
 
 history
 !!
@@ -328,10 +325,14 @@ rmdir
 mkdir -p
 uniq -dc # -d 不同 -c 统计
 sort -n -k -r 排序
+du -sm * | sort -n | cat -n
 wc -l -c -m -w
-du -sh
-
-firefox
+chattr +i filename               # 无法删除,移动,重命名文件
+chattr +a filename               # 只能追加内容,不能删除文件
+lsattr filename
+tac 按行反向输出文件内容
+diff filename1 filename2
+vimdiff [-o] filename1 filename2     #vim中视图比较两个文本文件
 firefox & #后台运行
 
 sleep 5000
@@ -358,15 +359,6 @@ source FileName
 作用:在当前bash环境下读取并执行文件中的命令。
 注：该命令通常用命令“.”来替代。
 如：source .bashrc 与 . .bashrc 是等效的。
-
-chattr +i filename               # 无法删除,移动,重命名文件
-chattr +a filename               # 只能追加内容,不能删除文件
-lsattr filename
-
-tac 按行反向输出文件内容
-
-diff filename1 filename2
-vimdiff [-o] filename1 filename2     #vim中视图比较两个文本文件
 
 seq -w 1 1 10                    # 等宽产生从1开始，1为步长，到10的序号列
 seq -s ' ' 10                    # 分隔符
