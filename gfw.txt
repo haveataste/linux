@@ -118,3 +118,6 @@ Online help: <https://github.com/shadowsocks/shadowsocks>
   }
   docker pull v2fly/v2fly-core
   docker run -d --name v2ray -v /var/www/html/config.json:/etc/v2fly/config.json -p 13306:13306 v2fly/v2fly-core run -c /etc/v2fly/config.json
+
+# 20250309
+# Chrome停用了SwitchyOmega插件，改用了ZeroOmega。
