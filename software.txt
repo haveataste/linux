@@ -340,6 +340,8 @@ Global options:
 vfsync -u happyhack co https://vfsync.org/u/happyhack/home my_home
 # export a file from the virtual machine
 export_file filename
+# https://vfsync.org/vm.html?login=1 20250521
+vflogin happyhack
 
 安装apache
 apt-get install apache2
