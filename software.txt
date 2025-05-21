@@ -125,7 +125,7 @@ mono Fiddler.exe
 sudo apt-get install pptp-linux
 sudo pptpsetup --create myvpn --server 'dip.hicast.work' --username vpntest --password vpntest --encrypt --start
 poff myvpn && pon myvpn
-sudo pppd call myvpn updetach
+sudo pppd call myvpn updetach # 通过调用名为 myvpn 的拨号脚本（通常位于 /etc/ppp/peers/ 目录下）来初始化连接
 ip addr show || ifconfig || route add -net 0.0.0.0 dev ppp0 || route -n
 
 root@vultr:~# pptpsetup --create myvpn --server 'dip.hicast.work' --username vpntest --password vpntest --encrypt --start
